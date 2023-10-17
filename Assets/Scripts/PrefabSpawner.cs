@@ -14,7 +14,7 @@ namespace ProjectCatRoll.Elias
 
 
         void Start() { 
-            SpawnItems(10);
+            SpawnItems(200);
         }
 
         public void SpawnItems(int numberOfItems)
@@ -49,6 +49,13 @@ namespace ProjectCatRoll.Elias
                             0,
                             Random.Range(-_radius, _radius)
                         );
+
+                        //find y position
+                        RaycastHit hit;
+                        if (Physics.Raycast(spawnPos + Vector3.up * 100, Vector3.down, out hit))
+                        {
+                            spawnPos.y = hit.point.y;
+                        }
 
                         Instantiate(
                             _itemsToSpawn[j%_itemsToSpawn.Length].Prefab,
