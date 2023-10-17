@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using System.Reflection;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +19,7 @@ public class Ball : MonoBehaviour
 
     private void Awake()
     {
+        // Remove when the rest of the game is done
         for(int i = 0; i < _spawnAmount; i++)
         {
             GameObject newItem = Instantiate(_item);
@@ -35,20 +38,25 @@ public class Ball : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.R))
         {
+            // Clears editor console
+            Assembly.GetAssembly(typeof(Editor)).GetType("UnityEditor.LogEntries").GetMethod("Clear").Invoke(new object(), null);
             SceneManager.LoadScene(0);
         }
     }
 
+    // Used for when the ball needs to add an item that's stuck
     private void AddItem(Item item)
     {
         _items.Add(item);
     }
 
+    // Use this when you want to send the food stuck on the ball
     private void SendItemsToPlate()
     {
         StartCoroutine(SendSpacedOut());
     }
 
+    // Sends the food at an interval
     IEnumerator SendSpacedOut()
     {
         while(_items.Count > 1)
@@ -59,7 +67,7 @@ public class Ball : MonoBehaviour
         }
 
         _items[0].SendItem(_plate, this);
-         
+        _items[0].SetLastItem();
         _items.RemoveAt(0);
     }
 }

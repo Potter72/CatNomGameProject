@@ -1,15 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Plate : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _itemSlots = new List<GameObject>();
+    [SerializeField] private CatGod _catGod;
+
+    private List<Item> _items = new List<Item>();
     private int _itemCount = 0;
 
-    public void AddItem(GameObject item)
+    public void AddItem(Item item)
     {
         item.transform.position = _itemSlots[_itemCount].transform.position;
+        _items.Add(item);
+
         _itemCount++;
         if(_itemCount == _itemSlots.Count)
         {
@@ -17,15 +23,21 @@ public class Plate : MonoBehaviour
         }
     }
 
+    // Attempts to feed the cat god when all the
+    // items have been sent from the ball
+    // See GoToPlate in Item
     public void FeedGod()
     {
-        Debug.Log("NOM NOM NOM NOM NOM");
+        _catGod.Feed(_items);
+    }
 
-        //while (_itemSlots.Count > 0)
-        //{
-        //    Destroy(_itemSlots[0]);
-        //    _itemSlots.RemoveAt(0);
-        //    _itemCount = 0;
-        //}
+    // Cat god noms the items
+    public void RemoveAllItems()
+    {
+        while(_items.Count > 0)
+        {
+            Destroy(_items[0].gameObject);
+            _items.RemoveAt(0);
+        }
     }
 }

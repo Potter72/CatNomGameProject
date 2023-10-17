@@ -8,23 +8,23 @@ public class Item : MonoBehaviour
 {
     [SerializeField][Range(0.0f, 1.0f)] private float _travelSpeed = 0.02f;
 
+    public ItemType FoodType;
+
     private Ball _ball;
     private Plate _plate;
     private Vector3 _initialPos;
     private bool _lastItem = false;
 
-    // Start is called before the first frame update
-    void Start()
+    public enum ItemType
     {
-        
+        Fish,
+        Ham, 
+        Potato,
+        Corn
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    // Used for the ball script to indicate when the last food from the
+    // ball has been sent
     public void SetLastItem()
     {
         _lastItem = true;
@@ -34,44 +34,10 @@ public class Item : MonoBehaviour
     {
         _plate = plate;
         _ball = ball;
-        StartCoroutine(GoToPlate2());
+        StartCoroutine(GoToPlate());
     }
 
-    IEnumerator GoToPlate1()
-    {
-        float timer = 0f;
-        _initialPos = transform.position;
-        Vector3 newPos = _initialPos + Vector3.up;
-
-        while(timer < 1f)
-        {
-            timer += 0.02f;
-
-            transform.position = Vector3.Lerp(_initialPos, newPos, timer);
-
-            yield return new WaitForSeconds(0.02f);
-        }
-
-        yield return new WaitForSeconds(0.5f);
-
-        timer = 0f;
-
-        _initialPos = transform.position;
-        newPos = _plate.transform.position;
-
-        while(timer < 1f)
-        {
-            timer += 0.02f;
-
-            transform.position = Vector3.Lerp(_initialPos, newPos, timer);
-
-            yield return new WaitForSeconds(0.02f);
-        }
-
-        _plate.AddItem(gameObject);
-    }
-
-    IEnumerator GoToPlate2()
+    IEnumerator GoToPlate()
     {
         float timer = 0f;
 
@@ -99,11 +65,45 @@ public class Item : MonoBehaviour
             yield return new WaitForSeconds(0.02f);
         }
 
-        _plate.AddItem(gameObject);
+        _plate.AddItem(this);
         
         if(_lastItem)
         {
             _plate.FeedGod();
         }
+    }
+
+    IEnumerator GoToPlate2()
+    {
+        float timer = 0f;
+        _initialPos = transform.position;
+        Vector3 newPos = _initialPos + Vector3.up;
+
+        while (timer < 1f)
+        {
+            timer += 0.02f;
+
+            transform.position = Vector3.Lerp(_initialPos, newPos, timer);
+
+            yield return new WaitForSeconds(0.02f);
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        timer = 0f;
+
+        _initialPos = transform.position;
+        newPos = _plate.transform.position;
+
+        while (timer < 1f)
+        {
+            timer += 0.02f;
+
+            transform.position = Vector3.Lerp(_initialPos, newPos, timer);
+
+            yield return new WaitForSeconds(0.02f);
+        }
+
+        _plate.AddItem(this);
     }
 }
