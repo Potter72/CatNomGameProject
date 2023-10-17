@@ -10,12 +10,7 @@ namespace ProjectCatRoll.Elias
         private ItemToSpawnSO[] _itemsToSpawn;
 
         [SerializeField]
-        private float _radius; 
-
-
-        void Start() { 
-            SpawnItems(200);
-        }
+        private float _radius;
 
         public void SpawnItems(int numberOfItems)
         {
@@ -35,14 +30,11 @@ namespace ProjectCatRoll.Elias
                 }
                 for (int j = 0; j < numberOfItems; j++)
                 {
-                    // if (_itemsToSpawn[j%_itemsToSpawn.Length] == null) //commenting this out because i think it should work anyways
-                    // {
-                    //     continue;
-                    // }
-
-                    if (_itemsToSpawn[j%_itemsToSpawn.Length].SpawnRate / total + numForAdding >= randomValue)
+                    if (
+                        _itemsToSpawn[j % _itemsToSpawn.Length].SpawnRate / total + numForAdding
+                        >= randomValue
+                    )
                     {
-                        
                         //create transform to spawn at
                         Vector3 spawnPos = new Vector3(
                             Random.Range(-_radius, _radius),
@@ -58,7 +50,7 @@ namespace ProjectCatRoll.Elias
                         }
 
                         Instantiate(
-                            _itemsToSpawn[j%_itemsToSpawn.Length].Prefab,
+                            _itemsToSpawn[j % _itemsToSpawn.Length].Prefab,
                             spawnPos,
                             Quaternion.identity
                         );
@@ -66,7 +58,7 @@ namespace ProjectCatRoll.Elias
                     }
                     else
                     {
-                        numForAdding += _itemsToSpawn[j%_itemsToSpawn.Length].SpawnRate / total;
+                        numForAdding += _itemsToSpawn[j % _itemsToSpawn.Length].SpawnRate / total;
                     }
                 }
             }

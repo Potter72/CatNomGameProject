@@ -1356,7 +1356,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c11fc8d140b5d5049bf37ad276651d0b, type: 2}
   - {fileID: 11400000, guid: 0adffba63e3880a4c8af7463506ba78f, type: 2}
   - {fileID: 11400000, guid: b06c5ed087110bb418990cbdbd731017, type: 2}
-  _radius: 33.8
+  _radius: 25
 --- !u!1 &1944651523
 GameObject:
   m_ObjectHideFlags: 0
