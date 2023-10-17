@@ -2,11 +2,16 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Events;
 using UnityEngine;
-public static partial class EventManager
+
+namespace ProjectCatRoll.Events
 {
-    public static event UnityAction<int> SpawnItems;
-    public static void OnSpawnItems(int numberOfItems)
+    public static partial class EventManager
     {
-        SpawnItems?.Invoke(numberOfItems);
+        public static event UnityAction<int> OnItemSpawnRequest;
+
+        public static void RequestItemSpawn(int numberOfItems)
+        {
+            OnItemSpawnRequest?.Invoke(numberOfItems);
+        }
     }
 }

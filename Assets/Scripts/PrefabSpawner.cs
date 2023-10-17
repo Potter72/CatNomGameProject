@@ -1,5 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
+using ProjectCatRoll.Events;
+using System.Collections;
 using UnityEngine;
 
 namespace ProjectCatRoll.Elias
@@ -12,11 +14,27 @@ namespace ProjectCatRoll.Elias
         [SerializeField]
         private float _radius;
 
+        private void OnEnable()
+        {
+            EventManager.OnItemSpawnRequest += SpawnItems;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.OnItemSpawnRequest -= SpawnItems;
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current[Key.Space].wasPressedThisFrame) EventManager.RequestItemSpawn(80);
+        }
+
         public void SpawnItems(int numberOfItems)
         {
             for (int i = 0; i < numberOfItems; i++)
             {
                 float randomValue = Random.Range(0f, 1f);
+
                 float numForAdding = 0;
                 float total = 0; //total of all spawn rates
 
@@ -30,6 +48,7 @@ namespace ProjectCatRoll.Elias
                 }
                 for (int j = 0; j < numberOfItems; j++)
                 {
+                    //if the random value is less than the spawn rate of the current item, spawn it
                     if (
                         _itemsToSpawn[j % _itemsToSpawn.Length].SpawnRate / total + numForAdding
                         >= randomValue
