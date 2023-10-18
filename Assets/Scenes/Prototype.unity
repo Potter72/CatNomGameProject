@@ -233,6 +233,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542024150306297110, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 70fac0f18f5aa1942b4ff075bb0cd17f, type: 2}
     - target: {fileID: 7185248190493436390, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
       propertyPath: m_Name
       value: PickupAble Food (7)
@@ -290,6 +294,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542024150306297110, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 70fac0f18f5aa1942b4ff075bb0cd17f, type: 2}
     - target: {fileID: 7185248190493436390, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
       propertyPath: m_Name
       value: PickupAble Food (10)
@@ -500,6 +508,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1660146894}
+    - target: {fileID: 5042517161708415129, guid: 52ddeafe4e01ef64ab2f31b718b746e0, type: 3}
+      propertyPath: offset.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5042517161708415129, guid: 52ddeafe4e01ef64ab2f31b718b746e0, type: 3}
+      propertyPath: maxOffset
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -809,6 +825,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542024150306297110, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 70fac0f18f5aa1942b4ff075bb0cd17f, type: 2}
     - target: {fileID: 7185248190493436390, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
       propertyPath: m_Name
       value: PickupAble Food (4)
@@ -1076,6 +1096,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542024150306297110, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 70fac0f18f5aa1942b4ff075bb0cd17f, type: 2}
     - target: {fileID: 7185248190493436390, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
       propertyPath: m_Name
       value: PickupAble Food (1)
@@ -1133,6 +1157,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542024150306297110, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 70fac0f18f5aa1942b4ff075bb0cd17f, type: 2}
     - target: {fileID: 7185248190493436390, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
       propertyPath: m_Name
       value: PickupAble Food (6)
@@ -1619,6 +1647,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542024150306297110, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 70fac0f18f5aa1942b4ff075bb0cd17f, type: 2}
     - target: {fileID: 7185248190493436390, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
       propertyPath: m_Name
       value: PickupAble Food (2)
@@ -1676,6 +1708,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542024150306297110, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 70fac0f18f5aa1942b4ff075bb0cd17f, type: 2}
     - target: {fileID: 7185248190493436390, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
       propertyPath: m_Name
       value: PickupAble Food (3)
@@ -1842,6 +1878,18 @@ PrefabInstance:
       propertyPath: moveJoystick
       value: 
       objectReference: {fileID: 1184592833}
+    - target: {fileID: 1266546656004072042, guid: b80ddd83805f6ab4c8cfc31c2638b10c, type: 3}
+      propertyPath: bounceDecreaseSpeed
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266546656004072042, guid: b80ddd83805f6ab4c8cfc31c2638b10c, type: 3}
+      propertyPath: fallDamageWobbleTime
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266546656004072042, guid: b80ddd83805f6ab4c8cfc31c2638b10c, type: 3}
+      propertyPath: fallDamageCameraChake
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3663992743189755742, guid: b80ddd83805f6ab4c8cfc31c2638b10c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.98
@@ -1882,6 +1930,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -531.615
       objectReference: {fileID: 0}
+    - target: {fileID: 8668906723247473539, guid: b80ddd83805f6ab4c8cfc31c2638b10c, type: 3}
+      propertyPath: displaceAdjustement
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8796474890404457205, guid: b80ddd83805f6ab4c8cfc31c2638b10c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1915,6 +1967,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542024150306297110, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 70fac0f18f5aa1942b4ff075bb0cd17f, type: 2}
     - target: {fileID: 7185248190493436390, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
       propertyPath: m_Name
       value: PickupAble Food (8)
@@ -1972,6 +2028,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542024150306297110, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 70fac0f18f5aa1942b4ff075bb0cd17f, type: 2}
     - target: {fileID: 7185248190493436390, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
       propertyPath: m_Name
       value: PickupAble Food (9)
@@ -2029,6 +2089,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542024150306297110, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 70fac0f18f5aa1942b4ff075bb0cd17f, type: 2}
     - target: {fileID: 7185248190493436390, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
       propertyPath: m_Name
       value: PickupAble Food (5)
@@ -2296,6 +2360,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542024150306297110, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 70fac0f18f5aa1942b4ff075bb0cd17f, type: 2}
     - target: {fileID: 7185248190493436390, guid: 5fe97c10973cbb649916fe5c6d60d9bb, type: 3}
       propertyPath: m_Name
       value: PickupAble Food

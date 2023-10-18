@@ -19,6 +19,8 @@ public class BallController : MonoBehaviour
     [SerializeField] float minBounceValue = 0.1f;
     [SerializeField] float bounceWobble = 0;
     [SerializeField] float fallDamageWobble = 1;
+    [SerializeField] float fallDamageWobbleTime = 0.2f;
+    [SerializeField] float fallDamageCameraChake = 0.3f;
 
     private float heighestPoint;
     [SerializeField] float fallDamageCutoff = 1;
@@ -129,7 +131,7 @@ public class BallController : MonoBehaviour
     {
         if(heighestPoint - transform.position.y > fallDamageCutoff) 
         {
-            StartCoroutine(LerpBallWobble(fallDamageWobble * Mathf.Pow((heighestPoint - transform.position.y),0.2f) - 0.3f, 0.5f));
+            StartCoroutine(LerpBallWobble(fallDamageWobble * Mathf.Pow((heighestPoint - transform.position.y),0.2f) - 0.3f, fallDamageWobbleTime));
             heighestPoint = transform.position.y;
         }
         isGrounded = true;
@@ -143,15 +145,19 @@ public class BallController : MonoBehaviour
     //adds some wobble to the shader for the ball over time
     IEnumerator LerpBallWobble(float value, float time)
     {
+        Camera.main.GetComponent<CameraController>().trauma += fallDamageCameraChake;
+        float oldDecreaseSpeed = bounceDecreaseSpeed;
+        bounceDecreaseSpeed = 0;
         float counter = 0;
         float lerpValue = 1 / time;
-        while(time < counter)
+        while(time > counter)
         {
             bounceWobble = Mathf.Lerp(bounceWobble, value, counter);
 
             yield return 0;
             counter += Time.deltaTime;
         }
-        bounceWobble = value;   
+        bounceWobble = value;
+        bounceDecreaseSpeed = oldDecreaseSpeed;
     }
 }
