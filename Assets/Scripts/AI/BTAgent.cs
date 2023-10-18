@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class BTAgent : MonoBehaviour
 {
+    [SerializeField] private float _delay = 2f;
+
     public BehaviorTree Tree;
     public NavMeshAgent Agent;
 
@@ -19,7 +21,7 @@ public class BTAgent : MonoBehaviour
     {
         Agent = GetComponent<NavMeshAgent>();
         Tree = new BehaviorTree();
-        waitForSeconds = new WaitForSeconds(0.5f);
+        waitForSeconds = new WaitForSeconds(_delay);
         StartCoroutine(Behave());
     }
 
@@ -30,6 +32,31 @@ public class BTAgent : MonoBehaviour
             TreeStatus = Tree.Process();
             yield return waitForSeconds;
         }
+    }
+
+    public Node.Status GoToLocation(Vector3 destination)
+    {
+        float distanceToTarget = Vector3.Distance(destination, transform.position);
+
+        if (State == ActionState.IDLE)
+        {
+            Agent.SetDestination(destination);
+            State = ActionState.WORKING;
+        }
+
+        else if (Vector3.Distance(Agent.pathEndPosition, destination) >= 2)
+        {
+            State = ActionState.IDLE;
+            return Node.Status.FAILURE;
+        }
+
+        else if(distanceToTarget < 5)
+        {
+            State = ActionState.IDLE;
+            return Node.Status.SUCCESS;
+        }
+
+        return Node.Status.RUNNING;
     }
 
     private void Update()

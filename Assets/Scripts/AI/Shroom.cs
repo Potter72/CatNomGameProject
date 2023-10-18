@@ -10,12 +10,50 @@ public class Shroom : BTAgent
     new void Start()
     {
         base.Start();
+        Selector shrooming = new Selector("Shrooming");
         Leaf moveAway = new Leaf("Move Away", MoveAway);
+        Leaf wander = new Leaf("Wander", Wander);
+
+        shrooming.AddChild(moveAway);
+        shrooming.AddChild(wander);
+
+        Tree.AddChild(shrooming);
+
+        Tree.PrintTree();
     }
 
     public Node.Status MoveAway()
     {
-        Node.Status status = Node.Status.SUCCESS;
+        Node.Status status = Node.Status.FAILURE;
+
+        Vector3 destination = transform.position + (-(Player.transform.position - transform.position).normalized * 3f);
+
+        NavMeshHit hit;
+
+        if (NavMesh.SamplePosition(destination, out hit, 5f, NavMesh.AllAreas))
+        {
+            Debug.Log("Moving Away");
+            status = GoToLocation(hit.position);
+        }
+
+        return status;
+    }
+
+    public Node.Status Wander()
+    {
+        Node.Status status = Node.Status.FAILURE;
+
+        Vector2 rp = Random.insideUnitCircle * 3f;
+        Vector3 randomPoint = new Vector3(rp.x, 0, rp.y);
+        Vector3 destination = randomPoint + transform.position;
+
+        NavMeshHit hit;
+
+        if (NavMesh.SamplePosition(destination, out hit, 5f, NavMesh.AllAreas))
+        {
+            status = GoToLocation(hit.position);
+        }
+
         return status;
     }
 }
