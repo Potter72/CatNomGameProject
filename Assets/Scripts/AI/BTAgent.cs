@@ -44,7 +44,7 @@ public class BTAgent : MonoBehaviour
             State = ActionState.WORKING;
         }
 
-        else if (Vector3.Distance(Agent.pathEndPosition, destination) >= 2)
+        else if (Vector3.Distance(Agent.pathEndPosition, destination) >= 5)
         {
             State = ActionState.IDLE;
             return Node.Status.FAILURE;
@@ -57,6 +57,12 @@ public class BTAgent : MonoBehaviour
         }
 
         return Node.Status.RUNNING;
+    }
+
+    public void ChangeDelay(float delay)
+    {
+        _delay = delay;
+        waitForSeconds = new WaitForSeconds(_delay);
     }
 
     private void Update()

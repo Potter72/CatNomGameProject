@@ -24,6 +24,15 @@ public class Node
         SortOrder = sortOrder;
     }
 
+    public void Reset()
+    {
+        foreach (Node node in Children)
+        {
+            node.Reset();
+        }
+        CurrentChild = 0;
+    }
+
     public virtual Status Process()
     {
         return Children[CurrentChild].Process();
