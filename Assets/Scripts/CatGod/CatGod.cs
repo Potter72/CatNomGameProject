@@ -36,14 +36,21 @@ public class CatGod : MonoBehaviour
             wordOfGod += $"{demand.ToString()} ";
         }
 
-        Debug.Log($"I demand {wordOfGod}");
+        if(DebugTracker.Instance.DebugOn)
+        {
+            Debug.Log($"I demand {wordOfGod}");
+        }
     }
 
     public void Feed(List<Item> items)
     {
         if(InspectFood(items))
         {
-            Debug.Log("AAAA");
+            if(DebugTracker.Instance.DebugOn)
+            {
+                Debug.Log("AAAA");
+            }
+
             StartCoroutine(Consume());
         }
     }
@@ -85,7 +92,12 @@ public class CatGod : MonoBehaviour
 
         timer = 0f;
         _plate.RemoveAllItems();
-        Debug.Log("NOM NOM NOM NOM NOM");
+
+        if(DebugTracker.Instance.DebugOn)
+        {
+            Debug.Log("NOM NOM NOM NOM NOM");
+        }
+
         yield return new WaitForSeconds(0.5f);
 
         while (timer < 1f)

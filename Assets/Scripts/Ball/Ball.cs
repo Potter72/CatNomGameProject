@@ -14,8 +14,6 @@ public class Ball : MonoBehaviour
 
     [SerializeField] private List<Item> _items = new List<Item>();
     [SerializeField] private Plate _plate;
-    
-    private bool _sent = false;
 
     private void Awake()
     {
@@ -38,7 +36,7 @@ public class Ball : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.R))
         {
-            // Clears editor console
+            // Clears editor console on reset
             Assembly.GetAssembly(typeof(Editor)).GetType("UnityEditor.LogEntries").GetMethod("Clear").Invoke(new object(), null);
             SceneManager.LoadScene(0);
         }
