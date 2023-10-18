@@ -72,7 +72,7 @@ public class CameraController : MonoBehaviour
 
         //Adds the camera Shake
         transform.localPosition = offset;
-        transform.LookAt(target.transform.position);
+        transform.LookAt(cameraPivot.transform.position);
         shakeOffset = new Vector3(offsetX, offsetY, offsetZ);
         transform.position += shakeOffset;
         if (trauma <= 0)

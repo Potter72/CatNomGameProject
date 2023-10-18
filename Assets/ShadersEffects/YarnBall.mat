@@ -69,7 +69,7 @@ Material:
     - _Triangulize_Value: 0.41
     - _WobbleThreshold: 0.104
     - _Wobble_Amount: 3.95
-    - _Wobble_Speed: 1
+    - _Wobble_Speed: 0.44
     m_Colors:
     - _fsg: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
