@@ -31,7 +31,6 @@ public class BallController : MonoBehaviour
 
     public void StartMovement()
     {
-        Debug.Log("starting");
         for (int i = 0; i < Touchscreen.current.touches.Count; i++)
         {
             if (Touchscreen.current.touches[i].phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Began)

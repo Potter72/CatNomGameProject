@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour
 
     //camera shake
     public float shakeDecreaseSpeed = 1;
+    public float shakeSpeed = 14;
     public float trauma;        //trauma is the current camera shake value and continously lowered
     public float maxOffset = 1000;
     public float maxAngle = 9000;
@@ -51,10 +52,10 @@ public class CameraController : MonoBehaviour
         //Generates the camera shake offsets if trauma is above 0
         if (trauma > 0)
         {
-            offsetAngle = maxAngle * trauma * (Mathf.PerlinNoise(Random.Range(0, 10), Time.time * 15) * 2 - 1);
-            offsetX = maxOffset * trauma * (Mathf.PerlinNoise(Random.Range(0, 10), Time.time * 15) * 2 - 1);
-            offsetY = maxOffset * trauma * (Mathf.PerlinNoise(Random.Range(0, 10), Time.time * 15) * 2 - 1);
-            offsetZ = maxOffset * trauma * (Mathf.PerlinNoise(Random.Range(0, 10), Time.time * 15) * 2 - 1);
+            offsetAngle = maxAngle * trauma * (Mathf.PerlinNoise(Random.Range(0, 10), Time.time * shakeSpeed) * 2 - 1);
+            offsetX = maxOffset * trauma * (Mathf.PerlinNoise(Random.Range(0, 10), Time.time * shakeSpeed) * 2 - 1);
+            offsetY = maxOffset * trauma * (Mathf.PerlinNoise(Random.Range(0, 10), Time.time * shakeSpeed) * 2 - 1);
+            offsetZ = maxOffset * trauma * (Mathf.PerlinNoise(Random.Range(0, 10), Time.time * shakeSpeed) * 2 - 1);
         }
         else
         {
@@ -62,6 +63,11 @@ public class CameraController : MonoBehaviour
             offsetX = 0;
             offsetY = 0;
             offsetZ = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            trauma += 1;
         }
     }
 

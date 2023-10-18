@@ -61,15 +61,15 @@ Material:
     - _BounceAmount: 0.1
     - _BounceVerticalAmount: 0.21
     - _BulgePower: 15.1
-    - _DebugFloat: 0
-    - _DebugFloat3: 1
+    - _DebugFloat: -0.44
+    - _DebugFloat3: 2
     - _DebugFloat_1: 1.88
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Triangulize_Value: 0.41
-    - _WobbleThreshold: 0.104
-    - _Wobble_Amount: 3.95
-    - _Wobble_Speed: 0.44
+    - _Triangulize_Value: -3.61
+    - _WobbleThreshold: 0.416
+    - _Wobble_Amount: 0.13
+    - _Wobble_Speed: 0.53
     m_Colors:
     - _fsg: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
