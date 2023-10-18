@@ -10,9 +10,8 @@ public class Rat : BTAgent
 
     public GameObject Player;
 
-    private GameObject _food;
+    private Vector3 _runAwayPosition;
     private Item _targetItem;
-    private bool _chasingItem = false;
     private bool _hasItem = false;
     private bool _runningAwayWithItem = false;
 
@@ -91,23 +90,34 @@ public class Rat : BTAgent
     {
         Node.Status status = Node.Status.FAILURE;
 
-        float maxDistance = 15f;
+        Vector2 rp = Random.insideUnitCircle * 20f;
+        Vector3 randomPoint = new Vector3(rp.x, 0, rp.y);
+        Vector3 destination = randomPoint + _plane.transform.position;
+
         NavMeshHit hit;
 
-        if(!_runningAwayWithItem && NavMesh.SamplePosition(_plane.transform.position, out hit, maxDistance, NavMesh.AllAreas))
+        if(!_runningAwayWithItem && NavMesh.SamplePosition(destination, out hit, 5f, NavMesh.AllAreas))
         {
             _runningAwayWithItem = true;
             Agent.speed = 8f;
-            status = GoToLocation(hit.position);
+            _runAwayPosition = hit.position;
         }
 
-        return Node.Status.SUCCESS;
+        status = GoToLocation(_runAwayPosition);
+        return status;
     }
 
     public Node.Status DropFood()
     {
         Agent.speed = 2f;
         _targetItem.transform.parent = null;
+        _itemList.AddItem(_targetItem);
+
+        _hasItem = false;
+        _runningAwayWithItem = false;
+        _targetItem = null;
+        _runAwayPosition = Vector3.zero;
+
         return Node.Status.SUCCESS;
     }
 

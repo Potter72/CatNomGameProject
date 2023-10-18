@@ -12,6 +12,11 @@ public class ItemList : MonoBehaviour
         return _itemList[index];
     }
 
+    public void AddItem(Item item)
+    {
+        _itemList.Add(item);
+    }
+
     public void RemoveItem(Item item)
     {
         _itemList.Remove(item);
