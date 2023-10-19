@@ -14,6 +14,11 @@ namespace ProjectCatRoll.Elias
         [SerializeField]
         private float _radius;
 
+        private void Start()
+        {
+            SpawnItems(50);
+        }
+
         private void OnEnable()
         {
             EventManager.OnItemSpawnRequest += SpawnItems;
@@ -24,10 +29,6 @@ namespace ProjectCatRoll.Elias
             EventManager.OnItemSpawnRequest -= SpawnItems;
         }
 
-        private void Update()
-        {
-            if (Keyboard.current[Key.Space].wasPressedThisFrame) EventManager.RequestItemSpawn(10);
-        }
 
         public void SpawnItems(int numberOfItems)
         {
@@ -55,10 +56,10 @@ namespace ProjectCatRoll.Elias
                     )
                     {
                         //create transform to spawn at
-                        Vector3 spawnPos = new Vector3(
-                            Random.Range(-_radius, _radius),
+                        Vector3 spawnPos = new(
+                            Random.Range(-_radius +this.transform.position.x, _radius + this.transform.position.x),
                             0,
-                            Random.Range(-_radius, _radius)
+                            Random.Range(-_radius + this.transform.position.z, _radius + this.transform.position.z)
                         );
 
                         //find y position
@@ -67,6 +68,8 @@ namespace ProjectCatRoll.Elias
                         {
                             spawnPos.y = hit.point.y;
                         }
+
+
 
                         Instantiate(
                             _itemsToSpawn[j % _itemsToSpawn.Length].Prefab,
