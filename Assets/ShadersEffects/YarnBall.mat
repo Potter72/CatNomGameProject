@@ -37,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 41d62cf2ef102b94a90669d9e8b63414, type: 3}
+        m_Texture: {fileID: 2800000, guid: 977354c4a7ffca9468ecf966e9e8aae5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
@@ -64,6 +64,8 @@ Material:
     - _DebugFloat: -0.44
     - _DebugFloat3: 2
     - _DebugFloat_1: 1.88
+    - _Outline_Power: 5.92
+    - _PosterizeSteps: 10
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Triangulize_Value: -2.6
