@@ -34,12 +34,12 @@ public class Ball : MonoBehaviour
         //    SendItemsToPlate();
         //}
 
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            // Clears editor console on reset
-            Assembly.GetAssembly(typeof(Editor)).GetType("UnityEditor.LogEntries").GetMethod("Clear").Invoke(new object(), null);
-            SceneManager.LoadScene(0);
-        }
+        //if(Input.GetKeyDown(KeyCode.R))
+        //{
+        //    // Clears editor console on reset
+        //    Assembly.GetAssembly(typeof(Editor)).GetType("UnityEditor.LogEntries").GetMethod("Clear").Invoke(new object(), null);
+        //    SceneManager.LoadScene(0);
+        //}
     }
 
     // Used for when the ball needs to add an item that's stuck
