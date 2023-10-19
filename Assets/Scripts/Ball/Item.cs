@@ -23,6 +23,16 @@ public class Item : MonoBehaviour
         Corn
     }
 
+    private void Awake()
+    {
+        RandomizeItemType();
+    }
+
+    public void RandomizeItemType()
+    {
+        FoodType = (ItemType)Random.Range(0, 4);
+    }
+
     // Used for the ball script to indicate when the last food from the
     // ball has been sent
     public void SetLastItem()
@@ -52,7 +62,7 @@ public class Item : MonoBehaviour
             ballAngle = ballAngle.normalized;
         }
 
-        Vector3 pointB = Vector3.Lerp(pointA, pointC, 0.5f) + ballAngle * 3;
+        Vector3 pointB = Vector3.Lerp(pointA, pointC, 0.5f) + ballAngle * (Vector3.Distance(pointA, pointC) / 3f);
 
         while (timer < 1f)
         {

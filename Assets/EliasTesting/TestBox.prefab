@@ -66,6 +66,7 @@ GameObject:
   - component: {fileID: 6714671203313552817}
   - component: {fileID: 5791586769583732803}
   - component: {fileID: 6452702796688397740}
+  - component: {fileID: 7992165947673760744}
   m_Layer: 6
   m_Name: TestBox
   m_TagString: Untagged
@@ -187,3 +188,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7992165947673760744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2412578852588908607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effc2b0c236997e4e81814288285c25f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _travelSpeed: 0.02
+  FoodType: 0
