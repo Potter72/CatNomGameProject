@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameData
 {
-    
+
 }
 
 public interface IDataPersistence
@@ -47,15 +47,11 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.Log("No save data found in start.");
             return;
         }
-        if (SceneManager.GetActiveScene().buildIndex != _gameData.SceneIndex)
-        {
-            SceneManager.LoadScene(_gameData.SceneIndex);
-        }
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
-        IEnumerable<IDataPersistence> objects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
+        IDataPersistence[] objects = (IDataPersistence[])FindObjectsByType(typeof(IDataPersistence), FindObjectsSortMode.None);
         return new List<IDataPersistence>(objects);
     }
 
@@ -67,14 +63,12 @@ public class DataPersistenceManager : MonoBehaviour
     {
         _gameData = _fileDataHandler.Load();
 
-        if (this._gameData == null || this.GameData.SceneIndex != SceneManager.GetActiveScene().buildIndex)
+        if (this._gameData == null)
         {
             Debug.Log("No save data found. Making new file.");
             NewGame();
             return;
         }
-
-
 
         foreach (IDataPersistence dataPersistenceObject in _dataPersistenceObjects)
         {
