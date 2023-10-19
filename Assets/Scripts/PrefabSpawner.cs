@@ -26,7 +26,7 @@ namespace ProjectCatRoll.Elias
 
         private void Update()
         {
-            if (Keyboard.current[Key.Space].wasPressedThisFrame) EventManager.RequestItemSpawn(80);
+            if (Keyboard.current[Key.Space].wasPressedThisFrame) EventManager.RequestItemSpawn(10);
         }
 
         public void SpawnItems(int numberOfItems)
