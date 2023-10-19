@@ -8,8 +8,6 @@ public class Rat : BTAgent
     [SerializeField] private GameObject _plane;
     [SerializeField] private ItemList _itemList;
 
-    public GameObject Player;
-
     private Vector3 _runAwayPosition;
     private Item _targetItem;
     private bool _hasItem = false;

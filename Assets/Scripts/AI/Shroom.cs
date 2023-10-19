@@ -5,8 +5,6 @@ using UnityEngine.AI;
 
 public class Shroom : BTAgent
 {
-    public GameObject Player;
-
     private bool _chased = false;
 
     new void Start()

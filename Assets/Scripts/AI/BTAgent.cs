@@ -7,6 +7,7 @@ public class BTAgent : MonoBehaviour
 {
     [SerializeField] private float _delay = 2f;
 
+    public GameObject Player;
     public BehaviorTree Tree;
     public NavMeshAgent Agent;
 
