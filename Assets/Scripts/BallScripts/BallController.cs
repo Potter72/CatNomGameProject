@@ -9,8 +9,8 @@ public class BallController : MonoBehaviour
 
     public bool isMoving;
 
-    [SerializeField] float movementForceMultiplier = 1;
-    [SerializeField] float movementForceMax = 3;
+    [SerializeField] float movementForceMultiplier = 4;
+    [SerializeField] float maxHorizontalMoveSpeed = 3;
 
     [SerializeField] Rigidbody playerRigidbody;
 
@@ -90,6 +90,8 @@ public class BallController : MonoBehaviour
             return; 
         }
 
+        Vector2 currentVelocity = new Vector2(playerRigidbody.velocity.x, playerRigidbody.velocity.z);
+
         Vector2 startPos = Touchscreen.current.touches[movementTouchId].startPosition.ReadValue();
         Vector2 currentPos = Touchscreen.current.touches[movementTouchId].position.ReadValue();
 
@@ -102,9 +104,13 @@ public class BallController : MonoBehaviour
         right = new Vector3(right.x, 0, right.z).normalized;
 
         Vector3 movementVector = forward * -movementReadVector.y + right * -movementReadVector.x;
-        movementVector = Vector3.ClampMagnitude(movementVector / 1000 * movementForceMultiplier, movementForceMax);
+        movementVector = Vector3.ClampMagnitude(movementVector / 1000 * movementForceMultiplier, maxHorizontalMoveSpeed);
         //movementVector = Camera.main.transform.forward * movementVector;
-        playerRigidbody.AddForce(movementVector);
+
+        if(currentVelocity.magnitude < maxHorizontalMoveSpeed)
+        {
+            playerRigidbody.AddForce(movementVector);
+        }
 
         DoDrawJoystick(startPos, currentPos, movementReadVector);
     }
