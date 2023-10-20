@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField]
     private AudioSource _effectSource;
-    
+
     [SerializeField]
     private AudioSource _musicSource;
 
@@ -26,7 +26,14 @@ public class AudioManager : MonoBehaviour
     const string MIXER_UI = "UIVolume";
     const string MIXER_EFFECTS = "EffectsVolume";
 
-    
+    public float MasterVolume { get; private set; }
+    public float MusicVolume { get; private set; }
+    public float AmbianceVolume { get; private set; }
+    public float UIVolume { get; private set; }
+    public float EffectsVolume { get; private set; }
+
+
+
     void Start()
     {
         //singleton declaration
@@ -36,7 +43,9 @@ public class AudioManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else
-            Destroy(gameObject);      
+            Destroy(gameObject);
+
+        ChangeMasterVolume(48f);
     }
 
 
@@ -56,22 +65,27 @@ public class AudioManager : MonoBehaviour
     public void ChangeMasterVolume(float volume)
     {
         _mixer.SetFloat(MIXER_MASTER, Mathf.Log10(volume) * 20);
+        MasterVolume = volume;
     }
     public void ChangeMusicVolume(float volume)
     {
         _mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(volume) * 20);
+        MusicVolume = volume;
     }
     public void ChangeAmbianceVolume(float volume)
     {
         _mixer.SetFloat(MIXER_AMBIANCE, Mathf.Log10(volume) * 20);
+        AmbianceVolume = volume;
     }
     public void ChangeUIVolume(float volume)
     {
         _mixer.SetFloat(MIXER_UI, Mathf.Log10(volume) * 20);
+        UIVolume = volume;
     }
     public void ChangeEffectsVolume(float volume)
     {
         _mixer.SetFloat(MIXER_EFFECTS, Mathf.Log10(volume) * 20);
+        EffectsVolume = volume;
     }
 
 }

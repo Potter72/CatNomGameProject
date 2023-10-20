@@ -72,7 +72,6 @@ public class DataPersistenceManager : MonoBehaviour
         this._fileDataHandler = new FileDataHandler(Application.persistentDataPath, _fileName);
         _gameDataPersistenceObjects = FindAllGameDataPersistenceObjects();
         _settingsDataPersistenceObjects = FindAllSettingsDataPersistenceObjects();
-        _gameData = _fileDataHandler.LoadGame();
     }
 
     private List<IDataPersistenceGameData> FindAllGameDataPersistenceObjects()
