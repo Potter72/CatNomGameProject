@@ -1,16 +1,39 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using System;
 
 public class GameData
 {
+    //unsure what to put in here
+    public Vector3 PlayerPosition;
+}
+
+public class SettingsData
+{
+    //floats for volume
+    public float MasterVolume;
+    public float MusicVolume;
+    public float EffectVolume;
+    public float AmbienceVolume;
+
+    //resolution
+    public int ResolutionWidth;
+    public int ResolutionHeight;
+    public bool Fullscreen;
 
 }
 
-public interface IDataPersistence
+public interface IDataPersistenceSettingsData
 {
-    void Load(GameData data);
-    void Save(GameData data);
+    public void LoadSettings(SettingsData data);
+    public void SaveSettings(SettingsData data);
+}
+
+public interface IDataPersistenceGameData
+{
+    public void LoadGame(GameData data);
+    public void SaveGame(GameData data);
 
 }
 public class DataPersistenceManager : MonoBehaviour
@@ -18,13 +41,19 @@ public class DataPersistenceManager : MonoBehaviour
     public static DataPersistenceManager Instance { get; private set; }
 
     public GameData GameData { get => _gameData; }
-
     private GameData _gameData;
-    [Header("File Storage Config")]
+
+
+    public SettingsData SettingsData { get => _settingsData; }
+    private SettingsData _settingsData;
+
+
+    [Header("File Name")]
     [SerializeField] private string _fileName;
 
     private FileDataHandler _fileDataHandler;
-    private List<IDataPersistence> _dataPersistenceObjects;
+    private List<IDataPersistenceGameData> _gameDataPersistenceObjects;
+    private List<IDataPersistenceSettingsData> _settingsDataPersistenceObjects;
 
 
     private void Awake()
@@ -40,19 +69,21 @@ public class DataPersistenceManager : MonoBehaviour
     private void Start()
     {
         this._fileDataHandler = new FileDataHandler(Application.persistentDataPath, _fileName);
-        _dataPersistenceObjects = FindAllDataPersistenceObjects();
-        _gameData = _fileDataHandler.Load();
-        if (_gameData == null)
-        {
-            Debug.Log("No save data found in start.");
-            return;
-        }
+        _gameDataPersistenceObjects = FindAllGameDataPersistenceObjects();
+        _settingsDataPersistenceObjects = FindAllSettingsDataPersistenceObjects();
+        _gameData = _fileDataHandler.LoadGame();
     }
 
-    private List<IDataPersistence> FindAllDataPersistenceObjects()
+    private List<IDataPersistenceGameData> FindAllGameDataPersistenceObjects()
     {
-        IDataPersistence[] objects = (IDataPersistence[])FindObjectsByType(typeof(IDataPersistence), FindObjectsSortMode.None);
-        return new List<IDataPersistence>(objects);
+        IDataPersistenceGameData[] objects = (IDataPersistenceGameData[])FindObjectsByType(typeof(IDataPersistenceGameData), FindObjectsSortMode.None);
+        return new List<IDataPersistenceGameData>(objects);
+    }
+
+    private List<IDataPersistenceSettingsData> FindAllSettingsDataPersistenceObjects()
+    {
+        IDataPersistenceSettingsData[] objects = (IDataPersistenceSettingsData[])FindObjectsByType(typeof(IDataPersistenceSettingsData), FindObjectsSortMode.None);
+        return new List<IDataPersistenceSettingsData>(objects);
     }
 
     public void NewGame()
@@ -61,7 +92,7 @@ public class DataPersistenceManager : MonoBehaviour
     }
     public void LoadGame()
     {
-        _gameData = _fileDataHandler.Load();
+        _gameData = _fileDataHandler.LoadGame();
 
         if (this._gameData == null)
         {
@@ -70,19 +101,29 @@ public class DataPersistenceManager : MonoBehaviour
             return;
         }
 
-        foreach (IDataPersistence dataPersistenceObject in _dataPersistenceObjects)
+        foreach (IDataPersistenceGameData dataPersistenceObject in _gameDataPersistenceObjects)
         {
-            dataPersistenceObject.Load(_gameData);
+            dataPersistenceObject.LoadGame(_gameData);
         }
 
     }
     public void SaveGame()
     {
-        foreach (IDataPersistence dataPersistenceObject in _dataPersistenceObjects)
+        foreach (IDataPersistenceGameData dataPersistenceObject in _gameDataPersistenceObjects)
         {
-            dataPersistenceObject.Save(_gameData);
+            dataPersistenceObject.SaveGame(_gameData);
         }
-        _fileDataHandler.Save(_gameData);
+        _fileDataHandler.SaveGame(_gameData);
+    }
+
+    //voids for settings
+    public void SaveSettings()
+    {
+        foreach (IDataPersistenceSettingsData dataPersistenceObject in _settingsDataPersistenceObjects)
+        {
+            dataPersistenceObject.SaveSettings(_settingsData);
+        }
+        _fileDataHandler.SaveSettings(_settingsData);
     }
 
 }
