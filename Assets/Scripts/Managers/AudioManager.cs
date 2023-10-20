@@ -12,13 +12,14 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioMixer _mixer;
 
-
+    [SerializeField]
     private AudioSource _effectSource;
+    
+    [SerializeField]
     private AudioSource _musicSource;
 
 
     //const for magic strings
-
     const string MIXER_MASTER = "MasterVolume";
     const string MIXER_MUSIC = "MusicVolume";
     const string MIXER_AMBIANCE = "AmbianceVolume";
@@ -38,6 +39,8 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);      
     }
 
+
+
     public void PlaySound(AudioClip clip)
     {
         _effectSource.PlayOneShot(clip);
@@ -48,8 +51,27 @@ public class AudioManager : MonoBehaviour
         _musicSource.PlayOneShot(clip);
     }
 
+
+    //volume controls
     public void ChangeMasterVolume(float volume)
     {
         _mixer.SetFloat(MIXER_MASTER, Mathf.Log10(volume) * 20);
     }
+    public void ChangeMusicVolume(float volume)
+    {
+        _mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(volume) * 20);
+    }
+    public void ChangeAmbianceVolume(float volume)
+    {
+        _mixer.SetFloat(MIXER_AMBIANCE, Mathf.Log10(volume) * 20);
+    }
+    public void ChangeUIVolume(float volume)
+    {
+        _mixer.SetFloat(MIXER_UI, Mathf.Log10(volume) * 20);
+    }
+    public void ChangeEffectsVolume(float volume)
+    {
+        _mixer.SetFloat(MIXER_EFFECTS, Mathf.Log10(volume) * 20);
+    }
+
 }

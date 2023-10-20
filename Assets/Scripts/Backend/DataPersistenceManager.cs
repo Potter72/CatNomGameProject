@@ -16,6 +16,7 @@ public class SettingsData
     public float MusicVolume;
     public float EffectVolume;
     public float AmbienceVolume;
+    public float UIVolume;
 
     //resolution
     public int ResolutionWidth;
