@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using UnityEngine;
+using TMPro;
 
 public class CatGod : MonoBehaviour
 {
     [SerializeField] private Plate _plate;
+    [SerializeField] private TextMeshProUGUI _text;
     private List<Item.ItemType> _demand = new List<Item.ItemType>();
 
     private Vector3 _startPos;
@@ -36,10 +38,12 @@ public class CatGod : MonoBehaviour
             wordOfGod += $"{demand.ToString()} ";
         }
 
-        if(DebugTracker.Instance.DebugOn)
-        {
-            Debug.Log($"I demand {wordOfGod}");
-        }
+        _text.text = $"I demand {wordOfGod}";
+
+        //if(DebugTracker.Instance.DebugOn)
+        //{
+        //    Debug.Log($"I demand {wordOfGod}");
+        //}
     }
 
     public void Feed(List<Item> items)

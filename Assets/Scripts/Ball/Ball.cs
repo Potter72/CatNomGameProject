@@ -42,6 +42,16 @@ public class Ball : MonoBehaviour
         //}
     }
 
+    public void Reset()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public List<Item> GetItemList()
+    {
+        return _items;
+    }
+
     // Used for when the ball needs to add an item that's stuck
     public void AddItem(Item item)
     {
