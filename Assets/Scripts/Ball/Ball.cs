@@ -42,6 +42,11 @@ public class Ball : MonoBehaviour
         //}
     }
 
+    public void Reset()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public List<Item> GetItemList()
     {
         return _items;

@@ -16,7 +16,7 @@ namespace ProjectCatRoll.Elias
 
         private void Start()
         {
-            SpawnItems(50);
+            //SpawnItems(50);
         }
 
         private void OnEnable()
