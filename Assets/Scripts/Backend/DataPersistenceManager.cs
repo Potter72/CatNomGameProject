@@ -1,0 +1,129 @@
+using System.Collections.Generic;
+using System.Collections;
+using UnityEngine;
+using System;
+
+public class GameData
+{
+    //unsure what to put in here
+    public Vector3 PlayerPosition;
+}
+
+public class SettingsData
+{
+    //floats for volume
+    public float MasterVolume;
+    public float MusicVolume;
+    public float EffectVolume;
+    public float AmbienceVolume;
+
+    //resolution
+    public int ResolutionWidth;
+    public int ResolutionHeight;
+    public bool Fullscreen;
+
+}
+
+public interface IDataPersistenceSettingsData
+{
+    public void LoadSettings(SettingsData data);
+    public void SaveSettings(SettingsData data);
+}
+
+public interface IDataPersistenceGameData
+{
+    public void LoadGame(GameData data);
+    public void SaveGame(GameData data);
+
+}
+public class DataPersistenceManager : MonoBehaviour
+{
+    public static DataPersistenceManager Instance { get; private set; }
+
+    public GameData GameData { get => _gameData; }
+    private GameData _gameData;
+
+
+    public SettingsData SettingsData { get => _settingsData; }
+    private SettingsData _settingsData;
+
+
+    [Header("File Name")]
+    [SerializeField] private string _fileName;
+
+    private FileDataHandler _fileDataHandler;
+    private List<IDataPersistenceGameData> _gameDataPersistenceObjects;
+    private List<IDataPersistenceSettingsData> _settingsDataPersistenceObjects;
+
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        this._fileDataHandler = new FileDataHandler(Application.persistentDataPath, _fileName);
+        _gameDataPersistenceObjects = FindAllGameDataPersistenceObjects();
+        _settingsDataPersistenceObjects = FindAllSettingsDataPersistenceObjects();
+        _gameData = _fileDataHandler.LoadGame();
+    }
+
+    private List<IDataPersistenceGameData> FindAllGameDataPersistenceObjects()
+    {
+        IDataPersistenceGameData[] objects = (IDataPersistenceGameData[])FindObjectsByType(typeof(IDataPersistenceGameData), FindObjectsSortMode.None);
+        return new List<IDataPersistenceGameData>(objects);
+    }
+
+    private List<IDataPersistenceSettingsData> FindAllSettingsDataPersistenceObjects()
+    {
+        IDataPersistenceSettingsData[] objects = (IDataPersistenceSettingsData[])FindObjectsByType(typeof(IDataPersistenceSettingsData), FindObjectsSortMode.None);
+        return new List<IDataPersistenceSettingsData>(objects);
+    }
+
+    public void NewGame()
+    {
+        _gameData = new GameData();
+    }
+    public void LoadGame()
+    {
+        _gameData = _fileDataHandler.LoadGame();
+
+        if (this._gameData == null)
+        {
+            Debug.Log("No save data found. Making new file.");
+            NewGame();
+            return;
+        }
+
+        foreach (IDataPersistenceGameData dataPersistenceObject in _gameDataPersistenceObjects)
+        {
+            dataPersistenceObject.LoadGame(_gameData);
+        }
+
+    }
+    public void SaveGame()
+    {
+        foreach (IDataPersistenceGameData dataPersistenceObject in _gameDataPersistenceObjects)
+        {
+            dataPersistenceObject.SaveGame(_gameData);
+        }
+        _fileDataHandler.SaveGame(_gameData);
+    }
+
+    //voids for settings
+    public void SaveSettings()
+    {
+        foreach (IDataPersistenceSettingsData dataPersistenceObject in _settingsDataPersistenceObjects)
+        {
+            dataPersistenceObject.SaveSettings(_settingsData);
+        }
+        _fileDataHandler.SaveSettings(_settingsData);
+    }
+
+}

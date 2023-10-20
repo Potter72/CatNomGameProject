@@ -10,6 +10,14 @@ public class BallPickupFood : MonoBehaviour
     public float ballDisplacement;
     [SerializeField] float displaceAdjustement = 0.5f;
     [SerializeField] Material ballMat;
+
+    private Ball ball;
+    
+    private void Awake()
+    {
+        ball = GetComponent<Ball>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Food"))
@@ -28,6 +36,15 @@ public class BallPickupFood : MonoBehaviour
             parent.transform.parent = foodAnchor.transform;
 
             food.Add(parent);
+
+            // Please change this later
+            ball.AddItem(other.transform.parent.GetComponent<Item>());
+        }
+
+        if (other.gameObject.CompareTag("Feeder"))
+        {
+            food.Clear();
+            ball.SendItemsToPlate();
         }
     }
 
