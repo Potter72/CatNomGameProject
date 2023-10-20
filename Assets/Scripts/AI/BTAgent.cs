@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class BTAgent : MonoBehaviour
 {
     [SerializeField] private float _delay = 2f;

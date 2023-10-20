@@ -42,6 +42,11 @@ public class Ball : MonoBehaviour
         //}
     }
 
+    public List<Item> GetItemList()
+    {
+        return _items;
+    }
+
     // Used for when the ball needs to add an item that's stuck
     public void AddItem(Item item)
     {
