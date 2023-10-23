@@ -60,15 +60,16 @@ Material:
     m_Floats:
     - _BounceAmount: 0.1
     - _BounceVerticalAmount: 0.21
-    - _BulgePower: 15.1
+    - _BulgeMultiplier: 0.439
+    - _BulgePower: 0.429
     - _DebugFloat: -0.44
     - _DebugFloat3: 2
     - _DebugFloat_1: 1.88
-    - _Outline_Power: 5.92
+    - _Outline_Power: 9.2
     - _PosterizeSteps: 10
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Triangulize_Value: -2.6
+    - _Triangulize_Value: -4.59
     - _WobbleThreshold: 0.416
     - _Wobble_Amount: 0.13
     - _Wobble_Speed: 0.53
