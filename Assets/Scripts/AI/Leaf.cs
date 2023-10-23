@@ -36,7 +36,22 @@ public class Leaf : Node
             status = Status.FAILURE;
         }
 
-        Debug.Log($"{Name} {status}");
+        string s = $"{Name} ";
+
+        switch(status)
+        {
+            case Status.FAILURE:
+                s += $"<color=red> {status}</color>";
+                break;
+            case Status.SUCCESS:
+                s += $"<color=blue> {status}</color>";
+                break;
+            case Status.RUNNING:
+                s += $"<color=yellow> {status}</color>";
+                break;
+        }
+
+        Debug.Log(s);
         return status;
     }
 }

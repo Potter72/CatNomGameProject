@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class Shroom : BTAgent
 {
+    [SerializeField] private float _detectionRange = 5f;
+    [SerializeField] private float _wanderDistance = 5f;
+
     private bool _chased = false;
 
     new void Start()
@@ -22,31 +25,48 @@ public class Shroom : BTAgent
         Tree.PrintTree();
     }
 
+    private void Update()
+    {
+        Vector3 direction = (transform.position - Player.transform.position).normalized * _detectionRange;
+        Debug.DrawRay(Player.transform.position, direction, Color.red);
+    }
+
     public Node.Status MoveAway()
     {
         Node.Status status = Node.Status.FAILURE;
 
-        if(Vector3.Magnitude(Player.transform.position - transform.position) > 3f)
-        {
-            Debug.Log("Out of range");
+        Vector3 playerPos = new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z);
+        float distance = Vector3.Magnitude(Player.transform.position - transform.position);
 
+        if (distance > _detectionRange)
+        {
             if(_chased)
             {
+                Debug.Log("<color=red>Out of range</color>");
                 _chased = false;
                 status = Node.Status.SUCCESS;
+                ChangeDelay(1f);
             }
 
             return status;
         }
 
-        Vector3 destination = transform.position + (-(Player.transform.position - transform.position).normalized * 3f);
+        Vector3 destination = transform.position + (-(playerPos - transform.position).normalized * _wanderDistance);
 
         NavMeshHit hit;
 
         if (NavMesh.SamplePosition(destination, out hit, 5f, NavMesh.AllAreas))
         {
-            _chased = true;
-            status = GoToLocation(hit.position);
+            if(!_chased)
+            {
+                _chased = true;
+                ChangeDelay(0.1f);
+                Agent.speed = 5f;
+            }
+
+            Agent.destination = hit.position;
+
+            return Node.Status.RUNNING;
         }
 
         return status;
@@ -54,9 +74,14 @@ public class Shroom : BTAgent
 
     public Node.Status Wander()
     {
+        if (_chased)
+        {
+            return Node.Status.FAILURE;
+        }
+
         Node.Status status = Node.Status.FAILURE;
 
-        Vector2 rp = Random.insideUnitCircle * 3f;
+        Vector2 rp = Random.insideUnitCircle * _wanderDistance;
         Vector3 randomPoint = new Vector3(rp.x, 0, rp.y);
         Vector3 destination = randomPoint + transform.position;
 
@@ -64,6 +89,7 @@ public class Shroom : BTAgent
 
         if (NavMesh.SamplePosition(destination, out hit, 5f, NavMesh.AllAreas))
         {
+            ChangeDelay(1f);
             status = GoToLocation(hit.position);
         }
 
