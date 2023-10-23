@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
     private int movementTouchId;
 
     public bool isMoving;
+    [SerializeField] BallVFXController vfxController;
 
     [SerializeField] float movementForceMultiplier = 4;
     [SerializeField] float maxHorizontalMoveSpeed = 3;
@@ -19,6 +20,7 @@ public class BallController : MonoBehaviour
     [SerializeField] float minBounceValue = 0.1f;
     [SerializeField] float bounceWobble = 0;
     [SerializeField] float fallDamageWobble = 1;
+    [SerializeField] AnimationCurve fallDamageWobbleCurve;
     [SerializeField] float fallDamageWobbleTime = 0.2f;
     [SerializeField] float fallDamageCameraChake = 0.3f;
 
@@ -138,6 +140,7 @@ public class BallController : MonoBehaviour
         if(heighestPoint - transform.position.y > fallDamageCutoff) 
         {
             StartCoroutine(LerpBallWobble(fallDamageWobble * Mathf.Pow((heighestPoint - transform.position.y),0.2f) - 0.3f, fallDamageWobbleTime));
+            vfxController.PlayFallDamageEffect();   //plays the fall damage grass vfx
             heighestPoint = transform.position.y;
         }
         isGrounded = true;
@@ -158,12 +161,14 @@ public class BallController : MonoBehaviour
         float lerpValue = 1 / time;
         while(time > counter)
         {
-            bounceWobble = Mathf.Lerp(bounceWobble, value, counter);
+            //bounceWobble = Mathf.Lerp(bounceWobble, value, counter);
+            bounceWobble = fallDamageWobbleCurve.Evaluate(counter * lerpValue);
 
             yield return 0;
             counter += Time.deltaTime;
         }
-        bounceWobble = value;
+        //yield return new WaitForSeconds(1);
+        //bounceWobble = value;
         bounceDecreaseSpeed = oldDecreaseSpeed;
     }
 }

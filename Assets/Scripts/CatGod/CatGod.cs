@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -48,7 +49,7 @@ public class CatGod : MonoBehaviour
         {
             if(DebugTracker.Instance.DebugOn)
             {
-                Debug.Log("AAAA");
+                //Debug.Log("AAAA");
             }
 
             StartCoroutine(Consume());

@@ -47,7 +47,7 @@ public class ShootPiston : MonoBehaviour
         {
             for (int i = 0; i < 1; i++)
             {
-                Debug.Log("weoah");
+                //Debug.Log("weoah");
                 transform.position = Vector3.Lerp(startPos, originalPos, counter);
                 counter += Time.deltaTime * resetSpeed;
                 yield return 0;
