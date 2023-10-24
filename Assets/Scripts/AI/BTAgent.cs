@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class BTAgent : MonoBehaviour
 {
     [SerializeField] private float _delay = 2f;
+    [SerializeField] private float _wanderDistance = 20f;
 
     public GameObject Player;
     public BehaviorTree Tree;
@@ -18,6 +19,9 @@ public class BTAgent : MonoBehaviour
     public Node.Status TreeStatus = Node.Status.RUNNING;
 
     private WaitForSeconds waitForSeconds;
+
+    protected Vector3 _wanderDestination;
+    
 
     public void Start()
     {
@@ -39,6 +43,9 @@ public class BTAgent : MonoBehaviour
     public Node.Status GoToLocation(Vector3 destination)
     {
         float distanceToTarget = Vector3.Distance(destination, transform.position);
+        Vector3 pathEnd = Agent.pathEndPosition - transform.position;
+
+        Debug.DrawRay(transform.position, destination - transform.position, Color.blue);
 
         if (State == ActionState.IDLE)
         {
@@ -67,8 +74,37 @@ public class BTAgent : MonoBehaviour
         waitForSeconds = new WaitForSeconds(_delay);
     }
 
-    private void Update()
+
+    public Node.Status SetWanderDestination()
     {
-        Debug.DrawLine(transform.position, Agent.destination, Color.blue);
+        Vector2 rp = Random.insideUnitCircle * _wanderDistance;
+        Vector3 randomPoint = new Vector3(rp.x, 0, rp.y);
+        _wanderDestination = randomPoint + transform.position;
+
+        NavMeshHit hit;
+
+        // + 1f in third parameter is to ensure that it will hit a spot in navmesh
+        if (NavMesh.SamplePosition(_wanderDestination, out hit, _wanderDistance + 1f, NavMesh.AllAreas))
+        {
+            _wanderDestination = hit.position;
+        }
+
+        ChangeDelay(0.5f);
+
+        return Node.Status.SUCCESS;
     }
+
+    public virtual Node.Status MoveToWanderDestination()
+    {
+        Node.Status status = Node.Status.FAILURE;
+
+        status = GoToLocation(_wanderDestination);
+
+        return status;
+    }
+
+    //private void Update()
+    //{
+    //    Debug.DrawLine(transform.position, Agent.destination, Color.blue);
+    //}
 }

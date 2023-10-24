@@ -21,10 +21,15 @@ public class Dog : BTAgent
         Leaf checkPlayer = new Leaf("Check Player", CheckPlayer);
         Leaf moveToPlayer = new Leaf("Move To Player", MoveToPlayer);
 
-        Leaf wander = new Leaf("Wander", Wander);
+        Sequence wander = new Sequence("Wander");
+        Leaf setWanderDestination = new Leaf("Wander", SetWanderDestination);
+        Leaf moveToWanderDestination = new Leaf("Move To Wander Destination", MoveToWanderDestination);
 
         chaseAwayPlayer.AddChild(checkPlayer);
         chaseAwayPlayer.AddChild(moveToPlayer);
+
+        wander.AddChild(setWanderDestination);
+        wander.AddChild(moveToWanderDestination);
 
         doDog.AddChild(chaseAwayPlayer);
         doDog.AddChild(wander);
@@ -53,25 +58,7 @@ public class Dog : BTAgent
         Node.Status status = GoToLocation(Player.transform.position);
 
         ChangeDelay(0.1f);
-
-        return status;
-    }
-
-    public Node.Status Wander()
-    {
-        Node.Status status = Node.Status.FAILURE;
-
-        Vector2 rp = Random.insideUnitCircle * 3f;
-        Vector3 randomPoint = new Vector3(rp.x, 0, rp.y);
-        Vector3 destination = randomPoint + transform.position;
-
-        NavMeshHit hit;
-
-        if (NavMesh.SamplePosition(destination, out hit, 5f, NavMesh.AllAreas))
-        {
-            status = GoToLocation(hit.position);
-        }
-
+        
         return status;
     }
 }
