@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -12,6 +13,8 @@ public class CatGod : MonoBehaviour
     private List<Item.ItemType> _demand = new List<Item.ItemType>();
 
     private Vector3 _startPos;
+
+    private float _size;
 
     void Awake()
     {
@@ -52,7 +55,7 @@ public class CatGod : MonoBehaviour
         {
             if(DebugTracker.Instance.DebugOn)
             {
-                Debug.Log("AAAA");
+                //Debug.Log("AAAA");
             }
 
             StartCoroutine(Consume());
@@ -102,7 +105,12 @@ public class CatGod : MonoBehaviour
             Debug.Log("NOM NOM NOM NOM NOM");
         }
 
-        yield return new WaitForSeconds(0.5f);
+        for (int i = 0; i < 5; i++)
+        {
+            _size += _demand.Count / 5;
+            Debug.Log(_size);
+            yield return new WaitForSeconds(0.1f);
+        }
 
         while (timer < 1f)
         {

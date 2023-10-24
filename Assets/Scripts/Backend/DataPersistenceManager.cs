@@ -16,6 +16,7 @@ public class SettingsData
     public float MusicVolume;
     public float EffectVolume;
     public float AmbienceVolume;
+    public float UIVolume;
 
     //resolution
     public int ResolutionWidth;
@@ -71,7 +72,6 @@ public class DataPersistenceManager : MonoBehaviour
         this._fileDataHandler = new FileDataHandler(Application.persistentDataPath, _fileName);
         _gameDataPersistenceObjects = FindAllGameDataPersistenceObjects();
         _settingsDataPersistenceObjects = FindAllSettingsDataPersistenceObjects();
-        _gameData = _fileDataHandler.LoadGame();
     }
 
     private List<IDataPersistenceGameData> FindAllGameDataPersistenceObjects()

@@ -17,7 +17,6 @@ public class Rat : BTAgent
     {
         base.Start();
         Selector ratting = new Selector("Ratting");
-        Leaf wander = new Leaf("Wander", Wander);
 
         Sequence snatchFood = new Sequence("Snatch Food");
         Leaf checkForFood = new Leaf("Check For Food", CheckForFood);
@@ -26,11 +25,18 @@ public class Rat : BTAgent
         Leaf runAwayWithFood = new Leaf("Run Away With Food", RunAwayWithFood);
         Leaf dropFood = new Leaf("Drop Food", DropFood);
 
+        Sequence wander = new Sequence("Wander");
+        Leaf setWanderDestination = new Leaf("Wander", SetWanderDestination);
+        Leaf moveToWanderDestination = new Leaf("Move To Wander Destination", MoveToWanderDestination);
+
         snatchFood.AddChild(checkForFood);
         snatchFood.AddChild(runToFood);
         snatchFood.AddChild(takeFood);
         snatchFood.AddChild(runAwayWithFood);
         snatchFood.AddChild(dropFood);
+
+        wander.AddChild(setWanderDestination);
+        wander.AddChild(moveToWanderDestination);
 
         ratting.AddChild(snatchFood);
         ratting.AddChild(wander);
@@ -117,23 +123,5 @@ public class Rat : BTAgent
         _runAwayPosition = Vector3.zero;
 
         return Node.Status.SUCCESS;
-    }
-
-    public Node.Status Wander()
-    {
-        Node.Status status = Node.Status.FAILURE;
-
-        Vector2 rp = Random.insideUnitCircle * 3f;
-        Vector3 randomPoint = new Vector3(rp.x, 0, rp.y);
-        Vector3 destination = randomPoint + transform.position;
-
-        NavMeshHit hit;
-
-        if (NavMesh.SamplePosition(destination, out hit, 5f, NavMesh.AllAreas))
-        {
-            status = GoToLocation(hit.position);
-        }
-
-        return status;
     }
 }

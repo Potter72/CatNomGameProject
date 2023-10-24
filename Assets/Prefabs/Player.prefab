@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1266546656004072042}
   - component: {fileID: 8668906723247473539}
   - component: {fileID: 3704518379112290570}
+  - component: {fileID: 622196493711929653}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -121,15 +122,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
-  movementForceMultiplier: 5
-  movementForceMax: 3
+  vfxController: {fileID: 0}
+  movementForceMultiplier: 25
+  maxHorizontalMoveSpeed: 4
   playerRigidbody: {fileID: 3704518379112290570}
   bounceValueToAdd: 0.6
-  bounceDecreaseSpeed: 0.1
+  bounceDecreaseSpeed: 0.03
   minBounceValue: 0.1
   bounceWobble: 0
-  fallDamageWobble: 0.5
-  fallDamageCutoff: 0
+  fallDamageWobble: 0.4
+  fallDamageWobbleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0023727417
+      value: 0.077812195
+      inSlope: 2.6975641
+      outSlope: 2.6975641
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.3630851
+    - serializedVersion: 3
+      time: 0.3271638
+      value: 0.7806763
+      inSlope: 0.32164982
+      outSlope: 0.32164982
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.09923986
+    - serializedVersion: 3
+      time: 0.50803065
+      value: 0.7772208
+      inSlope: -0.42118415
+      outSlope: -0.42118415
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.18994403
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.000005
+      value: 0.08491836
+      inSlope: 0.3251262
+      outSlope: 0.3251262
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.13278282
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  fallDamageWobbleTime: 0.7
+  fallDamageCameraChake: 0.1
+  fallDamageCutoff: 3
   ballMat: {fileID: 2100000, guid: f5d6210defef5f545820363e3a31c93b, type: 2}
   moveJoystick: {fileID: 0}
   moveJoystickWidth: 13
@@ -149,8 +195,12 @@ MonoBehaviour:
   food: []
   startLocalPos: []
   ballDisplacement: 0
-  displaceAdjustement: 0.4
+  displaceAdjustement: 1
   ballMat: {fileID: 2100000, guid: f5d6210defef5f545820363e3a31c93b, type: 2}
+  addFoodBump: 1
+  bumbCollider: {fileID: 0}
+  bumpDepth: 1.3
+  bumpRadius: 0.8
 --- !u!54 &3704518379112290570
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -178,3 +228,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &622196493711929653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8796474890404457205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c2539d6b21ba5459e8a868401b7ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sendDelay: 0.3
+  _items: []
+  _plate: {fileID: 0}

@@ -12,6 +12,11 @@ public class BallPickupFood : MonoBehaviour
     [SerializeField] Material ballMat;
 
     private Ball ball;
+
+    [SerializeField] bool addFoodBump = true;
+    [SerializeField] SphereCollider bumbCollider;
+    [SerializeField] float bumpDepth = 0.5f;
+    [SerializeField] float bumpRadius = 1f;
     
     private void Awake()
     {
@@ -35,6 +40,18 @@ public class BallPickupFood : MonoBehaviour
             foodAnchor.transform.parent = transform;
             parent.transform.parent = foodAnchor.transform;
 
+            if (addFoodBump)
+            {
+                //creates a bumb
+                GameObject foodBumpToSpawn = new GameObject("FoodBump");
+                Vector3 vectorToCenter = (transform.position - foodAnchor.transform.position).normalized * bumpDepth;
+                GameObject foodBump = Instantiate(foodBumpToSpawn, foodAnchor.transform.position + vectorToCenter, foodAnchor.transform.rotation);
+                foodBump.layer = 10; //makes the bumps not collide with the food
+                SphereCollider bumpSphere = foodBump.AddComponent<SphereCollider>();
+                bumpSphere.radius = bumpRadius;
+                foodBump.transform.parent = foodAnchor.transform;
+            }
+
             food.Add(parent);
 
             // Please change this later
@@ -43,6 +60,7 @@ public class BallPickupFood : MonoBehaviour
 
         if (other.gameObject.CompareTag("Feeder"))
         {
+            
             food.Clear();
             ball.SendItemsToPlate();
         }
