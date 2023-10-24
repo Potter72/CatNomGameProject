@@ -119,7 +119,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: d30c2d4fb5bcb144392bdae1acf437fb, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: e4f269a54afe85145b49abfb5f487687, type: 2}
 --- !u!4 &447730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5320505173851146330, guid: 8e126c0170cdbc54d8ba6cb101a5c877, type: 3}
@@ -1168,6 +1168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c2539d6b21ba5459e8a868401b7ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _item: {fileID: 108664311424414250, guid: c8b3083874494bf4899a1e6dd649f622, type: 3}
+  _spawnAmount: 10
   _sendDelay: 0.02
   _items: []
   _plate: {fileID: 1867719019}
@@ -1700,10 +1702,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f78f722fba1b744383ff77e67875857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
-  _itemList: {fileID: 0}
-  _plate: {fileID: 0}
-  _catGod: {fileID: 0}
+  _player: {fileID: 1542413546}
+  _itemList: {fileID: 399187356}
+  _plate: {fileID: 1867719019}
+  _catGod: {fileID: 1454082044}
 --- !u!114 &2103815909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1797,6 +1799,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shroom
       objectReference: {fileID: 0}
+    - target: {fileID: 6050130165727877322, guid: 8e126c0170cdbc54d8ba6cb101a5c877, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8786323163402767177, guid: 8e126c0170cdbc54d8ba6cb101a5c877, type: 3}
       propertyPath: Player
       value: 
@@ -1866,6 +1872,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dog
       objectReference: {fileID: 0}
+    - target: {fileID: 9018886461132034123, guid: ea2377139d7d75a4f9d2ce28322357b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1884,16 +1894,28 @@ PrefabInstance:
       value: Snake
       objectReference: {fileID: 0}
     - target: {fileID: 1966746329200518081, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966746329200518081, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966746329200518081, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966746329200518081, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -10.63
       objectReference: {fileID: 0}
     - target: {fileID: 1966746329200518081, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -10.2
       objectReference: {fileID: 0}
     - target: {fileID: 1966746329200518081, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -43.02
       objectReference: {fileID: 0}
     - target: {fileID: 1966746329200518081, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1922,6 +1944,42 @@ PrefabInstance:
     - target: {fileID: 1966746329200518081, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574601954607259064, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1542413541}
+    - target: {fileID: 8574601954607259064, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
+      propertyPath: _plane
+      value: 
+      objectReference: {fileID: 1600079931}
+    - target: {fileID: 8574601954607259064, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
+      propertyPath: _gizmoColor.a
+      value: 0.14901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574601954607259064, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
+      propertyPath: _gizmoColor.b
+      value: 0.09661579
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574601954607259064, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
+      propertyPath: _gizmoColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574601954607259064, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
+      propertyPath: _gizmoColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574601954607259064, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
+      propertyPath: _detectionRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8589836257666763775, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
+      propertyPath: m_Acceleration
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8589836257666763775, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 720
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1991,6 +2049,10 @@ PrefabInstance:
     - target: {fileID: 1921485041891193049, guid: e0a1ebf6183c517408df31f980f12f9a, type: 3}
       propertyPath: m_Name
       value: Rat
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921485041891193049, guid: e0a1ebf6183c517408df31f980f12f9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
