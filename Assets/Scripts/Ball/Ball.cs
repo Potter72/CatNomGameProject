@@ -8,24 +8,26 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private GameObject _item;
-    [SerializeField] private int _spawnAmount = 10;
+    //[SerializeField] private GameObject _item;
+    //[SerializeField] private int _spawnAmount = 10;
     [SerializeField] private float _sendDelay = 0.3f;
-
-    [SerializeField] private List<Item> _items = new List<Item>();
     [SerializeField] private Plate _plate;
+
+    private List<Item> _items = new List<Item>();
+
+    private bool _sendingItem = false;
 
     private void Awake()
     {
         //Remove when the rest of the game is done
-        for (int i = 0; i < _spawnAmount; i++)
-        {
-            GameObject newItem = Instantiate(_item);
-            Vector3 itemPos = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * 0.5f;
-            newItem.transform.position = itemPos + transform.position;
-            newItem.transform.parent = transform;
-            _items.Add(newItem.GetComponent<Item>());
-        }
+        //for (int i = 0; i < _spawnAmount; i++)
+        //{
+        //    GameObject newItem = Instantiate(_item);
+        //    Vector3 itemPos = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * 0.5f;
+        //    newItem.transform.position = itemPos + transform.position;
+        //    newItem.transform.parent = transform;
+        //    _items.Add(newItem.GetComponent<Item>());
+        //}
     }
 
     private void Update()
@@ -62,26 +64,31 @@ public class Ball : MonoBehaviour
     // Use this when you want to send the food stuck on the ball
     public void SendItemsToPlate()
     {
-        StartCoroutine(SendSpacedOut());
+        if(!_sendingItem && _items.Count!= 0)
+        {
+            _sendingItem = true;
+            StartCoroutine(SendSpacedOut());
+        }
     }
 
     // Sends the food at an interval
     IEnumerator SendSpacedOut()
     {
-        if (_items.Count == 0) StopAllCoroutines();
-
         while(_items.Count > 1)
         {
-            //Destroy(_items[0].transform.parent.gameObject);
+            Destroy(_items[0].transform.parent.gameObject);
             _items[0].transform.parent = null;
             _items[0].SendItem(_plate, this);
             _items.RemoveAt(0);
             yield return new WaitForSeconds(_sendDelay);
         }
+
+        Destroy(_items[0].transform.parent.gameObject);
         _items[0].transform.parent = null;
         _items[0].SendItem(_plate, this);
         _items[0].SetLastItem();
-        //Destroy(_items[0].transform.parent.gameObject);
         _items.RemoveAt(0);
+
+        _sendingItem = false;
     }
 }
