@@ -505,6 +505,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 844362592}
     m_Modifications:
+    - target: {fileID: 622196493711929653, guid: b80ddd83805f6ab4c8cfc31c2638b10c, type: 3}
+      propertyPath: _plate
+      value: 
+      objectReference: {fileID: 360369971}
     - target: {fileID: 1266546656004072042, guid: b80ddd83805f6ab4c8cfc31c2638b10c, type: 3}
       propertyPath: moveJoystick
       value: 
