@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Snake : BTAgent
 {
+    [SerializeField] private Color _gizmoColor;
     [SerializeField] private GameObject _plane;
     [SerializeField] private float _snatchRange = 3f; 
     [SerializeField] private float _detectionRange = 20f;
@@ -13,8 +14,6 @@ public class Snake : BTAgent
 
     private Item _heldItem;
 
-    private bool _hasItem = false;
-    private bool _runningAwayWithItem = false;
     private Vector3 _runDestination;
 
     new void Start()
@@ -38,6 +37,7 @@ public class Snake : BTAgent
         stealFromPlayer.AddChild(checkRange);
         stealFromPlayer.AddChild(chasePlayer);
         stealFromPlayer.AddChild(snatchFood);
+        stealFromPlayer.AddChild(setRunDestination);
         stealFromPlayer.AddChild(runAway);
         stealFromPlayer.AddChild(dropFood);
 
@@ -51,13 +51,18 @@ public class Snake : BTAgent
 
         Tree.PrintTree();
     }
-    
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = _gizmoColor;
+        Gizmos.DrawSphere(transform.position, _detectionRange);
+    }
+
     public Node.Status CheckRange()
     {
         if (Vector3.Distance(Player.transform.position, transform.position) < _detectionRange && _itemList.Count > 0)
         {
-            ChangeDelay(0.5f);
-            Agent.destination = Player.transform.position;
+            ChangeDelay(0.2f);
             return Node.Status.SUCCESS;
         }
         
@@ -66,7 +71,10 @@ public class Snake : BTAgent
 
     public Node.Status ChasePlayer()
     {
-        if(Vector3.Distance(Player.transform.position, transform.position) < _snatchRange)
+        Agent.destination = Player.transform.position;
+        Agent.speed = 8f;
+
+        if (Vector3.Distance(Player.transform.position, transform.position) < _snatchRange)
         {
             ChangeDelay(0f);
             return Node.Status.SUCCESS;
@@ -79,7 +87,7 @@ public class Snake : BTAgent
     {
         _heldItem = _itemList[Random.Range(0, _itemList.Count)];
         _itemList.Remove(_heldItem);
-        _heldItem.transform.position = transform.position + transform.forward;
+        _heldItem.transform.position = transform.position + transform.forward * 2f;
         _heldItem.transform.SetParent(this.transform, true);
 
 
@@ -94,12 +102,16 @@ public class Snake : BTAgent
 
         NavMeshHit hit;
 
-        if (NavMesh.SamplePosition(_runDestination, out hit, 20f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(_runDestination, out hit, 75f, NavMesh.AllAreas))
         {
             _runDestination = hit.position;
+            Agent.speed = 50f;
+            ChangeDelay(0.1f);
+            Debug.Log(_runDestination);
+            return Node.Status.SUCCESS;
         }
 
-        return Node.Status.SUCCESS;
+        return Node.Status.FAILURE;
     }
 
     public Node.Status RunAway()
@@ -113,11 +125,11 @@ public class Snake : BTAgent
 
     public Node.Status DropFood()
     {
-        _heldItem.transform.parent = null;
-        
         GameManager.Instance.GetItemList().AddItem(_heldItem);
-
+        _heldItem.transform.parent = null;
         _heldItem = null;
+
+        Agent.speed = 8f;
 
         return Node.Status.SUCCESS;
     }
