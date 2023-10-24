@@ -53,7 +53,7 @@ public class BTAgent : MonoBehaviour
             State = ActionState.WORKING;
         }
 
-        else if (Vector3.Distance(Agent.pathEndPosition, destination) >= 10f)
+        else if (Vector3.Distance(Agent.pathEndPosition, destination) >= 2f)
         {
             State = ActionState.IDLE;
             return Node.Status.FAILURE;

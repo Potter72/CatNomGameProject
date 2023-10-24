@@ -42,7 +42,7 @@ public class Shroom : BTAgent
         Node.Status status = Node.Status.FAILURE;
 
         Vector3 playerPos = new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z);
-        float distance = Vector3.Magnitude(Player.transform.position - transform.position);
+        float distance = Vector3.Distance(Player.transform.position, transform.position);
 
         if (distance > _detectionRange)
         {
@@ -73,7 +73,7 @@ public class Shroom : BTAgent
 
     public override Node.Status MoveToWanderDestination()
     {
-        if (Vector3.Magnitude(Player.transform.position - transform.position) < _detectionRange)
+        if (Vector3.Distance(Player.transform.position, transform.position) < _detectionRange)
         {
             _chased = true;
         }
