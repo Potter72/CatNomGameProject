@@ -42,11 +42,10 @@ public class BTAgent : MonoBehaviour
 
     public Node.Status GoToLocation(Vector3 destination)
     {
-        float distanceToTarget = Vector3.Distance(destination, transform.position);
-        Vector3 pathEnd = Agent.pathEndPosition - transform.position;
-
+        Vector3 pos = new(transform.position.x, 0, transform.position.z);
+        float distanceToTarget = Vector3.Distance(destination, pos);
+        Debug.Log($"Distance to target is {distanceToTarget}");
         Debug.DrawRay(transform.position, destination - transform.position, Color.blue);
-
         if (State == ActionState.IDLE)
         {
             Agent.SetDestination(destination);

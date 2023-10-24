@@ -72,16 +72,16 @@ public class Ball : MonoBehaviour
 
         while(_items.Count > 1)
         {
-            Destroy(_items[0].transform.parent.gameObject);
+            //Destroy(_items[0].transform.parent.gameObject);
             _items[0].transform.parent = null;
             _items[0].SendItem(_plate, this);
             _items.RemoveAt(0);
             yield return new WaitForSeconds(_sendDelay);
         }
-        Destroy(_items[0].transform.parent.gameObject);
         _items[0].transform.parent = null;
         _items[0].SendItem(_plate, this);
         _items[0].SetLastItem();
+        //Destroy(_items[0].transform.parent.gameObject);
         _items.RemoveAt(0);
     }
 }
