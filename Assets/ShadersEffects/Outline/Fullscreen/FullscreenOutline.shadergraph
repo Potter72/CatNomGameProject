@@ -9404,7 +9404,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "e7261389b8d14c32b7ca5dfbdcbd704e",
     "m_Id": 0,
-    "m_DisplayName": "ColorWieght",
+    "m_DisplayName": "ColorWeight",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
