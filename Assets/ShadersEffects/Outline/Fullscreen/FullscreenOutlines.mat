@@ -38,16 +38,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DepthThickness: 0.001
+    - _ColorWeight: 0
+    - _ColorWieght: 0.54
+    - _DepthThickness: 0.00076
     - _DepthThicknessMultiplier: 2.99
-    - _DepthThreshold: 143
+    - _DepthThreshold: 133
     - _DepthWeight: 176
     - _Float: 0
     - _NormalThreshold: 0.78
     - _NormalVectorThreshold: 2.7
     - _NormalWeight: 0.57
     - _OVERLAY: 1
-    - _Thickness: 1
+    - _Thickness: 0.62
     m_Colors:
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
