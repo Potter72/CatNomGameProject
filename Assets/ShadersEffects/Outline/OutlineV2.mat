@@ -51,12 +51,14 @@ Material:
     m_Ints: []
     m_Floats:
     - _CameraMultiplier: 0.006
-    - _Clip: 0.0002
+    - _Clip: 0.0005
     - _Color_Intensity: 0
     - _CompareDistance: 0.0083
     - _Debug: -1
+    - _Debug3: 0
     - _Debug_2: 3.34
-    - _Outline_Amplitude: 20.5
+    - _OutlineWidth: 0
+    - _Outline_Amplitude: 450
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Step: 0.96
