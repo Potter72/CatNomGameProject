@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Blackboard : MonoBehaviour
 {
-    
-    
     private static Blackboard _instance;
     public static Blackboard Instance
     {
