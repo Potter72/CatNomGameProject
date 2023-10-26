@@ -60,6 +60,7 @@ public class BallPickupFood : MonoBehaviour
 
         if (other.gameObject.CompareTag("Feeder"))
         {
+            
             food.Clear();
             ball.SendItemsToPlate();
         }

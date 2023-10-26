@@ -48,6 +48,7 @@ Material:
     - _Intensity: 1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _View_Space_Multiplier: 1
     - _Wave_Amplitude: 0.00074
     - _Wave_Noise_Scale: 1.39
     - _Wave_Speed: 0.423
