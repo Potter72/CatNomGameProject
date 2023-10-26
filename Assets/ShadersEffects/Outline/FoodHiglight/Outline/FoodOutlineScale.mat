@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FoodOutlineMat
-  m_Shader: {fileID: -6465566751694194690, guid: 85189347d1a4c384a89ef975690bee83, type: 3}
+  m_Name: FoodOutlineScale
+  m_Shader: {fileID: -6465566751694194690, guid: 365ef047802e8c242b65c275692640da, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -37,28 +37,25 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude: 1.67
-    - _CameraMultiplier: 0.069
+    - _Amplitude: 1
+    - _CameraMultiplier: 0.5
     - _Clip: 0
-    - _Color_Intensity: 6
-    - _Debug: 0
-    - _Debug3: 3
-    - _Min: 0.548
-    - _OffsetMax: 1.134
-    - _OffsetMin: 1.109
-    - _OutlineOffset: 1.143
-    - _OutlineWidth: 0.0018
+    - _Color_Intensity: 7.8
+    - _FresnelPower: 1.17
+    - _Min: 0.4
+    - _OffsetMax: 1.1
+    - _OffsetMin: 1
+    - _OutlineOffset: 1
     - _Outline_Amplitude: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 2
-    - _Step: 0.51
+    - _Speed: 1
+    - _Step: 1
     m_Colors:
-    - _CameraDepthNormalsTexture: {r: 0, g: 0, b: 0, a: 0}
-    - _OutlineColor: {r: 0.8113208, g: 0.22579211, b: 0.22579211, a: 1}
+    - _OutlineColor: {r: 1, g: 0.26452163, b: 0.2028302, a: 1}
     - _Vector2: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &6616304042191301390
+--- !u!114 &607670921863023271
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
