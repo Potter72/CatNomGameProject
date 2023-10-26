@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OakTree
+  m_Name: Pumpkin
   m_Shader: {fileID: -6465566751694194690, guid: cc6ed8aeb55f7f74c8a3914f2f0cbfa3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -117,7 +117,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _ShadowDarkenValue: 0.8
-    - _Smoothness: 0
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -126,13 +126,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.38679248, g: 0.2251808, b: 0.10764508, a: 1}
-    - _Color: {r: 0.38679248, g: 0.2251808, b: 0.10764508, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _ToonColor: {r: 0.5188679, g: 0.3161036, b: 0.16398183, a: 1}
+    - _ToonColor: {r: 0.8301887, g: 0.33574507, b: 0.16838734, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &4361982777750900321
+--- !u!114 &1127949064229298404
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
