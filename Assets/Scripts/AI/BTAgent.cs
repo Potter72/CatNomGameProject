@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class BTAgent : MonoBehaviour
 {
-    [SerializeField] private float _delay = 2f;
+    [SerializeField] private float _delay = 5f;
     [SerializeField] private float _wanderDistance = 20f;
 
     public GameObject Player;
@@ -42,9 +42,9 @@ public class BTAgent : MonoBehaviour
 
     public Node.Status GoToLocation(Vector3 destination)
     {
-        Vector3 pos = new(transform.position.x, 0, transform.position.z);
+        Vector3 pos = transform.position;
         float distanceToTarget = Vector3.Distance(destination, pos);
-        // Debug.Log($"Distance to target is {distanceToTarget}");
+        Debug.Log($"Distance to target is {distanceToTarget}");
         Debug.DrawRay(transform.position, destination - transform.position, Color.blue);
         if (State == ActionState.IDLE)
         {
