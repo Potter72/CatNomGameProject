@@ -14,6 +14,13 @@ namespace ProjectCatRoll.Elias
         [SerializeField]
         private float _radius;
 
+        private List<GameObject> _spawnedItems;
+
+        private void Awake()
+        {
+            _spawnedItems = new();
+        }
+
         private void Start()
         {
             //SpawnItems(50);
@@ -27,6 +34,16 @@ namespace ProjectCatRoll.Elias
         private void OnDisable()
         {
             EventManager.OnItemSpawnRequest -= SpawnItems;
+        }
+
+        public void ClearItems()
+        {
+            for (int i = _spawnedItems.Count - 1; i >= 0; i--)
+            {
+                if (_spawnedItems[i] != null)
+                    Destroy(_spawnedItems[i]);
+            }
+            _spawnedItems.Clear();
         }
 
 
@@ -69,13 +86,13 @@ namespace ProjectCatRoll.Elias
                             spawnPos.y = hit.point.y;
                         }
 
+                        Quaternion spawnRotation = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
 
-
-                        Instantiate(
+                        _spawnedItems.Add(Instantiate(
                             _itemsToSpawn[j % _itemsToSpawn.Length].Prefab,
                             spawnPos,
-                            Quaternion.identity
-                        );
+                            spawnRotation
+                        ));
                         break;
                     }
                     else

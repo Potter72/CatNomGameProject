@@ -5,14 +5,23 @@ using UnityEngine.AI;
 
 public class Shroom : BTAgent
 {
+    [SerializeField] private float _detectionRange = 5f;
+    [SerializeField] private float _runDistance = 10f;
+
     private bool _chased = false;
 
     new void Start()
     {
         base.Start();
+        Sequence wander = new Sequence("Wander");
+        Leaf setWanderDestination = new Leaf("Wander", SetWanderDestination);
+        Leaf moveToWanderDestination = new Leaf("Move To Wander Destination", MoveToWanderDestination);
+
         Selector shrooming = new Selector("Shrooming");
         Leaf moveAway = new Leaf("Move Away", MoveAway);
-        Leaf wander = new Leaf("Wander", Wander);
+
+        wander.AddChild(setWanderDestination);
+        wander.AddChild(moveToWanderDestination);
 
         shrooming.AddChild(moveAway);
         shrooming.AddChild(wander);
@@ -22,50 +31,62 @@ public class Shroom : BTAgent
         Tree.PrintTree();
     }
 
+    private void Update()
+    {
+        Vector3 direction = (transform.position - Player.transform.position).normalized * _detectionRange;
+        Debug.DrawRay(Player.transform.position, direction, Color.red);
+    }
+
     public Node.Status MoveAway()
     {
         Node.Status status = Node.Status.FAILURE;
 
-        if(Vector3.Magnitude(Player.transform.position - transform.position) > 3f)
-        {
-            Debug.Log("Out of range");
+        Vector3 playerPos = new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z);
+        float distance = Vector3.Distance(Player.transform.position, transform.position);
 
+        if (distance > _detectionRange)
+        {
             if(_chased)
             {
+                Debug.Log("<color=red>Out of range</color>");
                 _chased = false;
                 status = Node.Status.SUCCESS;
+                ChangeDelay(0.5f);
             }
 
             return status;
         }
 
-        Vector3 destination = transform.position + (-(Player.transform.position - transform.position).normalized * 3f);
+        Vector3 destination = transform.position + (-(playerPos - transform.position).normalized * _runDistance);
 
-        NavMeshHit hit;
-
-        if (NavMesh.SamplePosition(destination, out hit, 5f, NavMesh.AllAreas))
+        if (!_chased)
         {
             _chased = true;
-            status = GoToLocation(hit.position);
+            ChangeDelay(0.3f);
+            Agent.speed = 5f;
         }
 
-        return status;
+        Agent.destination = destination;
+
+        return Node.Status.RUNNING;
     }
 
-    public Node.Status Wander()
+    public override Node.Status MoveToWanderDestination()
     {
+        if (Vector3.Distance(Player.transform.position, transform.position) < _detectionRange)
+        {
+            _chased = true;
+        }
+
+        if (_chased)
+        {
+            ChangeDelay(0.1f);
+            return Node.Status.FAILURE;
+        }
+
         Node.Status status = Node.Status.FAILURE;
 
-        Vector2 rp = Random.insideUnitCircle * 3f;
-        Vector3 randomPoint = new Vector3(rp.x, 0, rp.y);
-        Vector3 destination = randomPoint + transform.position;
-
-        NavMeshHit hit;
-
-        if (NavMesh.SamplePosition(destination, out hit, 5f, NavMesh.AllAreas))
-        {
-            status = GoToLocation(hit.position);
-        }
+        status = GoToLocation(_wanderDestination);
 
         return status;
     }
