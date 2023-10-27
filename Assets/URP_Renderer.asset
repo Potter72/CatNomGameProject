@@ -1,5 +1,45 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7558851009839217993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1614fc811f8f184697d9bee70ab9fe5, type: 3}
+  m_Name: DecalRendererFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  m_Settings:
+    technique: 0
+    maxDrawDistance: 1000
+    decalLayers: 0
+    dBufferSettings:
+      surfaceData: 2
+    screenSpaceSettings:
+      normalBlend: 0
+  m_CopyDepthPS: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+  m_DBufferClear: {fileID: 4800000, guid: f056d8bd2a1c7e44e9729144b4c70395, type: 3}
+--- !u!114 &-3913097998957805226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00045f12942b46c698459096c89274e, type: 3}
+  m_Name: FullScreenPassRendererFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  passMaterial: {fileID: 2100000, guid: d3751c74ca909e643bd331691e986958, type: 2}
+  injectionPoint: 600
+  requirements: 4
+  passIndex: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25,7 +65,10 @@ MonoBehaviour:
     probeSamplingDebugTexture: {fileID: 2800000, guid: 24ec0e140fb444a44ab96ee80844e18e, type: 3}
   m_RendererFeatures:
   - {fileID: 5506339459670508316}
-  m_RendererFeatureMap: 1c83609290726a4c
+  - {fileID: -3913097998957805226}
+  - {fileID: 6209283930629378232}
+  - {fileID: -7558851009839217993}
+  m_RendererFeatureMap: 1c83609290726a4c5601d4381ae2b1c9b890b432d6ce2b56b7426e180e911997
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -81,4 +124,46 @@ MonoBehaviour:
   passMaterial: {fileID: 2100000, guid: 5a63a247c65bed843a77d8e7564369af, type: 2}
   injectionPoint: 600
   requirements: 6
-  passIndex: 1
+  passIndex: 0
+--- !u!114 &6209283930629378232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: RenderObjects
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    passTag: RenderObjects
+    Event: 600
+    filterSettings:
+      RenderQueueType: 0
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 4096
+      PassNames: []
+    overrideMaterial: {fileID: 0}
+    overrideMaterialPassIndex: 0
+    overrideShader: {fileID: 0}
+    overrideShaderPassIndex: 0
+    overrideMode: 1
+    overrideDepthState: 0
+    depthCompareFunction: 4
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
