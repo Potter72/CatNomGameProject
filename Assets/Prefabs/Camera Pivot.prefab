@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  offset: {x: -6, y: 5, z: -6}
+  offset: {x: -6, y: 15, z: -10}
   smoothSpeed: 0.8
   cameraPivot: {fileID: 2688861886121672857}
   canRotateCamera: 1
