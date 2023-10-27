@@ -63,7 +63,7 @@ public class Shroom : BTAgent
         {
             _chased = true;
             ChangeDelay(0.3f);
-            Agent.speed = 5f;
+            Agent.speed = 20f;
         }
 
         Agent.destination = destination;

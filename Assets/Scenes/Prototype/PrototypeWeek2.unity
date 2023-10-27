@@ -5191,6 +5191,14 @@ PrefabInstance:
       propertyPath: _wanderDistance
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 8589836257666763775, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
+      propertyPath: m_Acceleration
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8589836257666763775, guid: 7185bc4bc12b4594292319f00abea9b9, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 720
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6597,7 +6605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9056240125896429611, guid: 61494121379808f4bbb02ce60e110d01, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.51
+      value: 17.22
       objectReference: {fileID: 0}
     - target: {fileID: 9056240125896429611, guid: 61494121379808f4bbb02ce60e110d01, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13833,7 +13841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b0da36d10a2c04fb8540d3d1c50e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _plate: {fileID: 1227820907}
   _mouth: {fileID: 863038604}
   _text: {fileID: 1255029337}
 --- !u!4 &1468597156 stripped
