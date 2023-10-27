@@ -44,7 +44,7 @@ public class BTAgent : MonoBehaviour
     {
         Vector3 pos = new(transform.position.x, 0, transform.position.z);
         float distanceToTarget = Vector3.Distance(destination, pos);
-        Debug.Log($"Distance to target is {distanceToTarget}");
+        // Debug.Log($"Distance to target is {distanceToTarget}");
         Debug.DrawRay(transform.position, destination - transform.position, Color.blue);
         if (State == ActionState.IDLE)
         {
@@ -58,7 +58,7 @@ public class BTAgent : MonoBehaviour
             return Node.Status.FAILURE;
         }
 
-        else if(distanceToTarget < 2f)
+        else if(distanceToTarget < 5f)
         {
             State = ActionState.IDLE;
             return Node.Status.SUCCESS;
