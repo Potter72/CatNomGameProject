@@ -85,6 +85,11 @@ public class BallPickupFood : MonoBehaviour
         }
     }
 
+    public void RemoveFood(Item item)
+    {
+        food.Remove(item.gameObject);
+    }
+    
     private void FixedUpdate()
     {
         ballDisplacement = ballMat.GetFloat("_BounceAmount");

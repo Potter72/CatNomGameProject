@@ -126,6 +126,7 @@ public class Snake : BTAgent
     public Node.Status DropFood()
     {
         GameManager.Instance.GetItemList().AddItem(_heldItem);
+        _heldItem.RemoveItem();
         _heldItem.transform.parent = null;
         _heldItem = null;
 

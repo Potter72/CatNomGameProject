@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 
 public class Item : MonoBehaviour
 {
     [SerializeField][Range(0.0f, 1.0f)] private float _travelSpeed = 0.02f;
 
+    
     public ItemType FoodType;
-
+    
     private Ball _ball;
     private Plate _plate;
     
@@ -34,8 +36,19 @@ public class Item : MonoBehaviour
     {
         RandomizeItemType();
         _waitForSeconds = new WaitForSeconds(0.02f);
+
     }
 
+    public void AddBall(Ball ball)
+    {
+        _ball = ball;
+    }
+    
+    public void RemoveItem()
+    {
+        _ball.RemoveItem(this);
+    }
+    
     public void RandomizeItemType()
     {
         FoodType = (ItemType)Random.Range(0, 4);

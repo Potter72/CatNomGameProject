@@ -71,7 +71,7 @@ public class Shroom : BTAgent
         return Node.Status.RUNNING;
     }
 
-    public override Node.Status MoveToWanderDestination()
+    protected override Node.Status MoveToWanderDestination()
     {
         if (Vector3.Distance(Player.transform.position, transform.position) < _detectionRange)
         {
