@@ -48,4 +48,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c11fc8d140b5d5049bf37ad276651d0b, type: 2}
   - {fileID: 11400000, guid: 0adffba63e3880a4c8af7463506ba78f, type: 2}
   - {fileID: 11400000, guid: b06c5ed087110bb418990cbdbd731017, type: 2}
-  _radius: 25
+  - {fileID: 11400000, guid: 6a6de1b2ea6b9b04e8059b2ae9ea9325, type: 2}
+  - {fileID: 11400000, guid: 626aeae02246b3f478e364c3dd2e3ef0, type: 2}
+  _radius: 5
