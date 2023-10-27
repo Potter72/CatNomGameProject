@@ -30,6 +30,18 @@ public class BallPickupFood : MonoBehaviour
             GameObject parent = other.transform.parent.gameObject;
             parent.GetComponent<Collider>().enabled = false;
             other.GetComponent<Collider>().enabled = false;
+            //disables collider for children
+            Debug.Log(parent);
+
+            for (int i = 0; i < parent.transform.childCount; i++)
+            {
+                if (parent.transform.GetChild(i).GetComponent<Collider>())
+                {
+                    parent.transform.GetChild(i).GetComponent<Collider>().enabled = false;
+                }
+                
+            }
+
             Destroy(parent.GetComponent<Rigidbody>());
             GameObject foodAnchorToSpawn = new GameObject("FoodAnchor");
             GameObject foodAnchor = Instantiate(foodAnchorToSpawn);

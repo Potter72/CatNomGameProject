@@ -86,12 +86,12 @@ namespace ProjectCatRoll.Elias
                             spawnPos.y = hit.point.y;
                         }
 
-
+                        Quaternion spawnRotation = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
 
                         _spawnedItems.Add(Instantiate(
                             _itemsToSpawn[j % _itemsToSpawn.Length].Prefab,
                             spawnPos,
-                            Quaternion.identity
+                            spawnRotation
                         ));
                         break;
                     }

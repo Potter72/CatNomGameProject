@@ -50,19 +50,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CameraMultiplier: 0.006
-    - _Clip: 0.0005
-    - _Color_Intensity: 0
+    - _CameraMultiplier: 0.128
+    - _Clip: 0
+    - _Color_Intensity: 10
     - _CompareDistance: 0.0083
     - _Debug: -1
     - _Debug3: 0
     - _Debug_2: 3.34
-    - _OutlineWidth: 0
-    - _Outline_Amplitude: 450
+    - _OutlineWidth: 0.0001
+    - _Outline_Amplitude: 7
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Step: 0.96
+    - _Step: 0.03
     m_Colors:
     - _CameraDepthNormalsTexture: {r: 0, g: 0, b: 0, a: 0}
-    - _OutlineColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
+    - _OutlineColor: {r: 1, g: 0.023584902, b: 0.023584902, a: 1}
   m_BuildTextureStacks: []
