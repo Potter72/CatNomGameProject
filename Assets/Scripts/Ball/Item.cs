@@ -9,7 +9,6 @@ using UnityEngine.Rendering;
 public class Item : MonoBehaviour
 {
     [SerializeField][Range(0.0f, 1.0f)] private float _travelSpeed = 0.02f;
-
     
     public ItemType FoodType;
     

@@ -1,18 +1,23 @@
-using System.Collections;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using UnityEngine;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class CatGod : MonoBehaviour
 {
+    [SerializeField] private DemandUI _demandUI;
     [SerializeField] private Transform _mouth;
     [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private int _minDemand = 20;
+    [SerializeField] private int _maxDemand = 50;
     private Plate _plate;
     private List<Item.ItemType> _demand = new List<Item.ItemType>();
-
+    private List<Item.ItemType> _types = new List<Item.ItemType>();
+    
     private Vector3 _startPos;
 
     private float _size;
@@ -22,8 +27,47 @@ public class CatGod : MonoBehaviour
         DemandMoreFood();
         _startPos = transform.position;
         _plate = GameManager.Instance.GetPlate();
+
+        for (int i = 0; i < Enum.GetNames(typeof(Item.ItemType)).Length; i++)
+        {
+            _types.Add((Item.ItemType)i);
+        }
     }
 
+    private void DemandMoreFood2()
+    {
+        List<Item.ItemType> remainingTypes = _types;
+        List<Item.ItemType> demandedTypes = new List<Item.ItemType>();
+        List<int> amountOfItems = new List<int>();
+
+        int amountOfTypes = Random.Range(1 ,remainingTypes.Count);
+        int itemsLeft = Random.Range(_minDemand, _maxDemand);
+        
+        for (int i = 0; i < amountOfTypes; i++)
+        {
+            Item.ItemType newDemand = remainingTypes[Random.Range(0, remainingTypes.Count)];
+            remainingTypes.Remove(newDemand);
+            demandedTypes.Add(newDemand);
+        }
+        
+        demandedTypes.Sort();
+
+        for (int i = 0; i < demandedTypes.Count; i++)
+        {
+            if (i == demandedTypes.Count - 1)
+            {
+                amountOfItems.Add(itemsLeft);
+                break;
+            }
+
+            int takenAmount = Random.Range(1, itemsLeft - (demandedTypes.Count - i - 1));
+            itemsLeft -= takenAmount;
+            amountOfItems.Add(takenAmount);
+        }
+        
+        _demandUI.SetDemand();
+    }
+    
     private void DemandMoreFood()
     {
         _demand.Clear();

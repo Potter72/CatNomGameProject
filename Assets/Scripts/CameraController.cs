@@ -85,7 +85,9 @@ public class CameraController : MonoBehaviour
         {
 
         }
-
+        
+        
+        
         /*
 		if (trauma > 0)
 		{
