@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Snake : BTAgent
 {
@@ -87,9 +88,8 @@ public class Snake : BTAgent
     {
         _heldItem = _itemList[Random.Range(0, _itemList.Count)];
         _itemList.Remove(_heldItem);
-        _heldItem.transform.position = transform.position + transform.forward * 2f;
+        _heldItem.transform.position = transform.position + new Vector3(0f, 0f, 1f) * 2f;
         _heldItem.transform.SetParent(this.transform, true);
-
 
         return Node.Status.SUCCESS;
     }
@@ -126,6 +126,7 @@ public class Snake : BTAgent
     public Node.Status DropFood()
     {
         GameManager.Instance.GetItemList().AddItem(_heldItem);
+        _heldItem.RemoveItem();
         _heldItem.transform.parent = null;
         _heldItem = null;
 

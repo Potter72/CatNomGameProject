@@ -6,13 +6,14 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class BTAgent : MonoBehaviour
 {
-    [SerializeField] private float _delay = 2f;
+    [SerializeField] private float _delay = 5f;
     [SerializeField] private float _wanderDistance = 20f;
-
-    public GameObject Player;
-    public BehaviorTree Tree;
+    
     public NavMeshAgent Agent;
-
+    protected BehaviorTree Tree;
+    protected GameObject Player;
+    
+    
     public enum ActionState { IDLE, WORKING }
     public ActionState State = ActionState.IDLE;
 
@@ -22,11 +23,11 @@ public class BTAgent : MonoBehaviour
 
     protected Vector3 _wanderDestination;
     
-
-    public void Start()
+    protected void Start()
     {
-        Agent = GetComponent<NavMeshAgent>();
         Tree = new BehaviorTree();
+        Agent = GetComponent<NavMeshAgent>();
+        Player = GameManager.Instance.GetPlayer().gameObject;
         waitForSeconds = new WaitForSeconds(_delay);
         StartCoroutine(Behave());
     }
@@ -40,9 +41,9 @@ public class BTAgent : MonoBehaviour
         }
     }
 
-    public Node.Status GoToLocation(Vector3 destination)
+    protected Node.Status GoToLocation(Vector3 destination)
     {
-        Vector3 pos = new(transform.position.x, 0, transform.position.z);
+        Vector3 pos = transform.position;
         float distanceToTarget = Vector3.Distance(destination, pos);
         Debug.Log($"Distance to target is {distanceToTarget}");
         Debug.DrawRay(transform.position, destination - transform.position, Color.blue);
@@ -58,7 +59,7 @@ public class BTAgent : MonoBehaviour
             return Node.Status.FAILURE;
         }
 
-        else if(distanceToTarget < 2f)
+        else if(distanceToTarget < 5f)
         {
             State = ActionState.IDLE;
             return Node.Status.SUCCESS;
@@ -67,14 +68,14 @@ public class BTAgent : MonoBehaviour
         return Node.Status.RUNNING;
     }
 
-    public void ChangeDelay(float delay)
+    protected void ChangeDelay(float delay)
     {
         _delay = delay;
         waitForSeconds = new WaitForSeconds(_delay);
     }
 
 
-    public Node.Status SetWanderDestination()
+    protected Node.Status SetWanderDestination()
     {
         Vector2 rp = Random.insideUnitCircle * _wanderDistance;
         Vector3 randomPoint = new Vector3(rp.x, 0, rp.y);
@@ -93,7 +94,7 @@ public class BTAgent : MonoBehaviour
         return Node.Status.SUCCESS;
     }
 
-    public virtual Node.Status MoveToWanderDestination()
+    protected virtual Node.Status MoveToWanderDestination()
     {
         Node.Status status = Node.Status.FAILURE;
 

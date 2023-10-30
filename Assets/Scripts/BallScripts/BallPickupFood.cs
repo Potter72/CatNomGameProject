@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.XR;
 
 public class BallPickupFood : MonoBehaviour
@@ -38,6 +40,11 @@ public class BallPickupFood : MonoBehaviour
                 if (parent.transform.GetChild(i).GetComponent<Collider>())
                 {
                     parent.transform.GetChild(i).GetComponent<Collider>().enabled = false;
+                }
+
+                if (parent.transform.GetChild(i).GetComponent<DecalProjector>())
+                {
+                    parent.transform.GetChild(i).GetComponent<DecalProjector>().gameObject.SetActive(false);
                 }
                 
             }
@@ -78,6 +85,11 @@ public class BallPickupFood : MonoBehaviour
         }
     }
 
+    public void RemoveFood(Item item)
+    {
+        food.Remove(item.gameObject);
+    }
+    
     private void FixedUpdate()
     {
         ballDisplacement = ballMat.GetFloat("_BounceAmount");

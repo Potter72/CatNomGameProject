@@ -1,19 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 
 public class Item : MonoBehaviour
 {
     [SerializeField][Range(0.0f, 1.0f)] private float _travelSpeed = 0.02f;
 
+    
     public ItemType FoodType;
-
+    
     private Ball _ball;
     private Plate _plate;
+    
+    private Transform _mouth;
+    private Vector3 _randomPos;
+    
     private Vector3 _initialPos;
     private bool _lastItem = false;
+
+    private WaitForSeconds _waitForSeconds;
 
     public enum ItemType
     {
@@ -26,8 +35,20 @@ public class Item : MonoBehaviour
     private void Awake()
     {
         RandomizeItemType();
+        _waitForSeconds = new WaitForSeconds(0.02f);
+
     }
 
+    public void AddBall(Ball ball)
+    {
+        _ball = ball;
+    }
+    
+    public void RemoveItem()
+    {
+        _ball.RemoveItem(this);
+    }
+    
     public void RandomizeItemType()
     {
         FoodType = (ItemType)Random.Range(0, 4);
@@ -47,6 +68,14 @@ public class Item : MonoBehaviour
         StartCoroutine(GoToPlate());
     }
 
+    public void SendToMouth(Transform mouth, Vector3 randomPos)
+    {
+        _mouth = mouth;
+        _randomPos = randomPos;
+        _initialPos = transform.position;
+        StartCoroutine(GoToMouth());
+    }
+    
     IEnumerator GoToPlate()
     {
         float timer = 0f;
@@ -72,7 +101,7 @@ public class Item : MonoBehaviour
 
             transform.position = Vector3.Lerp(AB, BC, timer);
 
-            yield return new WaitForSeconds(0.02f);
+            yield return _waitForSeconds;
         }
 
         _plate.AddItem(this);
@@ -83,6 +112,38 @@ public class Item : MonoBehaviour
         }
     }
 
+    IEnumerator GoToMouth()
+    {
+        float timer = 0f;
+        
+        while (timer < 1f)
+        {
+            timer += 0.02f;
+
+            transform.position = Vector3.Lerp(_initialPos, _randomPos, timer);
+
+            yield return _waitForSeconds;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        timer = 0f;
+        
+        while (timer < 1f)
+        {
+            timer += 0.02f;
+
+            transform.position = Vector3.Lerp(_randomPos, _mouth.position, timer);
+
+            yield return _waitForSeconds;
+        }
+        
+        Destroy(gameObject);
+        
+        yield return null;
+    }
+    
+    // Not used
     IEnumerator GoToPlate2()
     {
         float timer = 0f;
