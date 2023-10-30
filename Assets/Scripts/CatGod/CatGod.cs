@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Collections.Generic;
+using System.Collections;
 using System.Threading;
 using UnityEngine;
 using TMPro;
@@ -12,13 +11,14 @@ public class CatGod : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _text;
     private Plate _plate;
     private List<Item.ItemType> _demand = new List<Item.ItemType>();
-
+    
     private Vector3 _startPos;
-
     private float _size;
 
-    void Start()
+
+    void Awake()
     {
+        _size = transform.localScale.x;
         DemandMoreFood();
         _startPos = transform.position;
         _plate = GameManager.Instance.GetPlate();
@@ -114,12 +114,8 @@ public class CatGod : MonoBehaviour
             Debug.Log("NOM NOM NOM NOM NOM");
         }
 
-        for (int i = 0; i < 5; i++)
-        {
-            _size += _demand.Count / 5;
-            Debug.Log(_size);
-            yield return new WaitForSeconds(0.1f);
-        }
+        StartCoroutine(LerpToSize(_size + 0.2f, 0.2f));
+        yield return new WaitForSeconds(0.5f);
 
         while (timer < 1f)
         {
@@ -130,5 +126,19 @@ public class CatGod : MonoBehaviour
         }
 
         DemandMoreFood();
+    }
+
+    IEnumerator LerpToSize(float size, float duration)
+    {
+        float t = 0;
+        while(t <1)
+        {
+            _size = Mathf.Lerp(_size, size, t);
+            Debug.Log(_size + " " + size + " " + t);
+            transform.localScale = new Vector3(_size, _size, _size);
+            t += Time.deltaTime / duration;
+            yield return null;
+        }
+        GameManager.Instance.SaveGodSize(_size);
     }
 }
