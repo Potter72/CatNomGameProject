@@ -19,4 +19,9 @@ public class Changeimage : MonoBehaviour
 
         foodImage.sprite = foodSprite[currentfood];
     }
+
+    void Start ()
+    {
+        FoodSpriteRandomize();
+    }
 }
