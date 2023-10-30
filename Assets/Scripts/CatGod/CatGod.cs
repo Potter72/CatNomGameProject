@@ -65,7 +65,7 @@ public class CatGod : MonoBehaviour
             amountOfItems.Add(takenAmount);
         }
         
-        _demandUI.SetDemand();
+        _demandUI.SetDemand(demandedTypes, amountOfItems);
     }
     
     private void DemandMoreFood()
