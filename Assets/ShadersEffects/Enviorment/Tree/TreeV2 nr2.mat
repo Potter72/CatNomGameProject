@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TreeV2
+  m_Name: TreeV2 nr2
   m_Shader: {fileID: -6465566751694194690, guid: f677ab29e923e074e9ffd919d2a334f7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -42,7 +42,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _Amplitude: 0.021
-    - _Clip: 1
+    - _Clip: 0.73
+    - _ColorIntensity: 3.07
     - _NoiseScale: 9
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -50,7 +51,7 @@ Material:
     - _SwayDisplaceAmplitude: 0.06
     - _SwayDisplaceSpeed: 1.8
     m_Colors:
-    - _Color: {r: 1, g: 0.656731, b: 0.2122642, a: 0}
+    - _Color: {r: 1, g: 0.6254992, b: 0.0990566, a: 1}
     - _SwayDisplaceVector: {r: 1, g: 0, b: 0.6, a: 0}
     - _WindDisplace: {r: 1.4, g: 0.4, b: 1, a: 0}
   m_BuildTextureStacks: []
