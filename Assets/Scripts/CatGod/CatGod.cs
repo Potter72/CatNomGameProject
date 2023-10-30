@@ -9,11 +9,24 @@ using Random = UnityEngine.Random;
 
 public class CatGod : MonoBehaviour
 {
+    [Serializable]
+    public class LevelInfo
+    {
+        public int ClearsRequired;
+        public int TypeVariety;
+        public int MinFoodVariety;
+        public int MaxFoodVariety;
+    }
+    
     [SerializeField] private DemandUI _demandUI;
     [SerializeField] private Transform _mouth;
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private int _minDemand = 20;
     [SerializeField] private int _maxDemand = 50;
+
+    [SerializeField] private List<LevelInfo> _levels;
+    private int _currentLevel = 3;
+    
     private Plate _plate;
     private List<Item.ItemType> _demand = new List<Item.ItemType>();
     private List<Item.ItemType> _types = new List<Item.ItemType>();
@@ -24,77 +37,111 @@ public class CatGod : MonoBehaviour
 
     void Start()
     {
-        DemandMoreFood();
         _startPos = transform.position;
         _plate = GameManager.Instance.GetPlate();
-
+        
         for (int i = 0; i < Enum.GetNames(typeof(Item.ItemType)).Length; i++)
         {
             _types.Add((Item.ItemType)i);
         }
+        
+        DemandMoreFood3();
     }
 
-    private void DemandMoreFood2()
+    private void DemandMoreFood3()
     {
         List<Item.ItemType> remainingTypes = _types;
         List<Item.ItemType> demandedTypes = new List<Item.ItemType>();
         List<int> amountOfItems = new List<int>();
 
-        int amountOfTypes = Random.Range(1 ,remainingTypes.Count);
-        int itemsLeft = Random.Range(_minDemand, _maxDemand);
-        
-        for (int i = 0; i < amountOfTypes; i++)
+        for (int i = 0; i < _levels[_currentLevel].TypeVariety; i++)
         {
             Item.ItemType newDemand = remainingTypes[Random.Range(0, remainingTypes.Count)];
             remainingTypes.Remove(newDemand);
             demandedTypes.Add(newDemand);
         }
-        
-        demandedTypes.Sort();
 
         for (int i = 0; i < demandedTypes.Count; i++)
         {
-            if (i == demandedTypes.Count - 1)
-            {
-                amountOfItems.Add(itemsLeft);
-                break;
-            }
-
-            int takenAmount = Random.Range(1, itemsLeft - (demandedTypes.Count - i - 1));
-            itemsLeft -= takenAmount;
-            amountOfItems.Add(takenAmount);
+            int min = _levels[_currentLevel].MinFoodVariety;
+            int max = _levels[_currentLevel].MaxFoodVariety + 1;
+            amountOfItems.Add(Random.Range(min, max));
         }
+
+        _demand = demandedTypes;
         
         _demandUI.SetDemand(demandedTypes, amountOfItems);
     }
     
-    private void DemandMoreFood()
+    // private void DemandMoreFood2()
+    // {
+    //     List<Item.ItemType> remainingTypes = _types;
+    //     List<Item.ItemType> demandedTypes = new List<Item.ItemType>();
+    //     List<int> amountOfItems = new List<int>();
+    //
+    //     int amountOfTypes = Random.Range(1 ,remainingTypes.Count);
+    //     int itemsLeft = Random.Range(_minDemand, _maxDemand);
+    //     
+    //     for (int i = 0; i < amountOfTypes; i++)
+    //     {
+    //         Item.ItemType newDemand = remainingTypes[Random.Range(0, remainingTypes.Count)];
+    //         remainingTypes.Remove(newDemand);
+    //         demandedTypes.Add(newDemand);
+    //     }
+    //     
+    //     demandedTypes.Sort();
+    //
+    //     for (int i = 0; i < demandedTypes.Count; i++)
+    //     {
+    //         if (i == demandedTypes.Count - 1)
+    //         {
+    //             amountOfItems.Add(itemsLeft);
+    //             break;
+    //         }
+    //
+    //         int takenAmount = Random.Range(1, itemsLeft - (demandedTypes.Count - i - 1));
+    //         itemsLeft -= takenAmount;
+    //         amountOfItems.Add(takenAmount);
+    //     }
+    //     
+    //     _demandUI.SetDemand(demandedTypes, amountOfItems);
+    // }
+    //
+    // private void DemandMoreFood()
+    // {
+    //     _demand.Clear();
+    //
+    //     int demandAmount = Random.Range(1, 6);
+    //
+    //     for(int i = 0; i < demandAmount; i++)
+    //     {
+    //         Item.ItemType newDemand = (Item.ItemType)Random.Range(0, 4);
+    //         _demand.Add(newDemand);
+    //     }
+    //
+    //     string wordOfGod = "";
+    //
+    //     foreach(Item.ItemType demand in _demand)
+    //     {
+    //         wordOfGod += $"{demand.ToString()} ";
+    //     }
+    //
+    //     _text.text = $"I demand {wordOfGod}";
+    //
+    //     //if(DebugTracker.Instance.DebugOn)
+    //     //{
+    //     //    Debug.Log($"I demand {wordOfGod}");
+    //     //}
+    // }
+
+    public void UpdateFood(Item.ItemType foodType)
     {
-        _demand.Clear();
-
-        int demandAmount = Random.Range(1, 6);
-
-        for(int i = 0; i < demandAmount; i++)
+        if (_demand.Contains(foodType))
         {
-            Item.ItemType newDemand = (Item.ItemType)Random.Range(0, 4);
-            _demand.Add(newDemand);
+            _demandUI.ReduceByOne(_demand.IndexOf(foodType));
         }
-
-        string wordOfGod = "";
-
-        foreach(Item.ItemType demand in _demand)
-        {
-            wordOfGod += $"{demand.ToString()} ";
-        }
-
-        _text.text = $"I demand {wordOfGod}";
-
-        //if(DebugTracker.Instance.DebugOn)
-        //{
-        //    Debug.Log($"I demand {wordOfGod}");
-        //}
     }
-
+    
     public void Feed(List<Item> items)
     {
         if(InspectFood(items))
@@ -173,6 +220,6 @@ public class CatGod : MonoBehaviour
             yield return new WaitForSeconds(0.02f);
         }
 
-        DemandMoreFood();
+        DemandMoreFood3();
     }
 }

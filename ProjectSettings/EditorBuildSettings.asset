@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GaymingDemo.unity
-    guid: cc087c495724f8049b5fda7ef640c7db
+    path: Assets/Scenes/Prototype/PrototypeWeek2.unity
+    guid: 9b2a0be375179444982e19fc7dc1f24e
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -28,7 +28,8 @@ public class Item : MonoBehaviour
         Fish,
         Ham, 
         Potato,
-        Corn
+        Corn,
+        Lettuce
     }
 
     private void Awake()
@@ -50,7 +51,7 @@ public class Item : MonoBehaviour
     
     public void RandomizeItemType()
     {
-        FoodType = (ItemType)Random.Range(0, 4);
+        FoodType = (ItemType)Random.Range(0, 5);
     }
 
     // Used for the ball script to indicate when the last food from the

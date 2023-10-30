@@ -1,15 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DemandUI : MonoBehaviour
 {
     [SerializeField] private Image _image;
+    [SerializeField] private Image _foodImage;
     [SerializeField] private Transform _catGod;
-    [SerializeField] private Camera _camera;
+    [SerializeField] private List<Vector2> _dimensions;
+    [SerializeField] private List<Vector2> _slots;
+
+    private List<TextMeshProUGUI> _textBoxes;
+    private List<int> _amount;
+    
+    private float _uiHalfWidth;
+    private float _uiHalfHeight;
+
+    private Vector2 _screenSize;
+    
+    private Camera _camera;
 
     private bool _outside = false;
+
+    private void Awake()
+    {
+        _camera = Camera.main;
+
+        _screenSize = _camera.ViewportToScreenPoint(new Vector3(1, 1, 1));
+        _textBoxes = new List<TextMeshProUGUI>();
+        Debug.Log(_screenSize);
+    }
     
     private void FixedUpdate()
     {
@@ -18,14 +41,14 @@ public class DemandUI : MonoBehaviour
 
     private void SetBubblePosition()
     {
-        Vector3 viewportPos = _camera.WorldToViewportPoint(_catGod.position);
+        Vector3 screenPoint = _camera.WorldToScreenPoint(_catGod.position);
 
-        if (viewportPos.x < 0.05f || viewportPos.x > 0.95f || viewportPos.y < 0.1f || viewportPos.y > 0.9f)
+        if (screenPoint.x < _uiHalfWidth || screenPoint.x > _screenSize.x - _uiHalfWidth || screenPoint.y < _uiHalfHeight || screenPoint.y > _screenSize.y - _uiHalfHeight)
         {
             if (!_outside)
             {
                 _outside = true;
-                _image.color = Color.red;
+                _image.color = Color.grey;
             }
         }
         else
@@ -33,24 +56,42 @@ public class DemandUI : MonoBehaviour
             if (_outside)
             {
                 _outside = false;
-                _image.color = Color.blue;
+                _image.color = Color.white;
             }
         }
         
-        viewportPos.x = Mathf.Clamp(viewportPos.x, 0.05f, 0.95f);
-        viewportPos.y = Mathf.Clamp(viewportPos.y, 0.1f, 0.9f);
+        screenPoint.x = Mathf.Clamp(screenPoint.x, _uiHalfWidth, _screenSize.x - _uiHalfWidth);
+        screenPoint.y = Mathf.Clamp(screenPoint.y, _uiHalfHeight, _screenSize.y - _uiHalfHeight);
 
-        _image.rectTransform.position = _camera.ViewportToScreenPoint(viewportPos);
+        _image.rectTransform.position = screenPoint;
     }
 
     public void SetDemand(List<Item.ItemType> types, List<int> amount)
     {
+        SetDimensions(types.Count);
+        _amount = amount;
+        //Debug.Log("Here");
+        
         for (int i = 0; i < types.Count; i++)
         {
+            Image newDemand = Instantiate(_foodImage, transform);
+            TextMeshProUGUI newText = newDemand.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
             
+            newDemand.rectTransform.localPosition = _slots[i];
+            
+            newDemand.color = GetColor(types[i]);
+            
+            newText.text = $"x{amount[i]}";
+            _textBoxes.Add(newText);
         }
     }
 
+    public void ReduceByOne(int index)
+    {
+        _amount[index]--;
+        _textBoxes[index].text = $"x{_amount[index]}";
+    }
+    
     private Color GetColor(Item.ItemType type)
     {
         Color c = Color.white;
@@ -69,8 +110,39 @@ public class DemandUI : MonoBehaviour
             case Item.ItemType.Potato:
                 c = Color.red;
                 break;
+            case Item.ItemType.Lettuce:
+                c = Color.green;
+                break;
         }
 
         return c;
+    }
+
+    private void SetDimensions(int count)
+    {
+        switch (count)
+        {
+            // case 1:
+            //     _image.rectTransform.sizeDelta = _dimensions[0];
+            //     break;
+            // case 2:
+            //     _image.rectTransform.sizeDelta = _dimensions[1];
+            //     break;
+            // case 3:
+            //     _image.rectTransform.sizeDelta = _dimensions[2];
+            //     break;
+            // case 4:
+            //     _image.rectTransform.sizeDelta = _dimensions[2];
+            //     break;
+            // case 5:
+            //     _image.rectTransform.sizeDelta = _dimensions[3];
+            //     break;
+            default:
+                _image.rectTransform.sizeDelta = _dimensions[3];
+                break;
+        }
+
+        _uiHalfWidth = _image.rectTransform.sizeDelta.x / 2;
+        _uiHalfHeight = _image.rectTransform.sizeDelta.y / 2;
     }
 }
