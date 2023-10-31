@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+//summary:
+//audiomanager for cat roll game
+
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
@@ -46,19 +49,19 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    //play sound from effects audio source
+
     public void PlaySound(AudioClip clip)
     {
         _effectSource.PlayOneShot(clip);
     }
-    //play music from music audio source
+
     public void PlayMusic(AudioClip clip)
     {
         _musicSource.PlayOneShot(clip);
     }
 
 
-    //mixer volume controls
+    //volume controls
     public void ChangeMasterVolume(float volume)
     {
         _mixer.SetFloat(MIXER_MASTER, Mathf.Log10(volume) * 20);

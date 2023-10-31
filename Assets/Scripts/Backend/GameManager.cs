@@ -1,20 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System;
-using ProjectCatRoll.Events;
-
-public class CatGodSizeEventArgs : EventArgs
-{
-    public float Size;
-
-    public CatGodSizeEventArgs(float size)
-    {
-        Size = size;
-    }
-}
 
 [RequireComponent(typeof(DebugTracker))]
 [RequireComponent(typeof(ItemList))]
@@ -22,14 +10,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-
-    
     [SerializeField] private Ball _player;
     [SerializeField] private ItemList _itemList;
     [SerializeField] private Plate _plate;
     [SerializeField] private CatGod _catGod;
-    
-    public float CatGodSize { get; private set; }
 
     private DebugTracker _debugTracker;
     
@@ -69,13 +53,7 @@ public class GameManager : MonoBehaviour
     {
         return _plate;
     }
-
-    public void SaveGodSize(float size)
-    {
-        CatGodSize = size;
-        EventManager.SendCatGodSizeChange(size);
-    }
-
+    
     public ItemList GetItemList()
     {
         return _itemList;

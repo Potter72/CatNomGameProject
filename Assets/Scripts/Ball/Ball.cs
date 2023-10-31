@@ -96,10 +96,11 @@ public class Ball : MonoBehaviour
             _items.RemoveAt(0);
             yield return new WaitForSeconds(_sendDelay);
         }
-        _items[0].SetLastItem();
-        _items[0].SendItem(_plate, this);
+
         Destroy(_items[0].transform.parent.gameObject);
         _items[0].transform.parent = null;
+        _items[0].SendItem(_plate, this);
+        _items[0].SetLastItem();
         _items.RemoveAt(0);
 
         _sendingItem = false;

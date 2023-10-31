@@ -1,11 +1,11 @@
-using System.Runtime.CompilerServices;
-using Random = UnityEngine.Random;
-using System.Collections.Generic;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using UnityEngine;
-using System;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class CatGod : MonoBehaviour
 {
@@ -29,17 +29,13 @@ public class CatGod : MonoBehaviour
     private List<Item.ItemType> _types = new List<Item.ItemType>();
     private List<Item.ItemType> _demand = new List<Item.ItemType>();
     private List<int> _amount = new List<int>();
-    [SerializeField] private TextMeshProUGUI _text;
-
     
     private Vector3 _startPos;
+
     private float _size;
 
-
-    void Awake()
+    void Start()
     {
-        _size = transform.localScale.x;
-        DemandMoreFood();
         _startPos = transform.position;
         _plate = GameManager.Instance.GetPlate();
         
