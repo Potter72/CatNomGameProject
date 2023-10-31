@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Plate _plate;
     [SerializeField] private CatGod _catGod;
 
+    private DebugTracker _debugTracker;
+    
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -26,10 +28,38 @@ public class GameManager : MonoBehaviour
         }
 
         Application.targetFrameRate = 60;
+
+        _player = GameObject.FindFirstObjectByType<Ball>();
+        _itemList = GetComponent<ItemList>();
+        _plate = GameObject.FindFirstObjectByType<Plate>();
+        _catGod = GameObject.FindFirstObjectByType<CatGod>();
+        _debugTracker = GetComponent<DebugTracker>();
     }
 
+    public void Log(string s)
+    {
+        if (_debugTracker.DebugOn)
+        {
+            Debug.Log(s);
+        }
+    }
+    public Ball GetPlayer()
+    {
+        return _player;
+    }
+    
+    public Plate GetPlate()
+    {
+        return _plate;
+    }
+    
     public ItemList GetItemList()
     {
         return _itemList;
+    }
+
+    public CatGod GetCatGod()
+    {
+        return _catGod;
     }
 }

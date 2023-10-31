@@ -8,20 +8,20 @@ using TMPro;
 
 public class CatGod : MonoBehaviour
 {
-    [SerializeField] private Plate _plate;
     [SerializeField] private Transform _mouth;
     [SerializeField] private TextMeshProUGUI _text;
+    private Plate _plate;
     private List<Item.ItemType> _demand = new List<Item.ItemType>();
 
     private Vector3 _startPos;
 
     private float _size;
 
-    void Awake()
+    void Start()
     {
         DemandMoreFood();
         _startPos = transform.position;
-        Debug.Log(_mouth.position);
+        _plate = GameManager.Instance.GetPlate();
     }
 
     private void DemandMoreFood()

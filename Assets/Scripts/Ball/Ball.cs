@@ -11,8 +11,9 @@ public class Ball : MonoBehaviour
     //[SerializeField] private GameObject _item;
     //[SerializeField] private int _spawnAmount = 10;
     [SerializeField] private float _sendDelay = 0.3f;
-    [SerializeField] private Plate _plate;
 
+    private BallPickupFood _ballPickup;
+    private Plate _plate;
     private List<Item> _items = new List<Item>();
 
     private bool _sendingItem = false;
@@ -45,6 +46,12 @@ public class Ball : MonoBehaviour
         //}
     }
 
+    private void Start()
+    {
+        _plate = GameManager.Instance.GetPlate();
+        _ballPickup = GetComponent<BallPickupFood>();
+    }
+    
     public void Reset()
     {
         SceneManager.LoadScene(0);
@@ -59,8 +66,15 @@ public class Ball : MonoBehaviour
     public void AddItem(Item item)
     {
         _items.Add(item);
+        item.AddBall(this);
     }
 
+    public void RemoveItem(Item item)
+    {
+        _items.Remove(item);
+        _ballPickup.RemoveFood(item);
+    }
+    
     // Use this when you want to send the food stuck on the ball
     public void SendItemsToPlate()
     {
