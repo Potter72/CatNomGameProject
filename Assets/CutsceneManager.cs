@@ -15,7 +15,6 @@ public class CutsceneManager : MonoBehaviour
 
     private Queue<PlayableDirector> _directorQueue;
 
-    [SerializeField]
     private PlayableDirector _currentDirector;
 
     public PlayableDirector CurrentDirector => _currentDirector;
