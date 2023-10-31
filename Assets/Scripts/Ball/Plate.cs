@@ -21,6 +21,8 @@ public class Plate : MonoBehaviour
         {
             _itemCount = 0;
         }
+
+        _catGod.UpdateFood(item.FoodType);
     }
 
     // Attempts to feed the cat god when all the
