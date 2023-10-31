@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _travelSpeed: 0.02
-  FoodType: 0
+  FoodType: 1
 --- !u!1 &1617333173343973632
 GameObject:
   m_ObjectHideFlags: 0

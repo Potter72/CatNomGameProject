@@ -9,7 +9,6 @@ using UnityEngine.Rendering;
 public class Item : MonoBehaviour
 {
     [SerializeField][Range(0.0f, 1.0f)] private float _travelSpeed = 0.02f;
-
     
     public ItemType FoodType;
     
@@ -26,17 +25,16 @@ public class Item : MonoBehaviour
 
     public enum ItemType
     {
-        Fish,
+        Carrot,
         Ham, 
-        Potato,
-        Corn
+        RedShroom,
+        YellowShroom,
+        Lettuce
     }
 
     private void Awake()
     {
-        RandomizeItemType();
         _waitForSeconds = new WaitForSeconds(0.02f);
-
     }
 
     public void AddBall(Ball ball)
@@ -51,7 +49,7 @@ public class Item : MonoBehaviour
     
     public void RandomizeItemType()
     {
-        FoodType = (ItemType)Random.Range(0, 4);
+        FoodType = (ItemType)Random.Range(0, 5);
     }
 
     // Used for the ball script to indicate when the last food from the

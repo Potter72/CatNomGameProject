@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(DebugTracker))]
 [RequireComponent(typeof(ItemList))]
@@ -61,5 +62,10 @@ public class GameManager : MonoBehaviour
     public CatGod GetCatGod()
     {
         return _catGod;
+    }
+
+    public void ResetScene()
+    {
+        SceneManager.LoadScene(0);
     }
 }
