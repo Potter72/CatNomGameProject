@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CatGod/CatGod.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CatGod/CatGod.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DemandUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DemandUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Changeimage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Changeimage.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
