@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: YarnBall
+  m_Name: Scarecrow
   m_Shader: {fileID: -6465566751694194690, guid: cc6ed8aeb55f7f74c8a3914f2f0cbfa3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 90df8f8997e11fc48939919778cc29a3, type: 3}
+        m_Texture: {fileID: 2800000, guid: e0537c3188ad1114699d0eb09049ad64, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
