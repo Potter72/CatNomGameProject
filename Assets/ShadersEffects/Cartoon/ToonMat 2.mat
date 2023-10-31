@@ -52,7 +52,7 @@ Material:
     - _Float: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShadowDarkenValue: 0.731
+    - _ShadowDarkenValue: 0.8
     m_Colors:
     - _Color: {r: 1, g: 0.68412775, b: 0, a: 0}
     - _ToonColor: {r: 0.35773268, g: 0.2011392, b: 0.3773585, a: 0}

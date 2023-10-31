@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,10 +36,13 @@ public class BallController : MonoBehaviour
 
     public void StartMovement()
     {
+        if(isMoving) { return; }
+        Debug.Log("touching: " + Touchscreen.current.touches.Count);
         for (int i = 0; i < Touchscreen.current.touches.Count; i++)
         {
-            if (Touchscreen.current.touches[i].phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Began)
+            if (Touchscreen.current.touches[i].isInProgress)
             {
+                Debug.Log("inProgress");
                 //movementTouch = Touchscreen.current.touches[i];
                 movementTouchId = i;
                 isMoving = true;
@@ -49,6 +53,7 @@ public class BallController : MonoBehaviour
     public void StopMovement()
     {
         isMoving = false;
+        moveJoystick.SetActive(false);
         movementTouchId = 1000;
     }
 
@@ -63,6 +68,7 @@ public class BallController : MonoBehaviour
         {
             bounceWobble += bounceValueToAdd;
         }
+
     }
 
     private void FixedUpdate()
@@ -80,8 +86,8 @@ public class BallController : MonoBehaviour
         {
             heighestPoint = transform.position.y;
         }
-
         MovementPhysics();
+
     }
 
     private void MovementPhysics()
