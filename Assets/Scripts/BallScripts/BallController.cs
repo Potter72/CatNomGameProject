@@ -32,6 +32,7 @@ public class BallController : MonoBehaviour
     [SerializeField] GameObject moveJoystick;
     [SerializeField] float moveJoystickWidth = 13f;
 
+    public Vector3 movementVector;  //is public because used for rotating the player
     public bool isGrounded;
 
     public void StartMovement()
@@ -111,7 +112,7 @@ public class BallController : MonoBehaviour
         Vector3 right = Camera.main.transform.right;
         right = new Vector3(right.x, 0, right.z).normalized;
 
-        Vector3 movementVector = forward * -movementReadVector.y + right * -movementReadVector.x;
+        movementVector = forward * -movementReadVector.y + right * -movementReadVector.x;
         movementVector = Vector3.ClampMagnitude(movementVector / 1000 * movementForceMultiplier, maxHorizontalMoveSpeed);
         //movementVector = Camera.main.transform.forward * movementVector;
 
@@ -160,7 +161,7 @@ public class BallController : MonoBehaviour
     //adds some wobble to the shader for the ball over time
     IEnumerator LerpBallWobble(float value, float time)
     {
-        Camera.main.GetComponent<CameraController>().trauma += fallDamageCameraChake;
+        //Camera.main.GetComponent<CameraController>().trauma += fallDamageCameraChake;
         float oldDecreaseSpeed = bounceDecreaseSpeed;
         bounceDecreaseSpeed = 0;
         float counter = 0;

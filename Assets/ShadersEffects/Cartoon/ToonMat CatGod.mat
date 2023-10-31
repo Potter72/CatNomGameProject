@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToonMat 1
+  m_Name: ToonMat CatGod
   m_Shader: {fileID: -6465566751694194690, guid: cc6ed8aeb55f7f74c8a3914f2f0cbfa3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_a3c7928d43a74b85b7c330c13305d3be_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: bd570bded2c8d4040bbf2b3430ef408b, type: 3}
+        m_Texture: {fileID: 2800000, guid: f564b78f0d5827d4a9f9fa25c175b9a5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -55,6 +55,7 @@ Material:
     - _ShadowDarkenValue: 0.7
     m_Colors:
     - _Color: {r: 1, g: 0.68412775, b: 0, a: 0}
+    - _ShadowColor: {r: 0.4811321, g: 0.06359331, b: 0, a: 0}
     - _ToonColor: {r: 0.9910059, g: 0.8160377, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &806253164434517252

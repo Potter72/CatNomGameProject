@@ -1565,7 +1565,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 6.49
+      m_SerializableObject: 5.8
     m_Space: -1
   m_Property:
     name: _Emission_Intensity
@@ -1677,7 +1677,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614680}
   m_ExposedName: Spawn Torus
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 1
   m_Category: 
   m_Min:
     m_Type:
@@ -3992,7 +3992,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614801}
   m_ExposedName: Speed
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 2
   m_Category: 
   m_Min:
     m_Type:
@@ -5074,7 +5074,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614847}
   m_ExposedName: Size
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 3
   m_Category: 
   m_Min:
     m_Type:

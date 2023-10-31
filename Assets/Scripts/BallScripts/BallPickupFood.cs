@@ -10,7 +10,7 @@ public class BallPickupFood : MonoBehaviour
     public List<GameObject> food = new List<GameObject>();
     public List<Vector3> startLocalPos = new List<Vector3>();
     public float ballDisplacement;
-    [SerializeField] float displaceAdjustement = 0.5f;
+    public float displaceAdjustement = 0.5f;
     [SerializeField] Material ballMat;
 
     private Ball ball;
