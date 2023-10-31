@@ -7,8 +7,8 @@ using TMPro;
 
 public class DemandUI : MonoBehaviour
 {
+    [SerializeField] private List<Image> _imagePrefabs;
     [SerializeField] private Image _image;
-    [SerializeField] private Image _foodImage;
     [SerializeField] private Transform _catGod;
     [SerializeField] private List<Vector2> _dimensions;
     [SerializeField] private List<Vector2> _slots;
@@ -75,12 +75,10 @@ public class DemandUI : MonoBehaviour
         
         for (int i = 0; i < types.Count; i++)
         {
-            Image newDemand = Instantiate(_foodImage, transform);
+            Image newDemand = GetImage(types[i]);
             TextMeshProUGUI newText = newDemand.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
             
             newDemand.rectTransform.localPosition = _slots[i];
-            
-            newDemand.color = GetColor(types[i]);
             
             newText.text = $"x{amount[i]}";
             _demandImages.Add(newDemand);
@@ -98,6 +96,35 @@ public class DemandUI : MonoBehaviour
         Destroy(_demandImages[index].gameObject);
         _demandImages.RemoveAt(index);
         _textBoxes.RemoveAt(index);
+    }
+
+    private Image GetImage(Item.ItemType type)
+    {
+        Image i;
+        
+        switch (type)
+        {
+            case Item.ItemType.Carrot:
+                i = Instantiate(_imagePrefabs[0], transform);
+                break;
+            case Item.ItemType.Ham:
+                i = Instantiate(_imagePrefabs[1], transform);
+                break;
+            case Item.ItemType.RedShroom:
+                i = Instantiate(_imagePrefabs[2], transform);
+                break;
+            case Item.ItemType.YellowShroom:
+                i = Instantiate(_imagePrefabs[3], transform);
+                break;
+            case Item.ItemType.Lettuce:
+                i = Instantiate(_imagePrefabs[4], transform);
+                break;
+            default:
+                i = Instantiate(_imagePrefabs[0], transform);
+                break;
+        }
+
+        return i;
     }
     
     private Color GetColor(Item.ItemType type)
