@@ -37,11 +37,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 977354c4a7ffca9468ecf966e9e8aae5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 90df8f8997e11fc48939919778cc29a3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_cf31a58d2a504c68bebb105ba8cffc60_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: f564b78f0d5827d4a9f9fa25c175b9a5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -69,10 +73,13 @@ Material:
     - _PosterizeSteps: 10
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _ShadowDarkenValue: 0.506
     - _Triangulize_Value: -4.59
     - _WobbleThreshold: 0.416
     - _Wobble_Amount: 0.13
     - _Wobble_Speed: 0.53
     m_Colors:
+    - _Main_Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Shadow_Color: {r: 0.4528302, g: 0.1127908, b: 0.06194377, a: 1}
     - _fsg: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
