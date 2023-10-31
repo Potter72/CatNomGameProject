@@ -43,6 +43,7 @@ Material:
     m_Floats:
     - _Amplitude: 0.021
     - _Clip: 1
+    - _ColorIntensity: 0.63
     - _NoiseScale: 9
     - _QueueControl: 0
     - _QueueOffset: 0
