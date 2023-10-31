@@ -1,14 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Random = UnityEngine.Random;
 using System.Collections.Generic;
 using System.Collections;
 using System.Threading;
 using UnityEngine;
-using TMPro;
 using System;
-using Random = UnityEngine.Random;
+using TMPro;
 
 public class CatGod : MonoBehaviour
 {

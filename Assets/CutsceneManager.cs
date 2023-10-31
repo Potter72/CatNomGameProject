@@ -43,7 +43,7 @@ public class CutsceneManager : MonoBehaviour
         //hook into events
         EventManager.OnCatGodSizeChanged += OnCatGodSizeChanged;
 
-        Keyboard.current.onTextInput += (char c) => { if (c == 'p') PlayNext(); };
+        // Keyboard.current.onTextInput += (char c) => { if (c == 'p') PlayNext(); };
         //instead of hooking into the event oncatgodsizechange maybe rework the connected events to not be so granular and only send events when progression is meant to happen.
         //that way i dont have to do a bunch of if statements when responding to the method
 
