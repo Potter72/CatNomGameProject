@@ -1,10 +1,9 @@
-using ProjectCatRoll.Events;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class BallController : MonoBehaviour
 {
     private int movementTouchId;
@@ -35,31 +34,6 @@ public class BallController : MonoBehaviour
 
     public Vector3 movementVector;  //is public because used for rotating the player
     public bool isGrounded;
-    bool isInCutscene;
-
-    private void OnEnable()
-    {
-        EventManager.OnCutscenePlay += OnCutscenePlayed;
-        EventManager.OnCutsceneStop += OnCutsceneStopped;
-    }
-
-    private void OnDisable()
-    {
-        EventManager.OnCutscenePlay -= OnCutscenePlayed;
-        EventManager.OnCutsceneStop -= OnCutsceneStopped;
-    }
-
-    private void OnCutsceneStopped(object sender, EventArgs e)
-    {
-        playerRigidbody.isKinematic = false;
-        isInCutscene = false;
-    }
-
-    private void OnCutscenePlayed(object sender, EventArgs e)
-    {
-        playerRigidbody.isKinematic = true;
-        isInCutscene = true;
-    }
 
     public void StartMovement()
     {
@@ -119,7 +93,7 @@ public class BallController : MonoBehaviour
 
     private void MovementPhysics()
     {
-        if (!isMoving || isInCutscene) 
+        if (!isMoving) 
         {
             moveJoystick.SetActive(false);
             return; 
@@ -133,7 +107,7 @@ public class BallController : MonoBehaviour
         //movement forces
         Vector2 movementReadVector = startPos - currentPos;
 
-        Vector3 forward = Camera.main.transform.forward; 
+        Vector3 forward = Camera.main.transform.forward;
         forward = new Vector3(forward.x, 0, forward.z).normalized;
         Vector3 right = Camera.main.transform.right;
         right = new Vector3(right.x, 0, right.z).normalized;
