@@ -52,12 +52,11 @@ public class CutsceneManager : MonoBehaviour
     int _recievedCatGodSizeEvents = 0;
     private void OnCatGodSizeChanged(object sender, CatGodSizeEventArgs e)
     {
-        PlayNext();
-        // _recievedCatGodSizeEvents++;
-        // if(_recievedCatGodSizeEvents % 3 == 0)
-        // {
-        //     PlayNext();
-        // }
+        _recievedCatGodSizeEvents++;
+        if(_recievedCatGodSizeEvents % 3 == 0)
+        {
+            PlayNext();
+        }
     }
 
     private void OnCutscenePlayed(PlayableDirector obj)
