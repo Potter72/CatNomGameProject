@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _FlowMap:
-        m_Texture: {fileID: 2800000, guid: a5e2c0d1babb2bf41894b6600bad2611, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0fbef5f298025bc428210e7945531f0c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FlowMapBlur_9d0b96fc814d44aa97480f0fc88908ad_FlowMap_2114535321_Texture2D:
@@ -64,7 +64,7 @@ Material:
     - _DepthAlphaMultiplier: 0.36
     - _Float: 0.85
     - _FlowMapBlurAmount: 0.098
-    - _FlowMapIntensity: 11.95
+    - _FlowMapIntensity: 5.76
     - _FlowMapOutputStep: 0.666
     - _FlowMapOutputStep_1: 1
     - _FlowMapSubtractAmplitude: -0.55
@@ -91,6 +91,7 @@ Material:
     - _StepAdjuster: 1
     - _StepAdjusterAmplitude: 0
     - _StepAdjusterThreshold: 0.163
+    - _Uv_World_Coordinate_Scaling: 150
     - _WarbleAmplitude: 0.026
     - _WarbleScale: 10
     - _WarbleSpeed: 0.076
