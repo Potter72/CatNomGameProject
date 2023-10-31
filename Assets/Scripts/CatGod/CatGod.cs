@@ -14,6 +14,7 @@ public class CatGod : MonoBehaviour
     {
         public int ClearsRequired;
         public int TypeVariety;
+        public int DemandVariety;
         public int MinFoodVariety;
         public int MaxFoodVariety;
     }
@@ -88,7 +89,7 @@ public class CatGod : MonoBehaviour
 
         if (_demand.Count > 0) return;
         
-        FinishRequest();
+        // FinishRequest();
     }
 
     #region Finish
@@ -97,6 +98,13 @@ public class CatGod : MonoBehaviour
         if (--_levels[_currentLevel].ClearsRequired == 0)
         {            
             _currentLevel++;
+            // Play cutscene/animation
+        }
+
+        if (_currentLevel >= _levels.Count)
+        {
+            Debug.Log("<color=yellow>You Win!</color>");
+            return;
         }
         
         DemandMoreFood();
@@ -104,22 +112,16 @@ public class CatGod : MonoBehaviour
     
     public void Feed(List<Item> items)
     {
-        // if(InspectFood(items))
-        // {
-        //     if(DebugTracker.Instance.DebugOn)
-        //     {
-        //         //Debug.Log("AAAA");
-        //     }
-        //
-        //     foreach (Item i in items)
-        //     {
-        //         Vector3 rp = _plate.transform.position + new Vector3(0, 1, 0) * 8f + Random.insideUnitSphere * 3f;
-        //         i.SendToMouth(_mouth, rp);
-        //     }
-        //     
-        //     // Old feeding routine;
-        //     // StartCoroutine(Consume());
-        // }
+        if (_demand.Count > 0) return;
+
+        foreach (Item i in items)
+        {
+            Vector3 rp = _plate.transform.position + new Vector3(0, 1, 0) * 8f + Random.insideUnitSphere * 3f;
+            i.SendToMouth(_mouth, rp);
+        }
+
+        items.Clear();
+        StartCoroutine(Wait());
     }
 #endregion
     
@@ -146,6 +148,50 @@ public class CatGod : MonoBehaviour
         return false;
     }
 
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2.5f);
+
+        FinishRequest();
+    }
+    
+    // IEnumerator Consume()
+    // {
+    //     float timer = 0f;
+    //
+    //     while(timer < 1f)
+    //     {
+    //         timer += 0.02f;
+    //         transform.position = Vector3.Lerp(_startPos, _plate.transform.position, timer);
+    //
+    //         yield return new WaitForSeconds(0.02f);
+    //     }
+    //
+    //     timer = 0f;
+    //     _plate.RemoveAllItems();
+    //
+    //     if(DebugTracker.Instance.DebugOn)
+    //     {
+    //         Debug.Log("NOM NOM NOM NOM NOM");
+    //     }
+    //
+    //     for (int i = 0; i < 5; i++)
+    //     {
+    //         _size += _demand.Count / 5;
+    //         Debug.Log(_size);
+    //         yield return new WaitForSeconds(0.1f);
+    //     }
+    //
+    //     while (timer < 1f)
+    //     {
+    //         timer += 0.02f;
+    //         transform.position = Vector3.Lerp(_plate.transform.position, _startPos, timer);
+    //
+    //         yield return new WaitForSeconds(0.02f);
+    //     }
+    //
+    //     DemandMoreFood();
+    // }
     
     // private void DemandMoreFood2()
     // {
@@ -208,41 +254,5 @@ public class CatGod : MonoBehaviour
     //     //}
     // }
     
-    // IEnumerator Consume()
-    // {
-    //     float timer = 0f;
-    //
-    //     while(timer < 1f)
-    //     {
-    //         timer += 0.02f;
-    //         transform.position = Vector3.Lerp(_startPos, _plate.transform.position, timer);
-    //
-    //         yield return new WaitForSeconds(0.02f);
-    //     }
-    //
-    //     timer = 0f;
-    //     _plate.RemoveAllItems();
-    //
-    //     if(DebugTracker.Instance.DebugOn)
-    //     {
-    //         Debug.Log("NOM NOM NOM NOM NOM");
-    //     }
-    //
-    //     for (int i = 0; i < 5; i++)
-    //     {
-    //         _size += _demand.Count / 5;
-    //         Debug.Log(_size);
-    //         yield return new WaitForSeconds(0.1f);
-    //     }
-    //
-    //     while (timer < 1f)
-    //     {
-    //         timer += 0.02f;
-    //         transform.position = Vector3.Lerp(_plate.transform.position, _startPos, timer);
-    //
-    //         yield return new WaitForSeconds(0.02f);
-    //     }
-    //
-    //     DemandMoreFood();
-    // }
+
 }

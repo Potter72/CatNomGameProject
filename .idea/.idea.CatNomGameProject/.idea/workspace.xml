@@ -6,15 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EliasTesting/Mushroom 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EliasTesting/Mushroom 2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EliasTesting/Mushroom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EliasTesting/Mushroom.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EliasTesting/TestBox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EliasTesting/TestBox.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EliasTesting/TestCylinder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EliasTesting/TestCylinder.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Prototype/PrototypeWeek2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Prototype/PrototypeWeek2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ball/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ball/Item.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CatGod/CatGod.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CatGod/CatGod.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DemandUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DemandUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PrefabSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PrefabSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Changeimage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Changeimage.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +100,7 @@
       <workItem from="1698390569432" duration="12491000" />
       <workItem from="1698615319299" duration="8077000" />
       <workItem from="1698656630163" duration="10010000" />
-      <workItem from="1698740362116" duration="9167000" />
+      <workItem from="1698740362116" duration="12437000" />
     </task>
     <servers />
   </component>

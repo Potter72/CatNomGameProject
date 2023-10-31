@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Changeimage : MonoBehaviour
 {
-    
     [Header("Food Items to Cycle Through")]
     public List<Sprite> foodSprite = new List<Sprite>();
 

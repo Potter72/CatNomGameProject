@@ -90,7 +90,6 @@ public class DemandUI : MonoBehaviour
 
     public void ReduceByOne(int index)
     {
-        Debug.Log(_amount[index]);
         _textBoxes[index].text = $"x{_amount[index]}";
     }
 
