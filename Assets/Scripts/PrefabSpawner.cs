@@ -75,16 +75,16 @@ namespace ProjectCatRoll.Elias
                         //create transform to spawn at
                         Vector3 spawnPos = new(
                             Random.Range(-_radius +this.transform.position.x, _radius + this.transform.position.x),
-                            0,
+                            transform.position.y,
                             Random.Range(-_radius + this.transform.position.z, _radius + this.transform.position.z)
                         );
 
                         //find y position
-                        RaycastHit hit;
-                        if (Physics.Raycast(spawnPos + Vector3.up * 100, Vector3.down, out hit))
-                        {
-                            spawnPos.y = hit.point.y;
-                        }
+                        // RaycastHit hit;
+                        // if (Physics.Raycast(spawnPos + Vector3.up * 100, Vector3.down, out hit))
+                        // {
+                        //     spawnPos.y = hit.point.y;
+                        // }
 
                         Quaternion spawnRotation = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
 

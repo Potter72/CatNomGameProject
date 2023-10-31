@@ -13,6 +13,7 @@ public class DemandUI : MonoBehaviour
     [SerializeField] private List<Vector2> _dimensions;
     [SerializeField] private List<Vector2> _slots;
 
+    private List<Image> _demandImages;
     private List<TextMeshProUGUI> _textBoxes;
     private List<int> _amount;
     
@@ -30,8 +31,8 @@ public class DemandUI : MonoBehaviour
         _camera = Camera.main;
 
         _screenSize = _camera.ViewportToScreenPoint(new Vector3(1, 1, 1));
+        _demandImages = new List<Image>();
         _textBoxes = new List<TextMeshProUGUI>();
-        Debug.Log(_screenSize);
     }
     
     private void FixedUpdate()
@@ -70,7 +71,7 @@ public class DemandUI : MonoBehaviour
     {
         SetDimensions(types.Count);
         _amount = amount;
-        //Debug.Log("Here");
+        Debug.Log(_amount[0]);
         
         for (int i = 0; i < types.Count; i++)
         {
@@ -82,14 +83,22 @@ public class DemandUI : MonoBehaviour
             newDemand.color = GetColor(types[i]);
             
             newText.text = $"x{amount[i]}";
+            _demandImages.Add(newDemand);
             _textBoxes.Add(newText);
         }
     }
 
     public void ReduceByOne(int index)
     {
-        _amount[index]--;
+        Debug.Log(_amount[index]);
         _textBoxes[index].text = $"x{_amount[index]}";
+    }
+
+    public void RemoveType(int index)
+    {
+        Destroy(_demandImages[index].gameObject);
+        _demandImages.RemoveAt(index);
+        _textBoxes.RemoveAt(index);
     }
     
     private Color GetColor(Item.ItemType type)
@@ -98,16 +107,16 @@ public class DemandUI : MonoBehaviour
 
         switch (type)
         {
-            case Item.ItemType.Corn:
+            case Item.ItemType.YellowShroom:
                 c = Color.yellow;
                 break;
-            case Item.ItemType.Fish:
-                c = Color.blue;
+            case Item.ItemType.Carrot:
+                c = new Color(1f, 0.5f, 0f);
                 break;
             case Item.ItemType.Ham:
                 c = Color.magenta;
                 break;
-            case Item.ItemType.Potato:
+            case Item.ItemType.RedShroom:
                 c = Color.red;
                 break;
             case Item.ItemType.Lettuce:

@@ -20,16 +20,14 @@ public class CatGod : MonoBehaviour
     
     [SerializeField] private DemandUI _demandUI;
     [SerializeField] private Transform _mouth;
-    [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField] private int _minDemand = 20;
-    [SerializeField] private int _maxDemand = 50;
 
     [SerializeField] private List<LevelInfo> _levels;
-    private int _currentLevel = 3;
+    private int _currentLevel = 0;
     
     private Plate _plate;
-    private List<Item.ItemType> _demand = new List<Item.ItemType>();
     private List<Item.ItemType> _types = new List<Item.ItemType>();
+    private List<Item.ItemType> _demand = new List<Item.ItemType>();
+    private List<int> _amount = new List<int>();
     
     private Vector3 _startPos;
 
@@ -45,14 +43,14 @@ public class CatGod : MonoBehaviour
             _types.Add((Item.ItemType)i);
         }
         
-        DemandMoreFood3();
+        DemandMoreFood();
     }
 
-    private void DemandMoreFood3()
+    private void DemandMoreFood()
     {
-        List<Item.ItemType> remainingTypes = _types;
-        List<Item.ItemType> demandedTypes = new List<Item.ItemType>();
-        List<int> amountOfItems = new List<int>();
+        List<Item.ItemType> remainingTypes = new(_types);
+        List<Item.ItemType> demandedTypes = new();
+        List<int> amountOfItems = new();
 
         for (int i = 0; i < _levels[_currentLevel].TypeVariety; i++)
         {
@@ -69,9 +67,85 @@ public class CatGod : MonoBehaviour
         }
 
         _demand = demandedTypes;
+        _amount = amountOfItems;
         
         _demandUI.SetDemand(demandedTypes, amountOfItems);
     }
+    
+    public void UpdateFood(Item.ItemType foodType)
+    {
+        if (!_demand.Contains(foodType)) return;
+        
+        int index = _demand.IndexOf(foodType);
+        _amount[index]--;
+        _demandUI.ReduceByOne(index);
+
+        if (_amount[index] > 0) return;
+        
+        _demand.RemoveAt(index);
+        _amount.RemoveAt(index);
+        _demandUI.RemoveType(index);
+
+        if (_demand.Count > 0) return;
+        
+        FinishRequest();
+    }
+
+    #region Finish
+    public void FinishRequest()
+    {
+        if (--_levels[_currentLevel].ClearsRequired == 0)
+        {            
+            _currentLevel++;
+        }
+        
+        DemandMoreFood();
+    }
+    
+    public void Feed(List<Item> items)
+    {
+        // if(InspectFood(items))
+        // {
+        //     if(DebugTracker.Instance.DebugOn)
+        //     {
+        //         //Debug.Log("AAAA");
+        //     }
+        //
+        //     foreach (Item i in items)
+        //     {
+        //         Vector3 rp = _plate.transform.position + new Vector3(0, 1, 0) * 8f + Random.insideUnitSphere * 3f;
+        //         i.SendToMouth(_mouth, rp);
+        //     }
+        //     
+        //     // Old feeding routine;
+        //     // StartCoroutine(Consume());
+        // }
+    }
+#endregion
+    
+    private bool InspectFood(List<Item> items)
+    {
+        List<Item.ItemType> tempList = _demand;
+
+        foreach(Item item in items)
+        {
+            if(!tempList.Contains(item.FoodType))
+            {
+                continue;
+            }
+
+            int index = tempList.IndexOf(item.FoodType);
+            tempList.RemoveAt(index);
+
+            if(tempList.Count == 0)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     
     // private void DemandMoreFood2()
     // {
@@ -133,93 +207,42 @@ public class CatGod : MonoBehaviour
     //     //    Debug.Log($"I demand {wordOfGod}");
     //     //}
     // }
-
-    public void UpdateFood(Item.ItemType foodType)
-    {
-        if (_demand.Contains(foodType))
-        {
-            _demandUI.ReduceByOne(_demand.IndexOf(foodType));
-        }
-    }
     
-    public void Feed(List<Item> items)
-    {
-        if(InspectFood(items))
-        {
-            if(DebugTracker.Instance.DebugOn)
-            {
-                //Debug.Log("AAAA");
-            }
-
-            foreach (Item i in items)
-            {
-                Vector3 rp = _plate.transform.position + new Vector3(0, 1, 0) * 8f + Random.insideUnitSphere * 3f;
-                i.SendToMouth(_mouth, rp);
-            }
-            
-            // Old feeding routine;
-            // StartCoroutine(Consume());
-        }
-    }
-
-    private bool InspectFood(List<Item> items)
-    {
-        List<Item.ItemType> tempList = _demand;
-
-        foreach(Item item in items)
-        {
-            if(!tempList.Contains(item.FoodType))
-            {
-                continue;
-            }
-
-            int index = tempList.IndexOf(item.FoodType);
-            tempList.RemoveAt(index);
-
-            if(tempList.Count == 0)
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    IEnumerator Consume()
-    {
-        float timer = 0f;
-
-        while(timer < 1f)
-        {
-            timer += 0.02f;
-            transform.position = Vector3.Lerp(_startPos, _plate.transform.position, timer);
-
-            yield return new WaitForSeconds(0.02f);
-        }
-
-        timer = 0f;
-        _plate.RemoveAllItems();
-
-        if(DebugTracker.Instance.DebugOn)
-        {
-            Debug.Log("NOM NOM NOM NOM NOM");
-        }
-
-        for (int i = 0; i < 5; i++)
-        {
-            _size += _demand.Count / 5;
-            Debug.Log(_size);
-            yield return new WaitForSeconds(0.1f);
-        }
-
-        while (timer < 1f)
-        {
-            timer += 0.02f;
-            transform.position = Vector3.Lerp(_plate.transform.position, _startPos, timer);
-
-            yield return new WaitForSeconds(0.02f);
-        }
-
-        DemandMoreFood3();
-    }
+    // IEnumerator Consume()
+    // {
+    //     float timer = 0f;
+    //
+    //     while(timer < 1f)
+    //     {
+    //         timer += 0.02f;
+    //         transform.position = Vector3.Lerp(_startPos, _plate.transform.position, timer);
+    //
+    //         yield return new WaitForSeconds(0.02f);
+    //     }
+    //
+    //     timer = 0f;
+    //     _plate.RemoveAllItems();
+    //
+    //     if(DebugTracker.Instance.DebugOn)
+    //     {
+    //         Debug.Log("NOM NOM NOM NOM NOM");
+    //     }
+    //
+    //     for (int i = 0; i < 5; i++)
+    //     {
+    //         _size += _demand.Count / 5;
+    //         Debug.Log(_size);
+    //         yield return new WaitForSeconds(0.1f);
+    //     }
+    //
+    //     while (timer < 1f)
+    //     {
+    //         timer += 0.02f;
+    //         transform.position = Vector3.Lerp(_plate.transform.position, _startPos, timer);
+    //
+    //         yield return new WaitForSeconds(0.02f);
+    //     }
+    //
+    //     DemandMoreFood();
+    // }
 }

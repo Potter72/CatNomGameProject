@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _travelSpeed: 0.02
-  FoodType: 0
+  FoodType: 3
 --- !u!135 &7491812167273973664
 SphereCollider:
   m_ObjectHideFlags: 0

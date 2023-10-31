@@ -25,18 +25,16 @@ public class Item : MonoBehaviour
 
     public enum ItemType
     {
-        Fish,
+        Carrot,
         Ham, 
-        Potato,
-        Corn,
+        RedShroom,
+        YellowShroom,
         Lettuce
     }
 
     private void Awake()
     {
-        RandomizeItemType();
         _waitForSeconds = new WaitForSeconds(0.02f);
-
     }
 
     public void AddBall(Ball ball)

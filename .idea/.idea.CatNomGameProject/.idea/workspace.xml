@@ -6,13 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EliasTesting/Mushroom 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EliasTesting/Mushroom 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EliasTesting/Mushroom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EliasTesting/Mushroom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EliasTesting/TestBox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EliasTesting/TestBox.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EliasTesting/TestCylinder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EliasTesting/TestCylinder.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Prototype/PrototypeWeek2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Prototype/PrototypeWeek2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ball/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ball/Item.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CatGod/CatGod.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CatGod/CatGod.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DemandUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DemandUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShadersEffects/YarnBall.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShadersEffects/YarnBall.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PrefabSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PrefabSpawner.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,27 +36,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Danny",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Danny&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\danny.bui\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\danny.bui\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\danny.bui\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\danny.bui\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\danny.bui\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\danny.bui\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2023.1.13f1\Editor\Unity.exe" />
@@ -104,6 +106,7 @@
       <workItem from="1698390569432" duration="12491000" />
       <workItem from="1698615319299" duration="8077000" />
       <workItem from="1698656630163" duration="10010000" />
+      <workItem from="1698740362116" duration="9167000" />
     </task>
     <servers />
   </component>
