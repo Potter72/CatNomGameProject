@@ -47,9 +47,9 @@ Material:
     - _Float: 0
     - _NormalThreshold: 0.78
     - _NormalVectorThreshold: 2.7
-    - _NormalWeight: 0.57
+    - _NormalWeight: 0.67
     - _OVERLAY: 1
-    - _Thickness: 0.62
+    - _Thickness: 0.5
     m_Colors:
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
