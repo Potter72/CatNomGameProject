@@ -34,7 +34,7 @@ public class Item : MonoBehaviour
 
     private void Awake()
     {
-        _waitForSeconds = new WaitForSeconds(0.02f);
+        _waitForSeconds = new WaitForSeconds(0.01f);
     }
 
     public void AddBall(Ball ball)
@@ -129,7 +129,7 @@ public class Item : MonoBehaviour
         
         while (timer < 1f)
         {
-            timer += 0.02f;
+            timer += 0.04f;
 
             transform.position = Vector3.Lerp(_randomPos, _mouth.position, timer);
 

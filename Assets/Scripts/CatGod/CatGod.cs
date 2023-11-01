@@ -39,7 +39,6 @@ public class CatGod : MonoBehaviour
     void Awake()
     {
         _size = transform.localScale.x;
-        DemandMoreFood();
         _startPos = transform.position;
         _plate = GameManager.Instance.GetPlate();
         
