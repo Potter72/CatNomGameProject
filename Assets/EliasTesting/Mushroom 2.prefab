@@ -77,6 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effc2b0c236997e4e81814288285c25f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 6425886866818012328}
+  _decalProjector: {fileID: 8863526467900249750}
   _travelSpeed: 0.02
   FoodType: 2
 --- !u!135 &7491812167273973664

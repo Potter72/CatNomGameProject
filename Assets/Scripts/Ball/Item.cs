@@ -1,13 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Rendering;
 
 public class Item : MonoBehaviour
 {
+    [SerializeField] private Collider _collider;
+    [SerializeField] private GameObject _decalProjector;
     [SerializeField][Range(0.0f, 1.0f)] private float _travelSpeed = 0.02f;
     
     public ItemType FoodType;
@@ -45,6 +42,12 @@ public class Item : MonoBehaviour
     public void RemoveItem()
     {
         _ball.RemoveItem(this);
+    }
+
+    public void EnableItem()
+    {
+        _collider.enabled = true;
+        _decalProjector.SetActive(true);
     }
     
     public void RandomizeItemType()

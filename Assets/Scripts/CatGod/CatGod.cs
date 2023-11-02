@@ -115,7 +115,7 @@ public class CatGod : MonoBehaviour
     
     public void Feed(List<Item> items)
     {
-        if (_demand.Count > 0) return;
+        if (_demand.Count > 0) return;  
 
         foreach (Item i in items)
         {

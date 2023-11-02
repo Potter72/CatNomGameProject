@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effc2b0c236997e4e81814288285c25f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 4215195528578727790}
+  _decalProjector: {fileID: 2969210128610000582}
   _travelSpeed: 0.02
   FoodType: 0
 --- !u!54 &6332056052156911320
@@ -253,6 +255,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 933dac6aa1526d84bb5667e547355999, type: 3}
+--- !u!1 &2969210128610000582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3840781449969004768, guid: 933dac6aa1526d84bb5667e547355999, type: 3}
+  m_PrefabInstance: {fileID: 2051937737921367590}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5176796143835740524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6606321239926863690, guid: 933dac6aa1526d84bb5667e547355999, type: 3}
