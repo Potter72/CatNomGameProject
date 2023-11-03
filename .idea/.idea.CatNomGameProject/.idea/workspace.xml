@@ -6,16 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EliasTesting/CabbagePrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EliasTesting/CabbagePrefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EliasTesting/CarrotPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EliasTesting/CarrotPrefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EliasTesting/Mushroom 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EliasTesting/Mushroom 2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EliasTesting/Mushroom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EliasTesting/Mushroom.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EliasTesting/TestCylinder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EliasTesting/TestCylinder.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/Agents/Snake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/Agents/Snake.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ball/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ball/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BallScripts/BallCatOnTop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BallScripts/BallCatOnTop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CatGod/CatGod.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CatGod/CatGod.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout/NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout/NavMesh.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout/NavMesh.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Carrot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Carrot.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DemandUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DemandUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ShadersEffects/YarnBall.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShadersEffects/YarnBall.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Assets/Main Menu/Game Title.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI Assets/Main Menu/Game Title.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Assets/Main Menu/Main Menu.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI Assets/Main Menu/Main Menu.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +42,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Danny",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,9 +53,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\danny\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\danny\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\danny\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\danny.bui\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\danny.bui\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\danny.bui\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -112,6 +111,7 @@
       <workItem from="1698740362116" duration="12437000" />
       <workItem from="1698824725384" duration="2031000" />
       <workItem from="1698914826333" duration="7680000" />
+      <workItem from="1699002684811" duration="1841000" />
     </task>
     <servers />
   </component>
