@@ -46,14 +46,14 @@ Material:
     - _DisplaceThreshold: 0.324
     - _LenghtMin: 1.38
     - _PlayerDisplacement: 10
-    - _PlayerDisplacementAmplitude: 2.52
+    - _PlayerDisplacementAmplitude: 4.07
     - _QueueControl: 0
     - _QueueOffset: 0
     - _VerticalDisplacement: 0.9
     - _VerticalPower: -0.16
     m_Colors:
     - _Color: {r: 0.8784314, g: 0.762233, b: 0.0862745, a: 0}
-    - _PlayerPosition: {r: 77.5053, g: 30.730206, b: -76.12931, a: 0}
+    - _PlayerPosition: {r: 94.246574, g: 17.170803, b: -26.718601, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1070236643986878256
 MonoBehaviour:
