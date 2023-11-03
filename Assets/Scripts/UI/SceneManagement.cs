@@ -7,6 +7,11 @@ public class SceneManagement : MonoBehaviour
 {
     [SerializeField] private string scene;
 
+    public void SwitchToGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+    
     public void SwitchScene ()
     {
         SceneManager.LoadScene(scene);
