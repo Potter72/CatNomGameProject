@@ -43,7 +43,7 @@ Material:
     m_Floats:
     - _Amplitude: 0.021
     - _Clip: 0.73
-    - _ColorIntensity: 1.28
+    - _ColorIntensity: 0.77
     - _NoiseScale: 9
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -51,7 +51,7 @@ Material:
     - _SwayDisplaceAmplitude: 0.06
     - _SwayDisplaceSpeed: 1.8
     m_Colors:
-    - _Color: {r: 1, g: 0.43254256, b: 0.19339621, a: 1}
+    - _Color: {r: 1, g: 0.43716478, b: 0.023584902, a: 1}
     - _SwayDisplaceVector: {r: 1, g: 0, b: 0.6, a: 0}
     - _WindDisplace: {r: 1.4, g: 0.4, b: 1, a: 0}
   m_BuildTextureStacks: []

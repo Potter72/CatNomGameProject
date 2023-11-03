@@ -112,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 279624815190846513}
   - component: {fileID: 6425886866818012328}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InnerTrigger
   m_TagString: Food
   m_Icon: {fileID: 0}
