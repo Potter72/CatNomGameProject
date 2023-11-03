@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using UnityEngine.VFX;
 
 public class BallWetController : MonoBehaviour
@@ -65,5 +66,15 @@ public class BallWetController : MonoBehaviour
         {
             material.SetFloat("_WaterAmount", 0);
         }
+
+
+        /*
+        if(material.GetFloat("_WaterAmount") >= 1)
+        {
+            for (int i = 0; i < length; i++)
+            {
+
+            }
+        } */
     }
 }

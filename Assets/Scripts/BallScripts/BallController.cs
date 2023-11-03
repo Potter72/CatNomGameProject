@@ -11,6 +11,7 @@ public class BallController : MonoBehaviour
 
     public bool isMoving;
     [SerializeField] BallVFXController vfxController;
+    [SerializeField] Animator playerAnimator;
 
     [SerializeField] float movementForceMultiplier = 4;
     [SerializeField] float maxHorizontalMoveSpeed = 3;
@@ -34,8 +35,11 @@ public class BallController : MonoBehaviour
     [SerializeField] float moveJoystickWidth = 13f;
 
     public Vector3 movementVector;  //is public because used for rotating the player
+    [SerializeField] float standStillSpeed = 0.5f;
     public bool isGrounded;
     bool isInCutscene;
+
+    private Vector3 oldPos; //for rotating the player
 
     private void OnEnable()
     {
@@ -113,17 +117,35 @@ public class BallController : MonoBehaviour
         {
             heighestPoint = transform.position.y;
         }
+
         MovementPhysics();
 
     }
 
     private void MovementPhysics()
     {
-        if (!isMoving || isInCutscene) 
+        if (!isMoving || isInCutscene) //movement stuff for when not inputing
         {
             moveJoystick.SetActive(false);
+            playerAnimator.SetBool("Running", false);
+
+            Vector3 moveDirection = playerRigidbody.velocity;
+            moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z);
+
+            if (moveDirection.magnitude > standStillSpeed)
+            {
+                playerAnimator.SetBool("Walking", true);
+                moveJoystick.transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.right) * Quaternion.Euler(0, 90, 0);
+            }
+            else
+            {
+                playerAnimator.SetBool("Walking", false);
+            }
+            
             return; 
         }
+
+        playerAnimator.SetBool("Running", true);
 
         Vector2 currentVelocity = new Vector2(playerRigidbody.velocity.x, playerRigidbody.velocity.z);
 

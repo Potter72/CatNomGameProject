@@ -89,7 +89,9 @@ public class Snake : BTAgent
         _heldItem = _itemList[Random.Range(0, _itemList.Count)];
         _itemList.Remove(_heldItem);
         _heldItem.transform.position = transform.position + new Vector3(0f, 0f, 1f) * 2f;
+        GameObject oldParent = _heldItem.transform.parent.gameObject;
         _heldItem.transform.SetParent(this.transform, true);
+        Destroy(oldParent);
 
         return Node.Status.SUCCESS;
     }
