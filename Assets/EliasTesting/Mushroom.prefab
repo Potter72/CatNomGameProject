@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.02, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 279624815190846513}
   - {fileID: 4061822873261360151}
@@ -77,8 +77,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effc2b0c236997e4e81814288285c25f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 6425886866818012328}
+  _decalProjector: {fileID: 8417592234826105467}
   _travelSpeed: 0.02
-  FoodType: 2
+  FoodType: 3
 --- !u!135 &7491812167273973664
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -330,5 +332,10 @@ PrefabInstance:
 --- !u!4 &1887614905119344081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6606321239926863690, guid: 933dac6aa1526d84bb5667e547355999, type: 3}
+  m_PrefabInstance: {fileID: 4727787759822598811}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8417592234826105467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3840781449969004768, guid: 933dac6aa1526d84bb5667e547355999, type: 3}
   m_PrefabInstance: {fileID: 4727787759822598811}
   m_PrefabAsset: {fileID: 0}

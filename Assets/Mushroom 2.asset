@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec96615ad4c258d4caaf85a7e677ffb5, type: 3}
   m_Name: Mushroom 2
   m_EditorClassIdentifier: 
-  SpawnRate: 60
+  SpawnRate: 40
   Prefab: {fileID: 880747499592169603, guid: 735a7f4fed7ece74ea374bdfadf63b9b, type: 3}

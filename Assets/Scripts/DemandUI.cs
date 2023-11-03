@@ -173,7 +173,7 @@ public class DemandUI : MonoBehaviour
             //     _image.rectTransform.sizeDelta = _dimensions[3];
             //     break;
             default:
-                _image.rectTransform.sizeDelta = _dimensions[3];
+                _image.rectTransform.sizeDelta = _dimensions[0];
                 break;
         }
 

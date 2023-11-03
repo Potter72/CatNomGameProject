@@ -1,11 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Random = UnityEngine.Random;
+using System.Collections.Generic;
+using System.Collections;
 using System.Threading;
 using UnityEngine;
+using System;
 using TMPro;
-using Random = UnityEngine.Random;
 
 public class CatGod : MonoBehaviour
 {
@@ -29,13 +29,16 @@ public class CatGod : MonoBehaviour
     private List<Item.ItemType> _types = new List<Item.ItemType>();
     private List<Item.ItemType> _demand = new List<Item.ItemType>();
     private List<int> _amount = new List<int>();
+    [SerializeField] private TextMeshProUGUI _text;
+
     
     private Vector3 _startPos;
-
     private float _size;
 
-    void Start()
+
+    void Awake()
     {
+        _size = transform.localScale.x;
         _startPos = transform.position;
         _plate = GameManager.Instance.GetPlate();
         
@@ -112,7 +115,7 @@ public class CatGod : MonoBehaviour
     
     public void Feed(List<Item> items)
     {
-        if (_demand.Count > 0) return;
+        if (_demand.Count > 0) return;  
 
         foreach (Item i in items)
         {

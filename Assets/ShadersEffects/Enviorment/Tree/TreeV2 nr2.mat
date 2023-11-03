@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 5e0fbf84a3ca0b140956568758bbeea8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 78e9efb160541be4382cc4c2de97acdd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -51,7 +51,7 @@ Material:
     - _SwayDisplaceAmplitude: 0.06
     - _SwayDisplaceSpeed: 1.8
     m_Colors:
-    - _Color: {r: 1, g: 0.6746309, b: 0.21226418, a: 1}
+    - _Color: {r: 1, g: 0.43254256, b: 0.19339621, a: 1}
     - _SwayDisplaceVector: {r: 1, g: 0, b: 0.6, a: 0}
     - _WindDisplace: {r: 1.4, g: 0.4, b: 1, a: 0}
   m_BuildTextureStacks: []

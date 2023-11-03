@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Prototype/PrototypeWeek2.unity
-    guid: 9b2a0be375179444982e19fc7dc1f24e
+    path: Assets/Jonathan/Maps/JonathanBlockout.unity
+    guid: 6db31443cc69d4941af32cdd27fb8168
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
