@@ -75,11 +75,15 @@ Material:
     - _QueueOffset: 0
     - _ShadowDarkenValue: 0.506
     - _Triangulize_Value: -4.59
+    - _WaterAmount: 0
+    - _WaterAmpltiude: 0.176
+    - _WaterNoiseScale: 15
     - _WobbleThreshold: 0.416
     - _Wobble_Amount: 0.13
     - _Wobble_Speed: 0.53
     m_Colors:
     - _Main_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Shadow_Color: {r: 0.4528302, g: 0.1127908, b: 0.06194377, a: 1}
+    - _WaterColor: {r: 0.1701977, g: 0.1264685, b: 0.9245283, a: 0}
     - _fsg: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

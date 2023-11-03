@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Water Puddle
+  m_Shader: {fileID: -6465566751694194690, guid: 3d5a9f8c21d4d2445a176847416f83fe, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _FlowMap:
+        m_Texture: {fileID: 2800000, guid: 6d39cb0d5629f8642a53315514c5c906, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowMapBlur_9d0b96fc814d44aa97480f0fc88908ad_FlowMap_2114535321_Texture2D:
+        m_Texture: {fileID: 2800000, guid: b59582a94075d064388c977bd37ab831, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 2800000, guid: a8e2360e8339dd14da53eb7d1f66f1e3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_067822977f774a92a269ddb6ddd2bc26_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 2dbaec834cb37e841830c4b36b2e38bb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_a6599c4316b24e568edcc47c860e7099_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 2dbaec834cb37e841830c4b36b2e38bb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ActivateNormalMap: 1
+    - _Alpha: 1
+    - _Base_Color_Intensity: 1.76
+    - _Debug: 1.54
+    - _Debug2: -0.14
+    - _DepthAlphaMultiplier: 0.36
+    - _Float: 0.85
+    - _FlowMapBlurAmount: 0.098
+    - _FlowMapIntensity: 1.61
+    - _FlowMapOutputStep: 0.666
+    - _FlowMapOutputStep_1: 1
+    - _FlowMapSubtractAmplitude: -0.5
+    - _Intensity: 0
+    - _IntersectionDepth: 0.07
+    - _IntersectionStrenght: 1.79
+    - _IntersectionThickness: 0.27
+    - _Intersection_Noise_Amplitude: 1.36
+    - _Intersection_Noise_Scale: 50
+    - _Intersection_Noise_Speed: 0.016
+    - _MainTexBlurAmount: 0
+    - _MainTextureLOD: -10.4
+    - _ManualTimer: 1.023
+    - _Max: 1
+    - _Min: 0
+    - _MinAlpha: 0.462
+    - _Multiply: 3
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReplaceFuzziness: 0.187
+    - _ReplaceRange: 0.609
+    - _Speed: 0.245
+    - _Step: 20.27
+    - _StepAdjuster: 1
+    - _StepAdjusterAmplitude: 0.207
+    - _StepAdjusterThreshold: 0
+    - _Uv_World_Coordinate_Scaling: 150
+    - _WarbleAmplitude: 0.026
+    - _WarbleScale: 10
+    - _WarbleSpeed: 0.076
+    m_Colors:
+    - _BaseColor: {r: 0.21266466, g: 0.43761948, b: 0.5566038, a: 0}
+    - _EdgeColor: {r: 1, g: 1, b: 1, a: 0}
+    - _FlowMapTiling: {r: 1, g: 1, b: 0, a: 0}
+    - _MainTextureTiling: {r: 20, g: 20, b: 0, a: 0}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!114 &1762953820826297727
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
