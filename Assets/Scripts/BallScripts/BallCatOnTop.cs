@@ -36,8 +36,7 @@ public class BallCatOnTop : MonoBehaviour
         float finalSine = (sine1 + sine2 + sine3) * sineAmplitude;
 
         //rotating the player
-        catTransform.rotation = Quaternion.LookRotation(ballController.movementVector);
-
+        if(ballController.movementVector != Vector3.zero) catTransform.rotation = Quaternion.LookRotation(ballController.movementVector);
 
         catTransform.position = startPos + Vector3.down * verticalDistance * Mathf.Pow(ballPickupFood.ballDisplacement,displaceAdjustment2);
     }

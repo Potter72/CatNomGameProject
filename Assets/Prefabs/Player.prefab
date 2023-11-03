@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 3498275640739812608}
   - component: {fileID: 3704518379112290570}
   - component: {fileID: 622196493711929653}
+  - component: {fileID: 172696121501308269}
+  - component: {fileID: 3648816284114717261}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -264,3 +266,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sendDelay: 0.3
+--- !u!114 &172696121501308269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8796474890404457205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f902fdfe95059f74381b8ced641fafe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dripWhenWet: 0
+  material: {fileID: 0}
+  drySpeed: 0.003
+  dripVFX: {fileID: 0}
+  dripSpeed: 24
+--- !u!114 &3648816284114717261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8796474890404457205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6912f878b869576429ecd817a68531c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableGrassMaterial: {fileID: 2100000, guid: 4bdae8733124de3479c392f3689f3efc, type: 2}
