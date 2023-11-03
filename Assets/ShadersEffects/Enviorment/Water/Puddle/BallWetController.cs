@@ -10,7 +10,11 @@ public class BallWetController : MonoBehaviour
     [SerializeField] Material material;
     [SerializeField] float drySpeed;
     [SerializeField] VisualEffect dripVFX;
+    [SerializeField] BallPickupFood ballPickuper;
     [SerializeField] float dripSpeed = 24;
+
+    //removing food
+    [SerializeField] float removeForce = 2;
     private bool isInWater;
     private void Start()
     {
@@ -65,16 +69,24 @@ public class BallWetController : MonoBehaviour
         else if(!isInWater)
         {
             material.SetFloat("_WaterAmount", 0);
+            ballPickuper.canPickUp = true;
         }
 
 
-        /*
+        
         if(material.GetFloat("_WaterAmount") >= 1)
         {
-            for (int i = 0; i < length; i++)
+            ballPickuper.canPickUp = false;
+            for (int i = 0; i < transform.childCount; i++)
             {
 
+                GameObject foodObject = transform.GetChild(i).GetChild(0).gameObject;
+                foodObject.transform.parent = null;
+
+                foodObject.GetComponent<Rigidbody>().AddForce((foodObject.transform.position - transform.position) * removeForce, ForceMode.Impulse);
+
+                Destroy(transform.GetChild(i).gameObject);
             }
-        } */
+        }
     }
 }

@@ -19,6 +19,7 @@ public class BallPickupFood : MonoBehaviour
     [SerializeField] SphereCollider bumbCollider;
     [SerializeField] float bumpDepth = 0.5f;
     [SerializeField] float bumpRadius = 1f;
+    public bool canPickUp = true;
     
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class BallPickupFood : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Food"))
+        if (other.gameObject.CompareTag("Food") && canPickUp)
         {
             GameObject parent = other.transform.parent.gameObject;
             parent.GetComponent<Collider>().enabled = false;
