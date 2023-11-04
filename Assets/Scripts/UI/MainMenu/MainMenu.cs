@@ -17,4 +17,9 @@ public class MainMenu : MonoBehaviour
     {
         _settingsMenu.SetActive(true);
     }
+
+    public void CloseSettings()
+    {
+        _settingsMenu.SetActive(false);
+    }
 }
