@@ -17,11 +17,12 @@ public class OnOffButton : MonoBehaviour
     [SerializeField] private Sprite _buttonOff;
     private Image _onOffButton;
 
-    private bool _off = false;
+    [SerializeField] private bool _off = false;
     
     private void Awake()
     {
         _onOffButton = GetComponent<Image>();
+        ChangeStatus();
     }
 
     public void ChangeStatus()
