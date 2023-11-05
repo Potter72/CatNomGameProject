@@ -10,6 +10,7 @@ public class LoadingScreen : MonoBehaviour
     [SerializeField] private Image _pie;
     [SerializeField] private Image _loadingBack;
     [SerializeField] private Image _loadingFront;
+    [SerializeField] private Animator _fader;
 
     private AsyncOperation _asyncLoad;
     
@@ -48,14 +49,31 @@ public class LoadingScreen : MonoBehaviour
     IEnumerator LoadGame()
     {
         _asyncLoad = SceneManager.LoadSceneAsync(1);
-
+        _asyncLoad.allowSceneActivation = false;
+        
         while (!_asyncLoad.isDone)
         {
             _loadingFront.fillAmount = _asyncLoad.progress;
-
             yield return new WaitForSeconds(0.01f);
+            
+            if (_asyncLoad.progress >= 0.9f)
+            {
+                _loadingFront.fillAmount = _asyncLoad.progress;
+                StartCoroutine(FadeToBlack());
+            }
         }
-
-        _loadingFront.fillAmount = _asyncLoad.progress;
     }
+
+    IEnumerator FadeToBlack()
+    {
+        float timer = 0f;
+
+        _fader.SetTrigger("Fade");
+
+        yield return new WaitForSeconds(1f);
+        
+        _asyncLoad.allowSceneActivation = true;
+    }
+
+    
 }

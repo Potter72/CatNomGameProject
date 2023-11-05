@@ -9,10 +9,6 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LoadingScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LoadingScreen.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ShadersEffects/Enviorment/Grass/Grass.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShadersEffects/Enviorment/Grass/Grass.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Assets/Loading Screen/Loading Bar Back.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI Assets/Loading Screen/Loading Bar Back.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Assets/Loading Screen/Loading Bar Front.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI Assets/Loading Screen/Loading Bar Front.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Assets/Loading Screen/Loading Screen.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI Assets/Loading Screen/Loading Screen.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Assets/Loading Screen/pie.gif.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI Assets/Loading Screen/pie.gif.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +111,7 @@
       <workItem from="1698914826333" duration="7680000" />
       <workItem from="1699002684811" duration="4932000" />
       <workItem from="1699039116492" duration="2092000" />
-      <workItem from="1699093557090" duration="13053000" />
+      <workItem from="1699093557090" duration="16542000" />
     </task>
     <servers />
   </component>
