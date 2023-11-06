@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
-        Application.targetFrameRate = 60;
+        //Application.targetFrameRate = 60;
 
         _player = GameObject.FindFirstObjectByType<Ball>();
         _itemList = GetComponent<ItemList>();
