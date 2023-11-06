@@ -174,12 +174,11 @@ public class DemandUI : MonoBehaviour
     {
         Vector3 screenPoint = _camera.WorldToScreenPoint(_catGod.position);
 
-        if (screenPoint.x < _uiHalfWidth || screenPoint.x > _screenSize.x - _uiHalfWidth || screenPoint.y < _uiHalfHeight || screenPoint.y > _screenSize.y - _uiHalfHeight)
+        if (screenPoint.x < -_uiHalfWidth || screenPoint.x > _screenSize.x + _uiHalfWidth || screenPoint.y < -_uiHalfHeight || screenPoint.y > _screenSize.y + _uiHalfHeight)
         {
             if (!_outside)
             {
                 _outside = true;
-                // _image.color = Color.grey;
                 SetToStaticUI();
             }
         }
@@ -188,13 +187,12 @@ public class DemandUI : MonoBehaviour
             if (_outside)
             {
                 _outside = false;
-                // _image.color = Color.white;
                 SetToDynamicUI();
             }
         }
         
-        screenPoint.x = Mathf.Clamp(screenPoint.x, _uiHalfWidth, _screenSize.x - _uiHalfWidth);
-        screenPoint.y = Mathf.Clamp(screenPoint.y, _uiHalfHeight, _screenSize.y - _uiHalfHeight);
+        // screenPoint.x = Mathf.Clamp(screenPoint.x, _uiHalfWidth, _screenSize.x - _uiHalfWidth);
+        // screenPoint.y = Mathf.Clamp(screenPoint.y, _uiHalfHeight, _screenSize.y - _uiHalfHeight);
 
         _image.rectTransform.position = screenPoint;
     }

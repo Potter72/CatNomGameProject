@@ -7,9 +7,6 @@
     <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/TextBounce.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/TextBounce.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/TextBounce.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/TextBounce.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CatGod/CatGod.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CatGod/CatGod.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/DemandUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/DemandUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ShadersEffects/Enviorment/Grass/Grass.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShadersEffects/Enviorment/Grass/Grass.mat" afterDir="false" />
     </list>
@@ -26,6 +23,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Environmental/RandomItemSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Fader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/FontChanger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Mood.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Settings/SettingsPanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Editor/TMP_PreBuildProcessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_FontAsset.cs" root0="FORCE_HIGHLIGHTING" />
