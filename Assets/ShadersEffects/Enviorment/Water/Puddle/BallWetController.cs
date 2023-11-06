@@ -11,7 +11,10 @@ public class BallWetController : MonoBehaviour
     [SerializeField] float drySpeed;
     [SerializeField] VisualEffect dripVFX;
     [SerializeField] BallPickupFood ballPickuper;
+    [SerializeField] BallMagnet ballFoodMagnet;
+    private float ballMagnetStartForce;
     [SerializeField] float dripSpeed = 24;
+    private bool isFullWet = false;
 
     //removing food
     [SerializeField] float removeForce = 2;
@@ -21,6 +24,7 @@ public class BallWetController : MonoBehaviour
         if (material == null) material = GetComponent<Renderer>().material;
         if (dripVFX == null) dripVFX = GameObject.Find("PlayerWaterDropVFX").GetComponent<VisualEffect>();
         if(!dripWhenWet) { dripVFX.SetFloat("SpawnRate", 0); }
+        if (ballFoodMagnet) ballMagnetStartForce = ballFoodMagnet.pullForce;
     }
     private void OnTriggerStay(Collider other)
     {
@@ -60,33 +64,52 @@ public class BallWetController : MonoBehaviour
             }
         }
 
-        if (!isInWater && material.GetFloat("_WaterAmount") > 0) 
+        if (!isInWater && isFullWet)
         {
-            float oldWetness = material.GetFloat("_WaterAmount");
-            oldWetness -= drySpeed;
-            material.SetFloat("_WaterAmount", oldWetness);
-        }
-        else if(!isInWater)
-        {
-            material.SetFloat("_WaterAmount", 0);
-            ballPickuper.canPickUp = true;
-        }
-
-
-        
-        if(material.GetFloat("_WaterAmount") >= 1)
-        {
-            ballPickuper.canPickUp = false;
-            for (int i = 0; i < transform.childCount; i++)
+            if(material.GetFloat("_WaterAmount") > 0)
             {
-
-                GameObject foodObject = transform.GetChild(i).GetChild(0).gameObject;
-                foodObject.transform.parent = null;
-
-                foodObject.GetComponent<Rigidbody>().AddForce((foodObject.transform.position - transform.position) * removeForce, ForceMode.Impulse);
-
-                Destroy(transform.GetChild(i).gameObject);
+                float oldWetness = material.GetFloat("_WaterAmount");
+                oldWetness -= drySpeed;
+                material.SetFloat("_WaterAmount", oldWetness);
+            }
+            else //starting pickup again
+            {
+                material.SetFloat("_WaterAmount", 0);
+                Debug.Log("canpickup");
+                ballPickuper.canPickUp = true;
+                ballFoodMagnet.pullForce = ballMagnetStartForce;
+                isFullWet = false;
             }
         }
+  
+
+
+        //removing food whenn full wet
+        if (isInWater)
+        {
+            if (material.GetFloat("_WaterAmount") >= 1)
+            {
+                ballPickuper.canPickUp = false;
+                for (int i = 0; i < transform.childCount; i++)
+                {
+
+                    GameObject foodObject = transform.GetChild(i).GetChild(0).gameObject;
+                    foodObject.transform.Find("FoodDecal").gameObject.SetActive(true);
+                    ballPickuper.food.Remove(foodObject);
+                    foodObject.transform.parent = null;
+                    foodObject.AddComponent<Rigidbody>();
+                    foodObject.GetComponent<Collider>().enabled = true;
+                    foodObject.GetComponentInChildren<Collider>().enabled = true;
+                    foodObject.GetComponent<Rigidbody>().AddForce((foodObject.transform.position - transform.position) * removeForce, ForceMode.Impulse);
+
+                    ballFoodMagnet.pullForce = 0;
+
+                    Destroy(transform.GetChild(i).gameObject);
+
+                    isFullWet = true;
+                }
+            }
+        }
+       
     }
 }

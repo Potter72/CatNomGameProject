@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Grass
-  m_Shader: {fileID: -6465566751694194690, guid: 21324c78a44899b4aa9d9c1f5eb54a9d, type: 3}
+  m_Name: Fire
+  m_Shader: {fileID: -6465566751694194690, guid: 1bb4dcea61fda4b4e814e52af0d14889, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -23,8 +23,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 24e394230975b6c4ba0c548f18c0eddb, type: 3}
+    - _SampleTexture2D_db11017bc8574637ac3f4e64892468ec_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 5cfab542e20d39d409ec87fa7f15bb18, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -41,21 +41,21 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Color_Intensity_Divider: 2.64
-    - _Debug: 41.76
-    - _DisplaceThreshold: 0.324
-    - _LenghtMin: 1.38
-    - _PlayerDisplacement: 10
-    - _PlayerDisplacementAmplitude: 4.07
+    - _AlphaClip: 0.105
+    - _Color_Intensity: 1.02
+    - _DissolveTime: 0
+    - _Distortion_Intensity: 0.849
+    - _Inner_Step: 0.342
+    - _NoiseScale: 6
+    - _Outer_Step: 0.158
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _VerticalDisplacement: 0.9
-    - _VerticalPower: -0.16
+    - _Speed: -1.02
     m_Colors:
-    - _Color: {r: 0.8301887, g: 0.7133618, b: 0.13705944, a: 0}
-    - _PlayerPosition: {r: 80.24882, g: 17.81675, b: -54.60275, a: 0}
+    - _Color_Base: {r: 1, g: 0.7904034, b: 0.2122642, a: 0}
+    - _Color_Top: {r: 0.9056604, g: 0.5206375, b: 0.252047, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &1070236643986878256
+--- !u!114 &6488040195721663662
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

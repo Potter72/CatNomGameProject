@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallMagnet : MonoBehaviour
 {
     [SerializeField] Transform ball;
-    [SerializeField] float pullForce;
+    public float pullForce;
 
     private void FixedUpdate()
     {
