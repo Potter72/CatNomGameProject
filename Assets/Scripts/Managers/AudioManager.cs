@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour, IDataPersistenceSettingsData
 {
     public static AudioManager Instance { get; private set; }
 
@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        ChangeMasterVolume(48f);
+        DataPersistenceManager.Instance.LoadSettings();        
     }
 
 
@@ -85,4 +85,21 @@ public class AudioManager : MonoBehaviour
         EffectsVolume = volume;
     }
 
+    public void LoadSettings(SettingsData data)
+    {
+        ChangeMasterVolume(data.MasterVolume);
+        ChangeMusicVolume(data.MusicVolume);
+        ChangeAmbianceVolume(data.AmbienceVolume);
+        ChangeUIVolume(data.UIVolume);
+        ChangeEffectsVolume(data.EffectVolume);
+    }
+
+    public void SaveSettings(SettingsData data)
+    {
+        data.MasterVolume = MasterVolume;
+        data.MusicVolume = MusicVolume;
+        data.AmbienceVolume = AmbianceVolume;
+        data.UIVolume = UIVolume;
+        data.EffectVolume = EffectsVolume;
+    }
 }
