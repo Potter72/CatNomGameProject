@@ -24,7 +24,7 @@ public class BigAngryEnemy : BTAgent
     [SerializeField] private float _baseSpeed = 3.5f;
 
     [Header("Attack Range")]
-    [SerializeField] private float _chargeRange = 9;
+    // [SerializeField] private float _chargeRange = 9;
 
     private Vector3 _chargePosition;
     private float _dirAngle;

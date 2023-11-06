@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class GameData
 {
@@ -76,13 +77,13 @@ public class DataPersistenceManager : MonoBehaviour
 
     private List<IDataPersistenceGameData> FindAllGameDataPersistenceObjects()
     {
-        IDataPersistenceGameData[] objects = (IDataPersistenceGameData[])FindObjectsByType(typeof(IDataPersistenceGameData), FindObjectsSortMode.None);
+        IEnumerable<IDataPersistenceGameData> objects = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None).OfType<IDataPersistenceGameData>();
         return new List<IDataPersistenceGameData>(objects);
     }
 
     private List<IDataPersistenceSettingsData> FindAllSettingsDataPersistenceObjects()
     {
-        IDataPersistenceSettingsData[] objects = (IDataPersistenceSettingsData[])FindObjectsByType(typeof(IDataPersistenceSettingsData), FindObjectsSortMode.None);
+        IDataPersistenceSettingsData[] objects = (IDataPersistenceSettingsData[])FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, UnityEngine.FindObjectsSortMode.None).OfType<IDataPersistenceSettingsData>();
         return new List<IDataPersistenceSettingsData>(objects);
     }
 
@@ -114,6 +115,23 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistenceObject.SaveGame(_gameData);
         }
         _fileDataHandler.SaveGame(_gameData);
+    }
+
+    public void LoadSettings()
+    {
+        _settingsData = _fileDataHandler.LoadSettings();
+
+        if (this._settingsData == null)
+        {
+            Debug.Log("No settings data found. Making new file.");
+            _settingsData = new SettingsData();
+            return;
+        }
+
+        foreach (IDataPersistenceSettingsData dataPersistenceObject in _settingsDataPersistenceObjects)
+        {
+            dataPersistenceObject.LoadSettings(_settingsData);
+        }
     }
 
     //voids for settings
