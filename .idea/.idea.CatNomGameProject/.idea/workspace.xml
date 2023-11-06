@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="" />
+    <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Ham.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Ham.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Lettuce.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Lettuce.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/RedShroom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/RedShroom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/YellowShroom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/YellowShroom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/DemandUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/DemandUI.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,6 +115,7 @@
       <workItem from="1699002684811" duration="4932000" />
       <workItem from="1699039116492" duration="2092000" />
       <workItem from="1699093557090" duration="17668000" />
+      <workItem from="1699262759035" duration="1660000" />
     </task>
     <servers />
   </component>

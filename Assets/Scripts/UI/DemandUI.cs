@@ -15,6 +15,7 @@ public class DemandUI : MonoBehaviour
 
     private List<Image> _demandImages;
     private List<TextMeshProUGUI> _textBoxes;
+    private List<Animator> _animators;
     private List<int> _amount;
     
     private float _uiHalfWidth;
@@ -33,6 +34,7 @@ public class DemandUI : MonoBehaviour
         _screenSize = _camera.ViewportToScreenPoint(new Vector3(1, 1, 1));
         _demandImages = new List<Image>();
         _textBoxes = new List<TextMeshProUGUI>();
+        _animators = new List<Animator>();
     }
     
     private void FixedUpdate()
@@ -83,12 +85,14 @@ public class DemandUI : MonoBehaviour
             newText.text = $"x{amount[i]}";
             _demandImages.Add(newDemand);
             _textBoxes.Add(newText);
+            _animators.Add(newText.GetComponent<Animator>());
         }
     }
 
     public void ReduceByOne(int index)
     {
         _textBoxes[index].text = $"x{_amount[index]}";
+        _animators[index].SetTrigger("Bounce");
     }
 
     public void RemoveType(int index)
@@ -96,6 +100,7 @@ public class DemandUI : MonoBehaviour
         Destroy(_demandImages[index].gameObject);
         _demandImages.RemoveAt(index);
         _textBoxes.RemoveAt(index);
+        _animators.RemoveAt(index);
     }
 
     private Image GetImage(Item.ItemType type)
