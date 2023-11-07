@@ -27,6 +27,8 @@ public class Mood : MonoBehaviour
         _screenSize = _camera.ViewportToScreenPoint(new Vector3(1, 1, 1));
         _uiHalfWidth = _dynamicMoodUI.rectTransform.sizeDelta.x / 2;
         _uiHalfHeight = _staticMoodUI2.rectTransform.sizeDelta.y / 2;
+        
+        SetToDynamicUI();
     }
 
     private void Update()
@@ -60,7 +62,8 @@ public class Mood : MonoBehaviour
 
     private void SetToDynamicUI()
     {
-        _mood.color = new Color(1, 1, 1, 0);
+        _mood.rectTransform.SetParent(_dynamicMoodUI.transform);
+        _mood.rectTransform.localPosition = Vector3.zero;
         
         _dynamicMoodUI.color = new Color(1, 1, 1, 1);
         _staticMoodUI2.color = new Color(1, 1, 1, 0);
@@ -68,7 +71,8 @@ public class Mood : MonoBehaviour
     
     private void SetToStaticUI()
     {
-        _mood.color = new Color(1, 1, 1, 1);
+        _mood.rectTransform.SetParent(_staticMoodUI2.transform);
+        _mood.rectTransform.localPosition = Vector3.zero;
         
         _dynamicMoodUI.color = new Color(1, 1, 1, 0);
         _staticMoodUI2.color = new Color(1, 1, 1, 1);
