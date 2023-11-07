@@ -103,6 +103,7 @@ public class CatGod : MonoBehaviour
         {            
             _currentLevel++;
             // Play cutscene/animation
+            CutsceneManager.Instance.PlayNext();
         }
 
         if (_currentLevel >= _levels.Count)
