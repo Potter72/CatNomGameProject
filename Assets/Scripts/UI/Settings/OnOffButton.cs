@@ -9,6 +9,8 @@ public class OnOffButton : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private TextMeshProUGUI _onOffText;
+
+    [SerializeField] private TextMeshProUGUI _dyslexicOnOffText;
     [SerializeField] private Color _onColor;
     [SerializeField] private Color _offColor;
 
@@ -44,6 +46,8 @@ public class OnOffButton : MonoBehaviour
         _onOffButton.sprite = _buttonOn;
         _onOffText.text = "On";
         _onOffText.color = _onColor;
+        _dyslexicOnOffText.text = "On";
+        _dyslexicOnOffText.color = _onColor;
         _off = false;
     }
 
@@ -53,6 +57,8 @@ public class OnOffButton : MonoBehaviour
         _onOffButton.sprite = _buttonOff;
         _onOffText.text = "Off";
         _onOffText.color = _offColor;
+        _dyslexicOnOffText.text = "Off";
+        _dyslexicOnOffText.color = _offColor;
         _off = true;
     }
 }
