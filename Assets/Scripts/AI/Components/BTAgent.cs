@@ -45,7 +45,7 @@ public class BTAgent : MonoBehaviour
     {
         Vector3 pos = transform.position;
         float distanceToTarget = Vector3.Distance(destination, pos);
-        Debug.Log($"Distance to target is {distanceToTarget}");
+        //Debug.Log($"Distance to target is {distanceToTarget}");
         Debug.DrawRay(transform.position, destination - transform.position, Color.blue);
         if (State == ActionState.IDLE)
         {

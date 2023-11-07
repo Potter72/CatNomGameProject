@@ -68,12 +68,12 @@ public class BallController : MonoBehaviour
     public void StartMovement()
     {
         if(isMoving) { return; }
-        Debug.Log("touching: " + Touchscreen.current.touches.Count);
+        //Debug.Log("touching: " + Touchscreen.current.touches.Count);
         for (int i = 0; i < Touchscreen.current.touches.Count; i++)
         {
             if (Touchscreen.current.touches[i].isInProgress)
             {
-                Debug.Log("inProgress");
+                //Debug.Log("inProgress");
                 //movementTouch = Touchscreen.current.touches[i];
                 movementTouchId = i;
                 isMoving = true;
