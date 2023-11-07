@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rocks
+  m_Name: Food
   m_Shader: {fileID: -6465566751694194690, guid: cc6ed8aeb55f7f74c8a3914f2f0cbfa3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 1beefe46e9809124180571b0520b8169, type: 3}
+        m_Texture: {fileID: 2800000, guid: 47e96cb6b2ecf244a841643102bf3b9c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -116,9 +116,6 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Rim_Light_Intensity: 0
-    - _Rim_Light_Power: 5
-    - _Rim_Light_Threshold: 1
     - _ShadowDarkenValue: 0.8
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -132,7 +129,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadowColor: {r: 0.6792453, g: 0.50895816, b: 0.48380208, a: 0}
+    - _ShadowColor: {r: 1, g: 0.52156866, b: 0.44705883, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _ToonColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
