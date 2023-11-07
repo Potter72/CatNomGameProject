@@ -29,8 +29,6 @@ public class CatGod : MonoBehaviour
     private List<Item.ItemType> _types = new List<Item.ItemType>();
     private List<Item.ItemType> _demand = new List<Item.ItemType>();
     private List<int> _amount = new List<int>();
-    [SerializeField] private TextMeshProUGUI _text;
-
     
     private Vector3 _startPos;
     private float _size;
@@ -81,14 +79,17 @@ public class CatGod : MonoBehaviour
         if (!_demand.Contains(foodType)) return;
         
         int index = _demand.IndexOf(foodType);
+
+        if (_amount[index] == 0) return;
+        
         _amount[index]--;
         _demandUI.ReduceByOne(index);
 
         if (_amount[index] > 0) return;
         
-        _demand.RemoveAt(index);
-        _amount.RemoveAt(index);
-        _demandUI.RemoveType(index);
+        // _demand.RemoveAt(index);
+        // _amount.RemoveAt(index);
+        _demandUI.SetTypeComplete(index);
 
         if (_demand.Count > 0) return;
         
@@ -110,12 +111,16 @@ public class CatGod : MonoBehaviour
             return;
         }
         
+        _demandUI.RemoveAllTypes();
         DemandMoreFood();
     }
     
     public void Feed(List<Item> items)
     {
-        if (_demand.Count > 0) return;  
+        foreach (int amount in _amount)
+        {
+            if (amount > 0) return;
+        }
 
         foreach (Item i in items)
         {
@@ -123,6 +128,7 @@ public class CatGod : MonoBehaviour
             i.SendToMouth(_mouth, rp);
         }
 
+        _demand.Clear();
         items.Clear();
         StartCoroutine(Wait());
     }
@@ -154,7 +160,7 @@ public class CatGod : MonoBehaviour
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(2.5f);
-
+        
         FinishRequest();
     }
     
