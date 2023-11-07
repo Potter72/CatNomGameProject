@@ -34,7 +34,8 @@ public class Plate : MonoBehaviour
     public void FeedGod()
     {
         _catGod.Feed(_items);
-        Invoke("StartEatAnimation", eatAnimWaitTime);
+        if(catGodAnimator != null) { Invoke("StartEatAnimation", eatAnimWaitTime); }
+        
     }
 
     private void StartEatAnimation()
