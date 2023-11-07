@@ -8,6 +8,7 @@ public class BTAgent : MonoBehaviour
 {
     [SerializeField] private float _delay = 5f;
     [SerializeField] private float _wanderDistance = 20f;
+    [SerializeField] protected Animator _animator;
     
     public NavMeshAgent Agent;
     protected BehaviorTree Tree;
@@ -45,8 +46,8 @@ public class BTAgent : MonoBehaviour
     {
         Vector3 pos = transform.position;
         float distanceToTarget = Vector3.Distance(destination, pos);
-        Debug.Log($"Distance to target is {distanceToTarget}");
-        Debug.DrawRay(transform.position, destination - transform.position, Color.blue);
+        // Debug.Log($"Distance to target is {distanceToTarget}");
+        // Debug.DrawRay(transform.position, destination - transform.position, Color.blue);
         if (State == ActionState.IDLE)
         {
             Agent.SetDestination(destination);
@@ -62,6 +63,8 @@ public class BTAgent : MonoBehaviour
         else if(distanceToTarget < 5f)
         {
             State = ActionState.IDLE;
+            _animator.SetBool("Walking", false);
+            _animator.SetBool("Running", false);
             return Node.Status.SUCCESS;
         }
 
@@ -91,6 +94,8 @@ public class BTAgent : MonoBehaviour
 
         ChangeDelay(0.5f);
 
+        _animator.SetBool("Walking", true);
+        
         return Node.Status.SUCCESS;
     }
 

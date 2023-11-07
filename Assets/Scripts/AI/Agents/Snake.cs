@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Snake : BTAgent
 {
     [SerializeField] private Color _gizmoColor;
-    [SerializeField] private GameObject _plane;
+    [SerializeField] private GameObject _foodPlacementArea;
     [SerializeField] private float _snatchRange = 3f; 
     [SerializeField] private float _detectionRange = 20f;
+
 
     private List<Item> _itemList;
 
@@ -64,6 +66,7 @@ public class Snake : BTAgent
         if (Vector3.Distance(Player.transform.position, transform.position) < _detectionRange && _itemList.Count > 0)
         {
             ChangeDelay(0.2f);
+            _animator.SetBool("Walking", true);
             return Node.Status.SUCCESS;
         }
         
@@ -100,16 +103,18 @@ public class Snake : BTAgent
     {
         Vector2 rp = Random.insideUnitCircle * 20f;
         Vector3 randomPoint = new Vector3(rp.x, 0, rp.y);
-        _runDestination = randomPoint + _plane.transform.position;
+        _runDestination = randomPoint + _foodPlacementArea.transform.position;
 
         NavMeshHit hit;
 
         if (NavMesh.SamplePosition(_runDestination, out hit, 75f, NavMesh.AllAreas))
         {
             _runDestination = hit.position;
-            Agent.speed = 50f;
+            Agent.speed = 15f;
             ChangeDelay(0.1f);
             Debug.Log(_runDestination);
+            _animator.SetBool("Walking", false);
+            _animator.SetBool("Running", true);
             return Node.Status.SUCCESS;
         }
 
@@ -134,7 +139,9 @@ public class Snake : BTAgent
         _heldItem = null;
 
         Agent.speed = 8f;
-
+        
+        _animator.SetBool("Running", false);
+        
         return Node.Status.SUCCESS;
     }
 }
