@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/fox/FoxAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/fox/FoxAnimator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/fox/fox_walk.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/fox/fox_walk.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/Agents/Snake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/Agents/Snake.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/Components/BTAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/Components/BTAgent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShadersEffects/Enviorment/Grass/Grass.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShadersEffects/Enviorment/Grass/Grass.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
