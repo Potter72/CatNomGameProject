@@ -32,7 +32,6 @@ namespace ProjectCatRoll.Events
 
         public static void SendCutscenePlayedEvent()
         {
-            if (OnCutscenePlay == null) Debug.LogError("oncutsceneplay has no subscribers");
             OnCutsceneStop?.Invoke(null, EventArgs.Empty);
         }
 
