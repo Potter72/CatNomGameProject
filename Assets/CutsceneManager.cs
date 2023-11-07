@@ -10,7 +10,7 @@ public class CutsceneManager : MonoBehaviour
 {
     public static CutsceneManager Instance { get; private set; }
 
-
+    [SerializeField] bool _playOnStart = false;
     [SerializeField] private PlayableDirector[] _directors;
 
     private Queue<PlayableDirector> _directorQueue;
@@ -46,6 +46,11 @@ public class CutsceneManager : MonoBehaviour
         // Keyboard.current.onTextInput += (char c) => { if (c == 'p') PlayNext(); };
         //instead of hooking into the event oncatgodsizechange maybe rework the connected events to not be so granular and only send events when progression is meant to happen.
         //that way i dont have to do a bunch of if statements when responding to the method
+
+        if(_playOnStart)
+        {
+            PlayNext();
+        }
 
     }
 
