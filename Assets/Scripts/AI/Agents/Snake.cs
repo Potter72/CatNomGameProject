@@ -9,8 +9,10 @@ public class Snake : BTAgent
 {
     [SerializeField] private Color _gizmoColor;
     [SerializeField] private GameObject _foodPlacementArea;
+    [SerializeField] private Transform _mouth;
     [SerializeField] private float _snatchRange = 3f; 
     [SerializeField] private float _detectionRange = 20f;
+
 
 
     private List<Item> _itemList;
@@ -91,9 +93,9 @@ public class Snake : BTAgent
     {
         _heldItem = _itemList[Random.Range(0, _itemList.Count)];
         _itemList.Remove(_heldItem);
-        _heldItem.transform.position = transform.position + new Vector3(0f, 0f, 1f) * 2f;
+        _heldItem.transform.position = _mouth.position;
         GameObject oldParent = _heldItem.transform.parent.gameObject;
-        _heldItem.transform.SetParent(this.transform, true);
+        _heldItem.transform.SetParent(_mouth, true);
         Destroy(oldParent);
 
         return Node.Status.SUCCESS;
