@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using ProjectCatRoll.Events;
+using UnityEngine.UI;
 
 public class CatGodSizeEventArgs : EventArgs
 {
@@ -21,13 +22,13 @@ public class CatGodSizeEventArgs : EventArgs
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
-
     
     [SerializeField] private Ball _player;
     [SerializeField] private ItemList _itemList;
     [SerializeField] private Plate _plate;
     [SerializeField] private CatGod _catGod;
+
+    [SerializeField] private List<Image> _ui;
     
     public float CatGodSize { get; private set; }
 
@@ -89,5 +90,21 @@ public class GameManager : MonoBehaviour
     public void ResetScene()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void TurnOffUI()
+    {
+        foreach (Image i in _ui)
+        {
+            i.gameObject.SetActive(false);
+        }
+    }
+
+    public void TurnOnUI()
+    {
+        foreach (Image i in _ui)
+        {
+            i.gameObject.SetActive(false);
+        }
     }
 }
