@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1075181149068517897
+--- !u!1 &2885382560220130817
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2628316322220256391}
+  - component: {fileID: 2196440366751862374}
   m_Layer: 0
   m_Name: prfb_PlateOrange
   m_TagString: Untagged
@@ -16,41 +16,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2628316322220256391
+--- !u!4 &2196440366751862374
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1075181149068517897}
+  m_GameObject: {fileID: 2885382560220130817}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5641048870226533900}
+  - {fileID: 3555532143325810845}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &5315287089095768551
+--- !u!1001 &3953440121064683382
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2628316322220256391}
+    m_TransformParent: {fileID: 2196440366751862374}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6a3fef64a92f285499977d8f707663bf, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6a3fef64a92f285499977d8f707663bf, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6a3fef64a92f285499977d8f707663bf, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.4263579
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a3fef64a92f285499977d8f707663bf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -105,8 +97,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a3fef64a92f285499977d8f707663bf, type: 3}
---- !u!4 &5641048870226533900 stripped
+--- !u!4 &3555532143325810845 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6a3fef64a92f285499977d8f707663bf, type: 3}
-  m_PrefabInstance: {fileID: 5315287089095768551}
+  m_PrefabInstance: {fileID: 3953440121064683382}
   m_PrefabAsset: {fileID: 0}
