@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/fox/fox_walk.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/fox/fox_walk.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/Agents/Snake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/Agents/Snake.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShadersEffects/Enviorment/Grass/Grass.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShadersEffects/Enviorment/Grass/Grass.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +18,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI/Components/DepSequence.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI/Components/Inverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Environmental/RandomItemSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/Fader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/FontChanger.cs" root0="FORCE_HIGHLIGHTING" />

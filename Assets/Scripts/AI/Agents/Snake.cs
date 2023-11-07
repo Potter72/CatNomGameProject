@@ -35,7 +35,12 @@ public class Snake : BTAgent
         Leaf runAway = new Leaf("Run Away", RunAway);
         Leaf dropFood = new Leaf("Drop Food", DropFood);
 
-        Sequence wander = new Sequence("Wander");
+        BehaviorTree seePlayer = new BehaviorTree("SeePlayer");
+        Inverter invertRangeCheck = new Inverter("InvertRangeCheck");
+        invertRangeCheck.AddChild(checkRange);
+
+        Selector wanderWithCheck = new Selector("WanderWithCheck");
+        DepSequence wander = new DepSequence("Wander", seePlayer, Agent);
         Leaf setWanderDestination = new Leaf("Wander", SetWanderDestination);
         Leaf moveToWanderDestination = new Leaf("Move To Wander Destination", MoveToWanderDestination);
 
@@ -68,7 +73,6 @@ public class Snake : BTAgent
         if (Vector3.Distance(Player.transform.position, transform.position) < _detectionRange && _itemList.Count > 0)
         {
             ChangeDelay(0.2f);
-            _animator.SetBool("Walking", true);
             return Node.Status.SUCCESS;
         }
         
@@ -77,6 +81,7 @@ public class Snake : BTAgent
 
     public Node.Status ChasePlayer()
     {
+        _animator.SetBool("Walking", true);
         Agent.destination = Player.transform.position;
         Agent.speed = 8f;
 
