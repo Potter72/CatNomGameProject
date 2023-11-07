@@ -116,6 +116,9 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Rim_Light_Intensity: 1.07
+    - _Rim_Light_Power: 1.35
+    - _Rim_Light_Threshold: 0.68
     - _ShadowDarkenValue: 0.702
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0

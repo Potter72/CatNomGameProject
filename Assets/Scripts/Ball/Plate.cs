@@ -11,6 +11,9 @@ public class Plate : MonoBehaviour
     private List<Item> _items = new List<Item>();
     private int _itemCount = 0;
 
+    [SerializeField] Animator catGodAnimator;
+    [SerializeField] float eatAnimWaitTime = 1;
+
     public void AddItem(Item item)
     {
         item.transform.position = _itemSlots[_itemCount].transform.position;
@@ -31,6 +34,13 @@ public class Plate : MonoBehaviour
     public void FeedGod()
     {
         _catGod.Feed(_items);
+        if(catGodAnimator != null) { Invoke("StartEatAnimation", eatAnimWaitTime); }
+        
+    }
+
+    private void StartEatAnimation()
+    {
+        catGodAnimator.SetTrigger("Eat");
     }
 
     // Cat god noms the items
