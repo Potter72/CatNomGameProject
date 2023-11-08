@@ -52,7 +52,8 @@ Material:
     - _Float: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShadowDarkenValue: 0.7
+    - _Rim_Light_Intensity: 1
+    - _ShadowDarkenValue: 0.26
     m_Colors:
     - _Color: {r: 1, g: 0.68412775, b: 0, a: 0}
     - _ShadowColor: {r: 0.4811321, g: 0.06359331, b: 0, a: 0}
