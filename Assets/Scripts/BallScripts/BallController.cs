@@ -11,7 +11,12 @@ public class BallController : MonoBehaviour
 
     public bool isMoving;
     [SerializeField] BallVFXController vfxController;
+    [Header("Animation Shit")]
     [SerializeField] Animator playerAnimator;
+    [SerializeField] Transform catPlayer;
+    [SerializeField] float rotateLerpSpeed = 0.3f;
+    [SerializeField] float runningSpeedCutoff = 2;
+    [SerializeField] float standStillSpeed = 1f;
 
     [SerializeField] float movementForceMultiplier = 4;
     [SerializeField] float maxHorizontalMoveSpeed = 3;
@@ -36,7 +41,7 @@ public class BallController : MonoBehaviour
     [SerializeField] float moveJoystickWidth = 13f;
 
     public Vector3 movementVector;  //is public because used for rotating the player
-    [SerializeField] float standStillSpeed = 0.5f;
+
 
     [Header("Material References")]
     [SerializeField] Material ballMat;
@@ -135,14 +140,13 @@ public class BallController : MonoBehaviour
 
     private void MovementPhysics()
     {
+        Vector3 moveDirection = playerRigidbody.velocity;
+        moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z);
+
         if (!isMoving || isInCutscene) //movement stuff for when not inputing
         {
-            moveJoystick.SetActive(false);
-            playerAnimator.SetBool("Running", false);
 
-            Vector3 moveDirection = playerRigidbody.velocity;
-            moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z);
-
+            //rotating the player
             if (moveDirection.magnitude > standStillSpeed)
             {
                 if (!isPlayingRollClip)
@@ -151,19 +155,49 @@ public class BallController : MonoBehaviour
                     //AudioManager.Instance.PlaySound(rollClip);
                     //Invoke("RollClipLoop", rollClip.length);
                 }
-
+                Quaternion targetRotation = Quaternion.LookRotation(moveDirection, catPlayer.transform.up);
+                catPlayer.transform.rotation = Quaternion.Lerp(catPlayer.transform.rotation, targetRotation, rotateLerpSpeed);
+            }
+            //playing animations
+            if (moveDirection.magnitude > runningSpeedCutoff)
+            {
+                playerAnimator.SetBool("Running", true);
+                playerAnimator.SetBool("Walking", false);
+            }
+            else if (moveDirection.magnitude > standStillSpeed)
+            {
+                playerAnimator.SetBool("Running", false);
                 playerAnimator.SetBool("Walking", true);
-                moveJoystick.transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.right) * Quaternion.Euler(0, 90, 0);
             }
             else
             {
+                playerAnimator.SetBool("Running", false);
                 playerAnimator.SetBool("Walking", false);
             }
-            
+
+            moveJoystick.SetActive(false);
             return; 
         }
 
-        playerAnimator.SetBool("Running", true);
+
+        //playing animations
+        if (moveDirection.magnitude > runningSpeedCutoff)
+        {
+            playerAnimator.SetBool("Running", true);
+            playerAnimator.SetBool("Walking", false);
+        }
+        else if (moveDirection.magnitude > standStillSpeed)
+        {
+            playerAnimator.SetBool("Running", false);
+            playerAnimator.SetBool("Walking", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("Running", false);
+            playerAnimator.SetBool("Walking", false);
+        }
+
+
 
         Vector2 currentVelocity = new Vector2(playerRigidbody.velocity.x, playerRigidbody.velocity.z);
 
@@ -182,7 +216,12 @@ public class BallController : MonoBehaviour
         movementVector = Vector3.ClampMagnitude(movementVector / 1000 * movementForceMultiplier, maxHorizontalMoveSpeed);
         //movementVector = Camera.main.transform.forward * movementVector;
 
-        if(currentVelocity.magnitude < maxHorizontalMoveSpeed)
+        //rotate the cat player towards the direction of innput
+        Quaternion inputTargetRotation = Quaternion.LookRotation(movementVector, catPlayer.transform.up);
+        catPlayer.transform.rotation = Quaternion.Lerp(catPlayer.transform.rotation, inputTargetRotation, rotateLerpSpeed);
+
+
+        if (currentVelocity.magnitude < maxHorizontalMoveSpeed)
         {
             playerRigidbody.AddForce(movementVector * acceleration);
         }
