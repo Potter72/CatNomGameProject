@@ -42,13 +42,15 @@ Material:
     m_Ints: []
     m_Floats:
     - _Amplitude: 0.021
+    - _Animate_Speed: 0.2
     - _Clip: 0.505
     - _ColorIntensity: 1.06
-    - _CutoutDistanceThreshold: 0.41
+    - _CutoutDistanceThreshold: 0.536
     - _CutoutNoiseScale: 2.81
     - _Debug: 1.52
     - _DistanceThreshold: 1.14
     - _Faloff_Size: 0.4
+    - _NoiseRamp: 3
     - _NoiseScale: 9
     - _QueueControl: 0
     - _QueueOffset: 0

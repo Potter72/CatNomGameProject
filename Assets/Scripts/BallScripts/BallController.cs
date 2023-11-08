@@ -135,7 +135,7 @@ public class BallController : MonoBehaviour
 
     private void MovementPhysics()
     {
-        if (!isMoving || !isInCutscene) //movement stuff for when not inputing
+        if (!isMoving || isInCutscene) //movement stuff for when not inputing
         {
             moveJoystick.SetActive(false);
             playerAnimator.SetBool("Running", false);

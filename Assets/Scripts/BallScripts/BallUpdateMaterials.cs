@@ -14,5 +14,6 @@ public class BallUpdateMaterials : MonoBehaviour
     private void FixedUpdate()
     {
         Shader.SetGlobalVector("_PlayerCutoutPos", mainCamera.WorldToViewportPoint(transform.position));
+        Shader.SetGlobalVector("_PlayerWorldPos", transform.position);
     }
 }
