@@ -24,6 +24,7 @@ public class RandomItemSpawner : MonoBehaviour
 
     [SerializeField] private Transform _parent;
     [SerializeField] private List<GameObject> _itemPrefabs;
+    [SerializeField] private List<int> _itemVarietyLimit;
     
     [SerializeField] private float _startDelay;
     [SerializeField] private float _spawnDelay;
@@ -33,8 +34,7 @@ public class RandomItemSpawner : MonoBehaviour
     private List<GameObject> _demandedPrefabs;
     private List<Item.ItemType> _demandedTypes;
     private int _demandDrought;
-
-    private List<int> _varietyLimit;
+    
     private int _level = 0;
     
     private void OnDrawGizmos()
@@ -52,32 +52,32 @@ public class RandomItemSpawner : MonoBehaviour
         _demandedPrefabs = new List<GameObject>();
     }
     
-    // private void Start()
-    // {
-    //     InvokeRepeating(nameof(SpawnItem), _startDelay, _spawnDelay);
-    // }
+    private void Start()
+    {
+        InvokeRepeating(nameof(SpawnItem), _startDelay, _spawnDelay);
+    }
 
-    // private void SpawnItem()
-    // {
-    //     GameObject itemPrefab;
-    //
-    //     itemPrefab = _demandDrought >= _droughtLimit ? _demandedPrefabs[Random.Range(0, _demandedPrefabs.Count)] : 
-    //                                                     _itemPrefabs[Random.Range(0, _itemPrefabs.Count)];
-    //     
-    //     Item itemComponent = itemPrefab.GetComponent<Item>();
-    //     CheckIfDemanded(itemComponent.FoodType);
-    //     
-    //     SpawnArea sa = _spawnAreas[Random.Range(0, _spawnAreas.Count)];
-    //
-    //     Vector3 point = sa.Point.position;
-    //     Vector2 random = new Vector2(point.x, point.z);
-    //     random += Random.insideUnitCircle * sa.Radius;
-    //     point.x = random.x;
-    //     point.z = random.y;
-    //
-    //     GameObject newItem = Instantiate(itemPrefab, _parent);
-    //     newItem.transform.position = point;
-    // }
+    private void SpawnItem()
+    {
+        GameObject itemPrefab;
+    
+        itemPrefab = _demandDrought >= _droughtLimit ? _demandedPrefabs[Random.Range(0, _demandedPrefabs.Count)] : 
+                                                        _itemPrefabs[Random.Range(0, _itemVarietyLimit[_level])];
+        
+        Item itemComponent = itemPrefab.GetComponent<Item>();
+        CheckIfDemanded(itemComponent.FoodType);
+        
+        SpawnArea sa = _spawnAreas[_level].SpawnAreaPoints[Random.Range(0, _spawnAreas[_level].SpawnAreaPoints.Count)];
+    
+        Vector3 point = sa.Point.position;
+        Vector2 random = new Vector2(point.x, point.z);
+        random += Random.insideUnitCircle * sa.Radius;
+        point.x = random.x;
+        point.z = random.y;
+    
+        GameObject newItem = Instantiate(itemPrefab, _parent);
+        newItem.transform.position = point;
+    }
 
     // Provides the list of items provided by the god to
     // check which items to spawn in case of drought
@@ -120,5 +120,10 @@ public class RandomItemSpawner : MonoBehaviour
 
         _demandDrought++;
         return;
+    }
+
+    public void IncreaseLevel()
+    {
+        _level++;
     }
 }
