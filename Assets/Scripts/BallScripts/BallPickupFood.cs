@@ -34,7 +34,7 @@ public class BallPickupFood : MonoBehaviour
             parent.GetComponent<Collider>().enabled = false;
             other.GetComponent<Collider>().enabled = false;
             //disables collider for children
-            Debug.Log(parent);
+            //Debug.Log(parent);
 
             for (int i = 0; i < parent.transform.childCount; i++)
             {
@@ -65,7 +65,8 @@ public class BallPickupFood : MonoBehaviour
                 //creates a bumb
                 GameObject foodBumpToSpawn = new GameObject("FoodBump");
                 Vector3 vectorToCenter = (transform.position - foodAnchor.transform.position).normalized * bumpDepth;
-                GameObject foodBump = Instantiate(foodBumpToSpawn, foodAnchor.transform.position + vectorToCenter, foodAnchor.transform.rotation);
+                GameObject foodBump = Instantiate(foodBumpToSpawn, transform.position, Quaternion.identity);
+                foodBump.transform.position -= vectorToCenter;
                 foodBump.layer = 10; //makes the bumps not collide with the food
                 SphereCollider bumpSphere = foodBump.AddComponent<SphereCollider>();
                 bumpSphere.radius = bumpRadius;
@@ -73,6 +74,8 @@ public class BallPickupFood : MonoBehaviour
             }
 
             food.Add(parent);
+
+            if(parent.GetComponent<BombFood>() != null) { parent.GetComponent<BombFood>().StartCoroutine(parent.GetComponent<BombFood>().ExplodeCountdown()); }
 
             // Please change this later
             ball.AddItem(other.transform.parent.GetComponent<Item>());
