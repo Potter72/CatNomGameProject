@@ -7,13 +7,19 @@ using Random = UnityEngine.Random;
 public class RandomItemSpawner : MonoBehaviour
 {
     [Serializable]
+    public class SpawnAreaList
+    {
+        public List<SpawnArea> SpawnAreaPoints;
+    }
+    
+    [Serializable]
     public class SpawnArea
     {
         public Transform Point;
         public float Radius;
     }
 
-    [SerializeField] private List<SpawnArea> _spawnAreas;
+    [SerializeField] private List<SpawnAreaList> _spawnAreas;
     [SerializeField] private Color _gizmoColor;
 
     [SerializeField] private Transform _parent;
@@ -21,40 +27,98 @@ public class RandomItemSpawner : MonoBehaviour
     
     [SerializeField] private float _startDelay;
     [SerializeField] private float _spawnDelay;
+
+    [SerializeField] private int _droughtLimit = 5;
+
+    private List<GameObject> _demandedPrefabs;
+    private List<Item.ItemType> _demandedTypes;
+    private int _demandDrought;
+
+    private List<int> _varietyLimit;
+    private int _level = 0;
     
     private void OnDrawGizmos()
     {
         Gizmos.color = _gizmoColor;
         
-        foreach (SpawnArea s in _spawnAreas)
+        foreach (SpawnArea s in _spawnAreas[0].SpawnAreaPoints)
         {
             Gizmos.DrawSphere(s.Point.position, s.Radius);
         }
     }
 
-    private void Start()
+    private void Awake()
     {
-        InvokeRepeating(nameof(SpawnItem), _startDelay, _spawnDelay);
+        _demandedPrefabs = new List<GameObject>();
     }
     
-    private void Update()
+    // private void Start()
+    // {
+    //     InvokeRepeating(nameof(SpawnItem), _startDelay, _spawnDelay);
+    // }
+
+    // private void SpawnItem()
+    // {
+    //     GameObject itemPrefab;
+    //
+    //     itemPrefab = _demandDrought >= _droughtLimit ? _demandedPrefabs[Random.Range(0, _demandedPrefabs.Count)] : 
+    //                                                     _itemPrefabs[Random.Range(0, _itemPrefabs.Count)];
+    //     
+    //     Item itemComponent = itemPrefab.GetComponent<Item>();
+    //     CheckIfDemanded(itemComponent.FoodType);
+    //     
+    //     SpawnArea sa = _spawnAreas[Random.Range(0, _spawnAreas.Count)];
+    //
+    //     Vector3 point = sa.Point.position;
+    //     Vector2 random = new Vector2(point.x, point.z);
+    //     random += Random.insideUnitCircle * sa.Radius;
+    //     point.x = random.x;
+    //     point.z = random.y;
+    //
+    //     GameObject newItem = Instantiate(itemPrefab, _parent);
+    //     newItem.transform.position = point;
+    // }
+
+    // Provides the list of items provided by the god to
+    // check which items to spawn in case of drought
+    public void SetDemands(List<Item.ItemType> demandedTypes)
     {
+        _demandedPrefabs.Clear();
         
+        _demandedTypes = new List<Item.ItemType>(demandedTypes);
+
+        int demandsCopied = 0;
+        
+        foreach (GameObject go in _itemPrefabs)
+        {
+            if (demandsCopied == _demandedTypes.Count) break;
+            
+            Item.ItemType currentItem = go.GetComponent<Item>().FoodType;
+            
+            foreach (Item.ItemType t in _demandedTypes)
+            {
+                if (t != currentItem) continue;
+                
+                _demandedPrefabs.Add(go);
+                demandsCopied++;
+                break;
+            }
+        }
     }
-
-    private void SpawnItem()
+    
+    private void CheckIfDemanded(Item.ItemType itemType)
     {
-        GameObject item = _itemPrefabs[Random.Range(0, _itemPrefabs.Count)];
-        
-        SpawnArea sa = _spawnAreas[Random.Range(0, _spawnAreas.Count)];
+        foreach (Item.ItemType t in _demandedTypes)
+        {
+            if (t == itemType)
+            {
+                _demandDrought = 0;
 
-        Vector3 point = sa.Point.position;
-        Vector2 random = new Vector2(point.x, point.z);
-        random += Random.insideUnitCircle * sa.Radius;
-        point.x = random.x;
-        point.z = random.y;
+                return;
+            }
+        }
 
-        GameObject newItem = Instantiate(item, _parent);
-        newItem.transform.position = point;
+        _demandDrought++;
+        return;
     }
 }

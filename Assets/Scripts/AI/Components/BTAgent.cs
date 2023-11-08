@@ -60,11 +60,10 @@ public class BTAgent : MonoBehaviour
             return Node.Status.FAILURE;
         }
 
-        else if(distanceToTarget < 5f)
+        else if(distanceToTarget < 0.1f)
         {
             State = ActionState.IDLE;
-            _animator.SetBool("Walking", false);
-            _animator.SetBool("Running", false);
+            ChangeDelay(0f);
             return Node.Status.SUCCESS;
         }
 
@@ -93,8 +92,6 @@ public class BTAgent : MonoBehaviour
         }
 
         ChangeDelay(0.5f);
-
-        _animator.SetBool("Walking", true);
         
         return Node.Status.SUCCESS;
     }
@@ -105,6 +102,8 @@ public class BTAgent : MonoBehaviour
 
         status = GoToLocation(_wanderDestination);
 
+        ChangeDelay(0f);
+        
         return status;
     }
 
