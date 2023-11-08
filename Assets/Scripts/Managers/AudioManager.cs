@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour, IDataPersistenceSettingsData
         else
             Destroy(gameObject);
 
-        DataPersistenceManager.Instance.LoadSettings();        
+        DataPersistenceManager.Instance.LoadSettings();
     }
 
 
@@ -56,7 +56,6 @@ public class AudioManager : MonoBehaviour, IDataPersistenceSettingsData
     {
         _musicSource.PlayOneShot(clip);
     }
-
 
     //mixer volume controls
     public void ChangeMasterVolume(float volume)
