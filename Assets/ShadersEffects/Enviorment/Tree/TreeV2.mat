@@ -44,6 +44,7 @@ Material:
     - _Amplitude: 0.021
     - _Clip: 1
     - _ColorIntensity: 0.99
+    - _DistanceThreshold: 0.5
     - _NoiseScale: 9
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -52,6 +53,7 @@ Material:
     - _SwayDisplaceSpeed: 1.8
     m_Colors:
     - _Color: {r: 1, g: 0.25855598, b: 0.109803915, a: 0}
+    - _PlayerWorldPos: {r: -12.44, g: 1.3900001, b: 96.53, a: 0}
     - _SwayDisplaceVector: {r: 1, g: 0, b: 0.6, a: 0}
     - _WindDisplace: {r: 1.4, g: 0.4, b: 1, a: 0}
   m_BuildTextureStacks: []
