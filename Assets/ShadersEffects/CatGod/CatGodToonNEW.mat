@@ -67,7 +67,7 @@ Material:
     - _Rim_Light_Intensity: 1
     - _ShadowDarkenValue: 0.25
     - _WarbleNoiseScale: 8
-    - _WarbleSpeed: 0.85
+    - _WarbleSpeed: 0.82
     - _Warble_Amplitude: 0
     m_Colors:
     - _ShadowColor: {r: 0.4811321, g: 0.06359331, b: 0, a: 0}
