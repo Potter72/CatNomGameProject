@@ -53,7 +53,7 @@ Material:
     - _VerticalPower: -0.16
     m_Colors:
     - _Color: {r: 0.99607843, g: 0.67529124, b: 0.29411763, a: 0}
-    - _PlayerPosition: {r: 31.022476, g: 11.97579, b: -4.892446, a: 0}
+    - _PlayerPosition: {r: 98.54188, g: 15.811153, b: 7.8567653, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1070236643986878256
 MonoBehaviour:
