@@ -10857,7 +10857,7 @@ MonoBehaviour:
   raytracedScaleMode: 0
   needsOwnSort: 0
   needsOwnAabbBuffer: 0
-  shaderGraph: {fileID: 4333940904281232215, guid: 7fe99722965d2c54488bed8d3dd9b322, type: 3}
+  shaderGraph: {fileID: 4333940904281232215, guid: 903d3d71110daad42b1981ba4b644fa9, type: 3}
   materialSettings:
     m_PropertyNames:
     - _QueueOffset

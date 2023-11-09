@@ -614,6 +614,8 @@ MonoBehaviour:
   catExplodeVFX: {fileID: 3338738695259648442}
   catGodRendererGO: {fileID: 6748142273692612577}
   catGodMaterial: {fileID: 2100000, guid: 7fc6b672a7d3cad478a8568385841cb2, type: 2}
+  endCreditImage: {fileID: 0}
+  endCreditText: {fileID: 0}
 --- !u!4 &1027594089594813790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3520391352b25284ea8537369a962229, type: 3}
