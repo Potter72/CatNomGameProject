@@ -124,6 +124,7 @@ public class CatGod : MonoBehaviour
         if (_currentLevel >= _levels.Count)
         {
             Debug.Log("<color=yellow>You Win!</color>");
+            GetComponent<CatGodEndGameExplosion>().EndGame();
             return;
         }
         
