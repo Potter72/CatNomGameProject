@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Feeder
   - NonDiageticUi
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -2,6 +2,7 @@ using ProjectCatRoll.Events;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -66,6 +67,8 @@ public class BallController : MonoBehaviour
     public bool isInCutscene;
 
     private Vector3 oldPos; //for rotating the player
+    [SerializeField] AudioClip[] thumpClips;
+    private bool hasThumpedThisFrame;
 
     private void OnEnable()
     {
@@ -105,7 +108,7 @@ public class BallController : MonoBehaviour
 
     public void StartMovement()
     {
-        if(isMoving) { return; }
+        if (isMoving) { return; }
         //Debug.Log("touching: " + Touchscreen.current.touches.Count);
         for (int i = 0; i < Touchscreen.current.touches.Count; i++)
         {
@@ -143,6 +146,7 @@ public class BallController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        hasThumpedThisFrame = false;
         bounceWobble -= bounceDecreaseSpeed * bounceWobble;
         bounceWobble = Mathf.Clamp(bounceWobble, minBounceValue, 1);
 
@@ -150,7 +154,7 @@ public class BallController : MonoBehaviour
 
         if (!isGrounded)
         {
-            if(heighestPoint < transform.position.y) heighestPoint = transform.position.y;
+            if (heighestPoint < transform.position.y) heighestPoint = transform.position.y;
         }
         else
         {
@@ -216,7 +220,7 @@ public class BallController : MonoBehaviour
            
 
             moveJoystick.SetActive(false);
-            return; 
+            return;
         }
 
         Vector2 currentVelocity = new Vector2(playerRigidbody.velocity.x, playerRigidbody.velocity.z);
@@ -227,7 +231,7 @@ public class BallController : MonoBehaviour
         //movement forces
         Vector2 movementReadVector = startPos - currentPos;
 
-        Vector3 forward = Camera.main.transform.forward; 
+        Vector3 forward = Camera.main.transform.forward;
         forward = new Vector3(forward.x, 0, forward.z).normalized;
         Vector3 right = Camera.main.transform.right;
         right = new Vector3(right.x, 0, right.z).normalized;
@@ -263,12 +267,12 @@ public class BallController : MonoBehaviour
         moveJoystick.SetActive(true);
         moveJoystick.transform.position = Vector3.Lerp(startPos, currentPos, 0.5f);
         //moveJoystick.transform.localScale = new Vector3(moveJoystick.transform.localScale.x, movementReadVector.magnitude, moveJoystick.transform.localScale.z);
-        
-        if(movementReadVector != Vector2.zero)
+
+        if (movementReadVector != Vector2.zero)
         {
-            moveJoystick.transform.rotation = Quaternion.LookRotation(movementReadVector,Vector3.right) * Quaternion.Euler(0,90,0);
+            moveJoystick.transform.rotation = Quaternion.LookRotation(movementReadVector, Vector3.right) * Quaternion.Euler(0, 90, 0);
         }
-        moveJoystick.GetComponent<RectTransform>().sizeDelta = new Vector2(movementReadVector.magnitude / 3f, moveJoystickWidth + 1);
+        // moveJoystick.GetComponent<RectTransform>().sizeDelta = new Vector2(movementReadVector.magnitude / 3f, moveJoystickWidth + 1);
     }
 
     private void OnCollisionExit(Collision collision)
@@ -278,9 +282,15 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(heighestPoint - transform.position.y > fallDamageCutoff) 
+        if (playerRigidbody.velocity.magnitude > runningSpeedCutoff && !hasThumpedThisFrame && !collision.transform.CompareTag("Ground"))
         {
-            StartCoroutine(LerpBallWobble(fallDamageWobble * Mathf.Pow((heighestPoint - transform.position.y),0.2f) - 0.3f, fallDamageWobbleTime));
+            Debug.Log("thump" + playerRigidbody.velocity.magnitude);
+            hasThumpedThisFrame = true;
+            AudioManager.Instance.PlaySound(thumpClips[(int)UnityEngine.Random.Range(0, thumpClips.Length)]);
+        }
+        if (heighestPoint - transform.position.y > fallDamageCutoff)
+        {
+            StartCoroutine(LerpBallWobble(fallDamageWobble * Mathf.Pow((heighestPoint - transform.position.y), 0.2f) - 0.3f, fallDamageWobbleTime));
             vfxController.PlayFallDamageEffect();   //plays the fall damage grass vfx
             heighestPoint = transform.position.y;
         }
@@ -300,7 +310,7 @@ public class BallController : MonoBehaviour
         bounceDecreaseSpeed = 0;
         float counter = 0;
         float lerpValue = 1 / time;
-        while(time > counter)
+        while (time > counter)
         {
             //bounceWobble = Mathf.Lerp(bounceWobble, value, counter);
             bounceWobble = fallDamageWobbleCurve.Evaluate(counter * lerpValue);

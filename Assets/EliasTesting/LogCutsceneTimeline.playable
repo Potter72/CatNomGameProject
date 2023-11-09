@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7566088160317022172
+--- !u!114 &-8069953953717198217
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,7 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: 
   VirtualCamera:
-    exposedName: d27970c79e181a744b7d9692edf2a5b8
+    exposedName: b943a238e52fc9c44aeac7492c40a245
+    defaultValue: {fileID: 0}
+--- !u!114 &-7366175546030054135
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fb794a295e73545af71bcdb7375791, type: 3}
+  m_Name: CinemachineShot
+  m_EditorClassIdentifier: 
+  DisplayName: 
+  VirtualCamera:
+    exposedName: 661179f4c53f0164cac71eb4664743bb
     defaultValue: {fileID: 0}
 --- !u!114 &-2578327158987923433
 MonoBehaviour:
@@ -28,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 4.166666666666667
+  m_Time: 7.150000000000001
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 01dc698f363cb0f49a6f66a64d5e325c, type: 2}
@@ -56,14 +72,14 @@ MonoBehaviour:
   - m_Version: 1
     m_Start: 0
     m_ClipIn: 0
-    m_Asset: {fileID: 7690525941124111222}
-    m_Duration: 2.892708603199573
+    m_Asset: {fileID: -7366175546030054135}
+    m_Duration: 5.883333333333334
     m_TimeScale: 1
     m_ParentTrack: {fileID: -125117506577186323}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 1.476041936532906
+    m_BlendOutDuration: 4.616666666666667
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -94,8 +110,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: -0
-        outSlope: -0
+        inSlope: -2
+        outSlope: -2
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
@@ -113,7 +129,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
+    m_BlendOutCurveMode: 1
     m_ExposedParameterNames: []
     m_AnimationCurves: {fileID: 0}
     m_Recordable: 0
@@ -123,15 +139,15 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Shot1
   - m_Version: 1
-    m_Start: 1.4166666666666667
+    m_Start: 1.2666666666666666
     m_ClipIn: 0
-    m_Asset: {fileID: -7566088160317022172}
-    m_Duration: 5.449999999999999
+    m_Asset: {fileID: -8069953953717198217}
+    m_Duration: 8.216666666666665
     m_TimeScale: 1
     m_ParentTrack: {fileID: -125117506577186323}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 1.476041936532906
+    m_BlendInDuration: 4.616666666666667
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
@@ -148,11 +164,11 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: 0.2410828
+        outSlope: 0.2410828
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.17776209
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -286,7 +302,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 2.7
+    m_Start: 5.883333333333334
     m_ClipIn: 0
     m_Asset: {fileID: -112063221128633840}
     m_Duration: 2.7166666666659998
@@ -356,19 +372,3 @@ MonoBehaviour:
     m_DisplayName: SmokePuff (2)
   m_Markers:
     m_Objects: []
---- !u!114 &7690525941124111222
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90fb794a295e73545af71bcdb7375791, type: 3}
-  m_Name: CinemachineShot
-  m_EditorClassIdentifier: 
-  DisplayName: 
-  VirtualCamera:
-    exposedName: 8f231b94227e2674588f36fa13b31021
-    defaultValue: {fileID: 0}

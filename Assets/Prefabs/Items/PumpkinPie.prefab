@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8885046474936140365}
   m_Layer: 9
   m_Name: InnerTrigger
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

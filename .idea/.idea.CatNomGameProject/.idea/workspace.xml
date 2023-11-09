@@ -6,13 +6,27 @@
   <component name="ChangeListManager">
     <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/MainMenu/Fader.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/MainMenu/Fader.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/GameManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/GameManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BallScripts/BallController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BallScripts/BallController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Apple.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Items/Apple.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Cupcake.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Items/Cupcake.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Ham.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Items/Ham.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Mooncake.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Items/Mooncake.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Mushroom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Items/Mushroom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Potato.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Items/Potato.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/PumpkinPie.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Items/PumpkinPie.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Sandwich.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Items/Sandwich.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Squash.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Items/Squash.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Turkey.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Items/Turkey.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Apple.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Apple.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Cupcake.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Cupcake.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Ham.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Ham.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Mooncake.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Mooncake.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Mushroom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Mushroom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Pies.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Pies.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Potato.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Potato.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Sandwich.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Sandwich.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Squashes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Squashes.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Turkey.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/NewUI/Turkey.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CatGod/CatGod.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CatGod/CatGod.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Environmental/RandomItemSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Environmental/RandomItemSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ShadersEffects/Enviorment/Grass/Grass.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShadersEffects/Enviorment/Grass/Grass.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

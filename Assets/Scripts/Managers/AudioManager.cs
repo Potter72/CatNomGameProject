@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+[RequireComponent(typeof(DataPersistenceManager ))]
 public class AudioManager : MonoBehaviour, IDataPersistenceSettingsData
 {
     public static AudioManager Instance { get; private set; }
@@ -42,7 +44,9 @@ public class AudioManager : MonoBehaviour, IDataPersistenceSettingsData
         else
             Destroy(gameObject);
 
-        //DataPersistenceManager.Instance.LoadSettings();
+
+        ChangeMasterVolume(0.5f);
+        ChangeMusicVolume(0.5f);        
     }
 
 
