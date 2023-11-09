@@ -81,14 +81,17 @@ public class RandomItemSpawner : MonoBehaviour
     
         itemPrefab = _demandDrought >= _droughtLimit ? _demandedPrefabs[Random.Range(0, _demandedPrefabs.Count)] : 
                                                         _itemPrefabs[Random.Range(0, _itemVarietyLimit[_level])];
-
-        if (Random.Range(0f, 1f) < _bombSpawnRate)
-        {
-            itemPrefab = _bombPrefab;
-        }
         
         Item itemComponent = itemPrefab.GetComponent<Item>();
         CheckIfDemanded(itemComponent.FoodType);
+        Debug.Log($"{itemComponent.FoodType}");
+
+        float randomRate = Random.Range(0f, 1f);
+        
+        if (randomRate < _bombSpawnRate)
+        {
+            itemPrefab = _bombPrefab;
+        }
         
         SpawnArea sa = _spawnAreas[_level].SpawnAreaPoints[Random.Range(0, _spawnAreas[_level].SpawnAreaPoints.Count)];
     
@@ -149,9 +152,10 @@ public class RandomItemSpawner : MonoBehaviour
     {
         _level++;
 
-        if (_spawning)
+        if (!_spawning)
         {
             StartSpawning();
+            _spawning = true;
         }
     }
 }

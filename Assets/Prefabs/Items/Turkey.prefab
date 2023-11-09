@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 892611999062479190}
   m_Layer: 9
   m_Name: InnerTrigger
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 3987753050704178072}
   m_Layer: 6
   m_Name: DecalAnchor
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 4937314691241528085}
   m_Layer: 0
   m_Name: FoodDecal
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,18 +274,6 @@ PrefabInstance:
       value: prfb_Turkey
       objectReference: {fileID: 0}
     - target: {fileID: 5326931720137342442, guid: 485a293dfe5bb514bb81b484f91cc14c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5326931720137342442, guid: 485a293dfe5bb514bb81b484f91cc14c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5326931720137342442, guid: 485a293dfe5bb514bb81b484f91cc14c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5326931720137342442, guid: 485a293dfe5bb514bb81b484f91cc14c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -324,10 +312,6 @@ PrefabInstance:
     - target: {fileID: 5326931720137342442, guid: 485a293dfe5bb514bb81b484f91cc14c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5326931720137342442, guid: 485a293dfe5bb514bb81b484f91cc14c, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

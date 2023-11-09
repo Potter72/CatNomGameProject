@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7891489122122310316}
   m_Layer: 6
   m_Name: Apple
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 7165243911795344429}
   m_Layer: 0
   m_Name: FoodDecal
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,7 +228,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.22
+  m_Radius: 0.3
   m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1 &8058145654403594137
 GameObject:
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 5939494422660606270}
   m_Layer: 6
   m_Name: DecalAnchor
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

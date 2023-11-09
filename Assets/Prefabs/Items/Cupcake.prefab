@@ -51,7 +51,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.3
+  m_Radius: 0.35
   m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1 &5130293779131268637
 GameObject:
@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 867139291825595987}
   m_Layer: 0
   m_Name: FoodDecal
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 4209754988671607935}
   m_Layer: 6
   m_Name: Cupcake
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 6124343257299853862}
   m_Layer: 6
   m_Name: DecalAnchor
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
