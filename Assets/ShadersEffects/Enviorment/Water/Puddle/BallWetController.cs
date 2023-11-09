@@ -15,11 +15,11 @@ public class BallWetController : MonoBehaviour
     [SerializeField] Ball ballItemController;
     private float ballMagnetStartForce;
     [SerializeField] float dripSpeed = 24;
-    private bool isFullWet = false;
+    [SerializeField] bool isFullWet = false;
 
     //removing food
     [SerializeField] float removeForce = 2;
-    private bool isInWater;
+    [SerializeField] bool isInWater;
     private void Start()
     {
         if (material == null) material = GetComponent<Renderer>().material;
@@ -90,6 +90,7 @@ public class BallWetController : MonoBehaviour
         {
             if (material.GetFloat("_WaterAmount") >= 1)
             {
+                isFullWet = true;
                 ballPickuper.canPickUp = false;
                 for (int i = 0; i < transform.childCount; i++)
                 {
@@ -107,7 +108,7 @@ public class BallWetController : MonoBehaviour
 
                     Destroy(transform.GetChild(i).gameObject);
 
-                    isFullWet = true;
+                    
                 }
 
                 ballItemController.ClearAllItems();
