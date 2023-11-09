@@ -34,6 +34,11 @@ public class CatGod : MonoBehaviour
     private float _size;
 
 
+    [Header("EatingAnimation")]
+    [SerializeField] Animator catGodAnimator;
+    [SerializeField] float eatAnimWaitTime = 1;
+
+
     void Awake()
     {
         _size = transform.localScale.x;
@@ -103,6 +108,7 @@ public class CatGod : MonoBehaviour
         {            
             _currentLevel++;
             // Play cutscene/animation
+            CutsceneManager.Instance.PlayNext();
         }
 
         if (_currentLevel >= _levels.Count)
@@ -117,6 +123,7 @@ public class CatGod : MonoBehaviour
     
     public void Feed(List<Item> items)
     {
+
         foreach (int amount in _amount)
         {
             if (amount > 0) return;
@@ -128,12 +135,18 @@ public class CatGod : MonoBehaviour
             i.SendToMouth(_mouth, rp);
         }
 
+        if (catGodAnimator != null) { Invoke("StartEatAnimation", eatAnimWaitTime); }
+
         _demand.Clear();
         items.Clear();
         StartCoroutine(Wait());
     }
-#endregion
-    
+    private void StartEatAnimation()
+    {
+        catGodAnimator.SetTrigger("Eat");
+    }
+    #endregion
+
     private bool InspectFood(List<Item> items)
     {
         List<Item.ItemType> tempList = _demand;

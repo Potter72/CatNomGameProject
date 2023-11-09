@@ -11,10 +11,16 @@ public class BallController : MonoBehaviour
 
     public bool isMoving;
     [SerializeField] BallVFXController vfxController;
+    [Header("Animation Shit")]
     [SerializeField] Animator playerAnimator;
+    [SerializeField] Transform catPlayer;
+    [SerializeField] float rotateLerpSpeed = 0.3f;
+    [SerializeField] float runningSpeedCutoff = 2;
+    [SerializeField] float standStillSpeed = 1f;
 
     [SerializeField] float movementForceMultiplier = 4;
     [SerializeField] float maxHorizontalMoveSpeed = 3;
+    [SerializeField] float acceleration = 1;
 
     [SerializeField] Rigidbody playerRigidbody;
 
@@ -29,13 +35,22 @@ public class BallController : MonoBehaviour
 
     private float heighestPoint;
     [SerializeField] float fallDamageCutoff = 1;
-    [SerializeField] Material ballMat;
+
 
     [SerializeField] GameObject moveJoystick;
     [SerializeField] float moveJoystickWidth = 13f;
 
     public Vector3 movementVector;  //is public because used for rotating the player
-    [SerializeField] float standStillSpeed = 0.5f;
+
+
+    [Header("Material References")]
+    [SerializeField] Material ballMat;
+
+
+    [Header("SOUNDS")]
+    [SerializeField] AudioClip rollClip;
+    private bool isPlayingRollClip;
+
     public bool isGrounded;
     bool isInCutscene;
 
@@ -68,12 +83,12 @@ public class BallController : MonoBehaviour
     public void StartMovement()
     {
         if(isMoving) { return; }
-        Debug.Log("touching: " + Touchscreen.current.touches.Count);
+        //Debug.Log("touching: " + Touchscreen.current.touches.Count);
         for (int i = 0; i < Touchscreen.current.touches.Count; i++)
         {
             if (Touchscreen.current.touches[i].isInProgress)
             {
-                Debug.Log("inProgress");
+                //Debug.Log("inProgress");
                 //movementTouch = Touchscreen.current.touches[i];
                 movementTouchId = i;
                 isMoving = true;
@@ -118,34 +133,71 @@ public class BallController : MonoBehaviour
             heighestPoint = transform.position.y;
         }
 
+
         MovementPhysics();
 
     }
 
     private void MovementPhysics()
     {
+        Vector3 moveDirection = playerRigidbody.velocity;
+        moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z);
+
         if (!isMoving || isInCutscene) //movement stuff for when not inputing
         {
-            moveJoystick.SetActive(false);
-            playerAnimator.SetBool("Running", false);
 
-            Vector3 moveDirection = playerRigidbody.velocity;
-            moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z);
-
+            //rotating the player
             if (moveDirection.magnitude > standStillSpeed)
             {
+                if (!isPlayingRollClip)
+                {
+                    isPlayingRollClip = true;
+                    //AudioManager.Instance.PlaySound(rollClip);
+                    //Invoke("RollClipLoop", rollClip.length);
+                }
+                Quaternion targetRotation = Quaternion.LookRotation(moveDirection, catPlayer.transform.up);
+                catPlayer.transform.rotation = Quaternion.Lerp(catPlayer.transform.rotation, targetRotation, rotateLerpSpeed);
+            }
+            //playing animations
+            if (moveDirection.magnitude > runningSpeedCutoff)
+            {
+                playerAnimator.SetBool("Running", true);
+                playerAnimator.SetBool("Walking", false);
+            }
+            else if (moveDirection.magnitude > standStillSpeed)
+            {
+                playerAnimator.SetBool("Running", false);
                 playerAnimator.SetBool("Walking", true);
-                moveJoystick.transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.right) * Quaternion.Euler(0, 90, 0);
             }
             else
             {
+                playerAnimator.SetBool("Running", false);
                 playerAnimator.SetBool("Walking", false);
             }
-            
+
+            moveJoystick.SetActive(false);
             return; 
         }
 
-        playerAnimator.SetBool("Running", true);
+
+        //playing animations
+        if (moveDirection.magnitude > runningSpeedCutoff)
+        {
+            playerAnimator.SetBool("Running", true);
+            playerAnimator.SetBool("Walking", false);
+        }
+        else if (moveDirection.magnitude > standStillSpeed)
+        {
+            playerAnimator.SetBool("Running", false);
+            playerAnimator.SetBool("Walking", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("Running", false);
+            playerAnimator.SetBool("Walking", false);
+        }
+
+
 
         Vector2 currentVelocity = new Vector2(playerRigidbody.velocity.x, playerRigidbody.velocity.z);
 
@@ -164,12 +216,22 @@ public class BallController : MonoBehaviour
         movementVector = Vector3.ClampMagnitude(movementVector / 1000 * movementForceMultiplier, maxHorizontalMoveSpeed);
         //movementVector = Camera.main.transform.forward * movementVector;
 
-        if(currentVelocity.magnitude < maxHorizontalMoveSpeed)
+        //rotate the cat player towards the direction of innput
+        Quaternion inputTargetRotation = Quaternion.LookRotation(movementVector, catPlayer.transform.up);
+        catPlayer.transform.rotation = Quaternion.Lerp(catPlayer.transform.rotation, inputTargetRotation, rotateLerpSpeed);
+
+
+        if (currentVelocity.magnitude < maxHorizontalMoveSpeed)
         {
-            playerRigidbody.AddForce(movementVector);
+            playerRigidbody.AddForce(movementVector * acceleration);
         }
 
         DoDrawJoystick(startPos, currentPos, movementReadVector);
+    }
+
+    private void RollClipLoop()
+    {
+        isPlayingRollClip = false;
     }
 
     private void DoDrawJoystick(Vector2 startPos, Vector2 currentPos, Vector2 movementReadVector)
