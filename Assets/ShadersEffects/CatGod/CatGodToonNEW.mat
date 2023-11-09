@@ -65,7 +65,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Rim_Light_Intensity: 1
-    - _ShadowDarkenValue: 0.8
+    - _ShadowDarkenValue: 0.25
     - _WarbleNoiseScale: 8
     - _WarbleSpeed: 0.85
     - _Warble_Amplitude: 0
