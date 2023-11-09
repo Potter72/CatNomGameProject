@@ -164,7 +164,6 @@ public class BallController : MonoBehaviour
         //Below is for playing a looping sound for when rolling and changing the volume and pitch of said sound
         if (moveDirection.magnitude > standStillSpeed)
         {
-            Debug.Log("wtf");
             if (!isPlayingRollClip)
             {
                 isPlayingRollClip = true;
