@@ -37,6 +37,7 @@ public class CatGod : MonoBehaviour
     [Header("EatingAnimation")]
     [SerializeField] Animator catGodAnimator;
     [SerializeField] float eatAnimWaitTime = 1;
+    [SerializeField] GameObject succObject;
 
 
     void Awake()
@@ -135,7 +136,13 @@ public class CatGod : MonoBehaviour
             i.SendToMouth(_mouth, rp);
         }
 
-        if (catGodAnimator != null) { Invoke("StartEatAnimation", eatAnimWaitTime); }
+        //starting food animation stuff
+        if (catGodAnimator != null) 
+        { 
+            Invoke("StartEatAnimation", eatAnimWaitTime); 
+            Invoke("StartEatSucc", eatAnimWaitTime - 0.05f); 
+
+        }
 
         _demand.Clear();
         items.Clear();
@@ -145,6 +152,16 @@ public class CatGod : MonoBehaviour
     {
         catGodAnimator.SetTrigger("Eat");
     }
+    private void StartEatSucc()
+    {
+        Invoke("StopEatSucc", 2f);
+        succObject.SetActive(true);
+    }
+    private void StopEatSucc()
+    {
+        succObject.SetActive(false);
+    }
+
     #endregion
 
     private bool InspectFood(List<Item> items)

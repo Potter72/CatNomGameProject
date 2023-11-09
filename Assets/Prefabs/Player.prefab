@@ -212,6 +212,10 @@ MonoBehaviour:
   isMoving: 0
   vfxController: {fileID: 0}
   playerAnimator: {fileID: 0}
+  catPlayer: {fileID: 0}
+  rotateLerpSpeed: 0.3
+  runningSpeedCutoff: 5
+  standStillSpeed: 1.5
   movementForceMultiplier: 25
   maxHorizontalMoveSpeed: 12.5
   acceleration: 1
@@ -268,10 +272,12 @@ MonoBehaviour:
   fallDamageCutoff: 3
   moveJoystick: {fileID: 0}
   moveJoystickWidth: 13
+  playerAudioSource: {fileID: 0}
   movementVector: {x: 0, y: 0, z: 0}
-  standStillSpeed: 0.69
   ballMat: {fileID: 2100000, guid: f5d6210defef5f545820363e3a31c93b, type: 2}
   rollClip: {fileID: 8300000, guid: 44191ccfe92974646b847718ec792bb3, type: 3}
+  speedPitchMultiplier: 0.02
+  speedVolumeMultiplier: 0.03
   isGrounded: 0
 --- !u!114 &8668906723247473539
 MonoBehaviour:
@@ -372,7 +378,7 @@ MonoBehaviour:
   material: {fileID: 0}
   drySpeed: 0.003
   dripVFX: {fileID: 0}
-  ballPickuper: {fileID: 0}
+  ballPickuper: {fileID: 8668906723247473539}
   ballFoodMagnet: {fileID: 0}
   dripSpeed: 24
   removeForce: 2

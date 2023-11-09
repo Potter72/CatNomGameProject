@@ -40,6 +40,8 @@ public class BallController : MonoBehaviour
     [SerializeField] GameObject moveJoystick;
     [SerializeField] float moveJoystickWidth = 13f;
 
+    [SerializeField] AudioSource playerAudioSource;
+
     public Vector3 movementVector;  //is public because used for rotating the player
 
 
@@ -50,6 +52,10 @@ public class BallController : MonoBehaviour
     [Header("SOUNDS")]
     [SerializeField] AudioClip rollClip;
     private bool isPlayingRollClip;
+    [SerializeField] float speedPitchMultiplier = 0.4f;
+    [SerializeField] float speedVolumeMultiplier = 0.4f;
+    private float startPitch = 0.4f;
+    private float startVolume = 0.4f;
 
     public bool isGrounded;
     bool isInCutscene;
@@ -78,6 +84,12 @@ public class BallController : MonoBehaviour
     {
         playerRigidbody.isKinematic = true;
         isInCutscene = true;
+    }
+
+    private void Start()
+    {
+        startPitch = playerAudioSource.pitch;
+        startVolume = playerAudioSource.volume;
     }
 
     public void StartMovement()
@@ -149,12 +161,6 @@ public class BallController : MonoBehaviour
             //rotating the player
             if (moveDirection.magnitude > standStillSpeed)
             {
-                if (!isPlayingRollClip)
-                {
-                    isPlayingRollClip = true;
-                    //AudioManager.Instance.PlaySound(rollClip);
-                    //Invoke("RollClipLoop", rollClip.length);
-                }
                 Quaternion targetRotation = Quaternion.LookRotation(moveDirection, catPlayer.transform.up);
                 catPlayer.transform.rotation = Quaternion.Lerp(catPlayer.transform.rotation, targetRotation, rotateLerpSpeed);
             }
@@ -195,6 +201,24 @@ public class BallController : MonoBehaviour
         {
             playerAnimator.SetBool("Running", false);
             playerAnimator.SetBool("Walking", false);
+        }
+
+
+        //Below is for playing a looping sound for when rolling and changing the volume and pitch of said sound
+        if(movementVector.magnitude > standStillSpeed)
+        {
+            if (!isPlayingRollClip)
+            {
+                isPlayingRollClip = true;
+                playerAudioSource.PlayOneShot(rollClip);
+                Invoke("RollClipLoop", rollClip.length);
+            }
+
+            playerAudioSource.pitch = Mathf.Clamp(startPitch + movementVector.magnitude * speedPitchMultiplier,-3,3);
+            playerAudioSource.volume = Mathf.Clamp(startVolume+ movementVector.magnitude * speedVolumeMultiplier,0,1);
+
+            //rollClip.
+            if(!isGrounded) { playerAudioSource.volume = 0.01f; }
         }
 
 
