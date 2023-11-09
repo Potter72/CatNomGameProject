@@ -6,6 +6,8 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
+
 public class BallController : MonoBehaviour
 {
     private int movementTouchId;
@@ -48,6 +50,9 @@ public class BallController : MonoBehaviour
 
     [Header("Material References")]
     [SerializeField] Material ballMat;
+
+    [SerializeField] VisualEffect sweatVFX;
+    [SerializeField] float sweatRunAmount = 10;
 
 
     [Header("SOUNDS")]
@@ -121,6 +126,7 @@ public class BallController : MonoBehaviour
     {
         isMoving = false;
         moveJoystick.SetActive(false);
+        sweatVFX.SetFloat("SpawnRate", 0);
         movementTouchId = 1000;
     }
 
@@ -168,7 +174,6 @@ public class BallController : MonoBehaviour
         //Below is for playing a looping sound for when rolling and changing the volume and pitch of said sound
         if (moveDirection.magnitude > standStillSpeed)
         {
-            Debug.Log("wtf");
             if (!isPlayingRollClip)
             {
                 isPlayingRollClip = true;
@@ -183,6 +188,26 @@ public class BallController : MonoBehaviour
             if (!isGrounded) { playerAudioSource.volume = 0.01f; }
         }
 
+        //playing animations
+        if (moveDirection.magnitude > runningSpeedCutoff)
+        {
+            playerAnimator.SetBool("Running", true);
+            playerAnimator.SetBool("Walking", false);
+            sweatVFX.SetFloat("SpawnRate", sweatRunAmount);
+        }
+        else if (moveDirection.magnitude > standStillSpeed)
+        {
+            playerAnimator.SetBool("Running", false);
+            playerAnimator.SetBool("Walking", true);
+            sweatVFX.SetFloat("SpawnRate", 0);
+        }
+        else
+        {
+            playerAnimator.SetBool("Running", false);
+            playerAnimator.SetBool("Walking", false);
+            sweatVFX.SetFloat("SpawnRate", 0);
+        }
+
         if (!isMoving || isInCutscene) //movement stuff for when not inputing
         {
 
@@ -192,22 +217,7 @@ public class BallController : MonoBehaviour
                 Quaternion targetRotation = Quaternion.LookRotation(moveDirection, catPlayer.transform.up);
                 catPlayer.transform.rotation = Quaternion.Lerp(catPlayer.transform.rotation, targetRotation, rotateLerpSpeed);
             }
-            //playing animations
-            if (moveDirection.magnitude > runningSpeedCutoff)
-            {
-                playerAnimator.SetBool("Running", true);
-                playerAnimator.SetBool("Walking", false);
-            }
-            else if (moveDirection.magnitude > standStillSpeed)
-            {
-                playerAnimator.SetBool("Running", false);
-                playerAnimator.SetBool("Walking", true);
-            }
-            else
-            {
-                playerAnimator.SetBool("Running", false);
-                playerAnimator.SetBool("Walking", false);
-            }
+           
 
             moveJoystick.SetActive(false);
             return;
