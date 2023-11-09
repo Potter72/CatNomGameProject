@@ -82,7 +82,7 @@ Material:
     - _ShadowDarkenValue: 0.506
     - _Steps: 2
     - _Triangulize_Value: -4.59
-    - _WaterAmount: 0
+    - _WaterAmount: 0.22000003
     - _WaterAmpltiude: 0.176
     - _WaterNoiseScale: 15
     - _WobbleThreshold: 0.372
