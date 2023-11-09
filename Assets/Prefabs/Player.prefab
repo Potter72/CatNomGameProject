@@ -134,7 +134,7 @@ MonoBehaviour:
   standStillSpeed: 1.5
   movementForceMultiplier: 25
   maxHorizontalMoveSpeed: 12.5
-  acceleration: 1.15
+  acceleration: 1.75
   playerRigidbody: {fileID: 3704518379112290570}
   bounceValueToAdd: 0.6
   bounceDecreaseSpeed: 0.03
@@ -187,15 +187,18 @@ MonoBehaviour:
   fallDamageCameraChake: 0.1
   fallDamageCutoff: 3
   moveJoystick: {fileID: 0}
-  moveJoystickWidth: 13
+  moveJoystickWidth: 32
   playerAudioSource: {fileID: 0}
   movementVector: {x: 0, y: 0, z: 0}
   ballMat: {fileID: 2100000, guid: f5d6210defef5f545820363e3a31c93b, type: 2}
+  sweatVFX: {fileID: 0}
+  sweatRunAmount: 10
   rollClip: {fileID: 8300000, guid: ce96a5f71a6a5e444a5f7b99fbe9f2c8, type: 3}
   speedPitchMultiplier: 0.02
-  speedVolumeMultiplier: 0.04
+  speedVolumeMultiplier: 0.12
   isGrounded: 0
   isInCutscene: 0
+  thumpClips: []
 --- !u!114 &8668906723247473539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +302,9 @@ MonoBehaviour:
   ballFoodMagnet: {fileID: 0}
   ballItemController: {fileID: 622196493711929653}
   dripSpeed: 24
+  isFullWet: 0
   removeForce: 2
+  isInWater: 0
 --- !u!114 &3648816284114717261
 MonoBehaviour:
   m_ObjectHideFlags: 0
