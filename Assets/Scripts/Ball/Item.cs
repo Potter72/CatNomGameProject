@@ -18,7 +18,7 @@ public class Item : MonoBehaviour
     private Vector3 _initialPos;
     private bool _lastItem = false;
 
-    private WaitForSeconds _waitForSeconds;
+    private WaitForSecondsRealtime _waitForSecondsRealtime;
 
     public enum ItemType
     {
@@ -36,7 +36,7 @@ public class Item : MonoBehaviour
 
     private void Awake()
     {
-        _waitForSeconds = new WaitForSeconds(0.01f);
+        _waitForSecondsRealtime = new WaitForSecondsRealtime(0.01f);
     }
 
     public void AddBall(Ball ball)
@@ -107,7 +107,7 @@ public class Item : MonoBehaviour
 
             transform.position = Vector3.Lerp(AB, BC, timer);
 
-            yield return _waitForSeconds;
+            yield return _waitForSecondsRealtime;
         }
 
         _plate.AddItem(this);
@@ -128,10 +128,10 @@ public class Item : MonoBehaviour
 
             transform.position = Vector3.Lerp(_initialPos, _randomPos, timer);
 
-            yield return _waitForSeconds;
+            yield return _waitForSecondsRealtime;
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
 
         timer = 0f;
         
@@ -141,7 +141,7 @@ public class Item : MonoBehaviour
 
             transform.position = Vector3.Lerp(_randomPos, _mouth.position, timer);
 
-            yield return _waitForSeconds;
+            yield return _waitForSecondsRealtime;
         }
         
         Destroy(gameObject);
@@ -162,10 +162,10 @@ public class Item : MonoBehaviour
 
             transform.position = Vector3.Lerp(_initialPos, newPos, timer);
 
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSecondsRealtime(0.02f);
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
 
         timer = 0f;
 
@@ -178,7 +178,7 @@ public class Item : MonoBehaviour
 
             transform.position = Vector3.Lerp(_initialPos, newPos, timer);
 
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSecondsRealtime(0.02f);
         }
 
         _plate.AddItem(this);

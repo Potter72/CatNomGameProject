@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Environmental/RandomItemSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Environmental/RandomItemSpawner.cs" afterDir="false" />
-    </list>
+    <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
