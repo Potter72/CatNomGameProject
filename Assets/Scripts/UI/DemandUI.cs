@@ -76,6 +76,9 @@ public class DemandUI : MonoBehaviour
     
     public void ReduceByOne(int index)
     {
+        Debug.Log($"{_textBoxes.Count}");
+        Debug.Log($"{_animators.Count}");
+        
         _textBoxes[index].text = $"x{_amount[index]}";
         _animators[index].SetTrigger("Bounce");
     }
