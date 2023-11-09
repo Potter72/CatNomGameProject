@@ -74,6 +74,11 @@ public class Ball : MonoBehaviour
         _items.Remove(item);
         _ballPickup.RemoveFood(item);
     }
+
+    public void ClearAllItems()
+    {
+        _items.Clear();
+    }
     
     // Use this when you want to send the food stuck on the ball
     public void SendItemsToPlate()

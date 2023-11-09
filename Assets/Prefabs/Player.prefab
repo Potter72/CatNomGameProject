@@ -134,7 +134,7 @@ MonoBehaviour:
   standStillSpeed: 1.5
   movementForceMultiplier: 25
   maxHorizontalMoveSpeed: 12.5
-  acceleration: 1
+  acceleration: 1.15
   playerRigidbody: {fileID: 3704518379112290570}
   bounceValueToAdd: 0.6
   bounceDecreaseSpeed: 0.03
@@ -191,10 +191,11 @@ MonoBehaviour:
   playerAudioSource: {fileID: 0}
   movementVector: {x: 0, y: 0, z: 0}
   ballMat: {fileID: 2100000, guid: f5d6210defef5f545820363e3a31c93b, type: 2}
-  rollClip: {fileID: 8300000, guid: 44191ccfe92974646b847718ec792bb3, type: 3}
+  rollClip: {fileID: 8300000, guid: ce96a5f71a6a5e444a5f7b99fbe9f2c8, type: 3}
   speedPitchMultiplier: 0.02
-  speedVolumeMultiplier: 0.03
+  speedVolumeMultiplier: 0.04
   isGrounded: 0
+  isInCutscene: 0
 --- !u!114 &8668906723247473539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +297,7 @@ MonoBehaviour:
   dripVFX: {fileID: 0}
   ballPickuper: {fileID: 8668906723247473539}
   ballFoodMagnet: {fileID: 0}
+  ballItemController: {fileID: 622196493711929653}
   dripSpeed: 24
   removeForce: 2
 --- !u!114 &3648816284114717261
