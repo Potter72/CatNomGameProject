@@ -265,14 +265,16 @@ public class BallController : MonoBehaviour
     private void DoDrawJoystick(Vector2 startPos, Vector2 currentPos, Vector2 movementReadVector)
     {
         moveJoystick.SetActive(true);
-        moveJoystick.transform.position = Vector3.Lerp(startPos, currentPos, 0.5f);
+        moveJoystick.transform.position = Vector3.Lerp(startPos, currentPos, 0.1f);
         //moveJoystick.transform.localScale = new Vector3(moveJoystick.transform.localScale.x, movementReadVector.magnitude, moveJoystick.transform.localScale.z);
-
+        //moveJoystick.transform.position = startPos;
+        /*
         if (movementReadVector != Vector2.zero)
         {
             moveJoystick.transform.rotation = Quaternion.LookRotation(movementReadVector, Vector3.right) * Quaternion.Euler(0, 90, 0);
         }
-        // moveJoystick.GetComponent<RectTransform>().sizeDelta = new Vector2(movementReadVector.magnitude / 3f, moveJoystickWidth + 1);
+        moveJoystick.GetComponent<RectTransform>().sizeDelta = new Vector2(movementReadVector.magnitude / 3f, moveJoystickWidth + 1);
+        */
     }
 
     private void OnCollisionExit(Collision collision)

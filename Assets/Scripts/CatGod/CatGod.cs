@@ -127,14 +127,23 @@ public class CatGod : MonoBehaviour
         if (_currentLevel >= _levels.Count)
         {
             Debug.Log("<color=yellow>You Win!</color>");
-            GetComponent<CatGodEndGameExplosion>().EndGame();
+            CutsceneManager.Instance.PlayNext();
+            //GetComponent<CatGodEndGameExplosion>().EndGame();
             return;
         }
         
         _demandUI.RemoveAllTypes();
         DemandMoreFood();
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            CutsceneManager.Instance.PlayNext();
+        }
+    }
+
     public void Feed(List<Item> items)
     {
 
