@@ -23,6 +23,7 @@ public class CatGod : MonoBehaviour
     [SerializeField] private Transform _mouth;
 
     [SerializeField] private List<LevelInfo> _levels;
+    [SerializeField] private List<int> _typeLimit;
     private int _currentLevel = 0;
     
     private Plate _plate;
@@ -46,14 +47,22 @@ public class CatGod : MonoBehaviour
         _startPos = transform.position;
         _plate = GameManager.Instance.GetPlate();
         
-        for (int i = 0; i < Enum.GetNames(typeof(Item.ItemType)).Length; i++)
-        {
-            _types.Add((Item.ItemType)i);
-        }
+        _types.Add(0);
         
+        GameManager.Instance.LevelUpEvent.AddListener(IncreaseLevel);
         DemandMoreFood();
     }
 
+    private void IncreaseLevel()
+    {
+        _currentLevel++;
+        
+        for (int i = 0; i < _typeLimit[_currentLevel]; i++)
+        {
+            _types.Add((Item.ItemType)i);
+        }
+    }
+    
     private void DemandMoreFood()
     {
         List<Item.ItemType> remainingTypes = new(_types);
@@ -107,7 +116,7 @@ public class CatGod : MonoBehaviour
     {
         if (--_levels[_currentLevel].ClearsRequired == 0)
         {            
-            _currentLevel++;
+            GameManager.Instance.LevelUpEvent.Invoke();
             // Play cutscene/animation
             CutsceneManager.Instance.PlayNext();
         }
@@ -189,7 +198,7 @@ public class CatGod : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSecondsRealtime(2.5f);
         
         FinishRequest();
     }

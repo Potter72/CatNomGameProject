@@ -20,6 +20,7 @@ public class RandomItemSpawner : MonoBehaviour
     }
 
     [SerializeField] private List<SpawnAreaList> _spawnAreas;
+    [SerializeField] private int _group;
     [SerializeField] private Color _gizmoColor;
 
     [SerializeField] private Transform _parent;
@@ -41,7 +42,7 @@ public class RandomItemSpawner : MonoBehaviour
     {
         Gizmos.color = _gizmoColor;
         
-        foreach (SpawnArea s in _spawnAreas[0].SpawnAreaPoints)
+        foreach (SpawnArea s in _spawnAreas[_group].SpawnAreaPoints)
         {
             Gizmos.DrawSphere(s.Point.position, s.Radius);
         }
@@ -50,8 +51,14 @@ public class RandomItemSpawner : MonoBehaviour
     private void Awake()
     {
         _demandedPrefabs = new List<GameObject>();
+
     }
 
+    private void Start()
+    {
+        GameManager.Instance.LevelUpEvent.AddListener(IncreaseLevel);
+    }
+    
     public void StartSpawning()
     {
         InvokeRepeating(nameof(SpawnItem), _startDelay, _spawnDelay);
