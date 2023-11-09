@@ -20,6 +20,7 @@ public class CatGod : MonoBehaviour
     }
     
     [SerializeField] private DemandUI _demandUI;
+    [SerializeField] private RandomItemSpawner _randomSpawner;
     [SerializeField] private Transform _mouth;
 
     [SerializeField] private List<LevelInfo> _levels;
@@ -85,6 +86,8 @@ public class CatGod : MonoBehaviour
 
         _demand = demandedTypes;
         _amount = amountOfItems;
+        
+        _randomSpawner.SetDemands(_demand);
         
         _demandUI.SetDemand(demandedTypes, amountOfItems);
     }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2822439956495436077}
   m_Layer: 6
   m_Name: DecalAnchor
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6384290776113317004}
   m_Layer: 0
   m_Name: FoodDecal
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 2739666286054557944}
   m_Layer: 6
   m_Name: PumpkinPie
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

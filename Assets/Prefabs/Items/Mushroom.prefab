@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8414549020444151568}
   m_Layer: 6
   m_Name: Mushroom
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 5959281045608247531}
   m_Layer: 0
   m_Name: FoodDecal
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 3374391902186804617}
   m_Layer: 6
   m_Name: DecalAnchor
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
