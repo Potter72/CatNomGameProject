@@ -97,7 +97,7 @@ public class DemandUI : MonoBehaviour
     private Image GetImage(Item.ItemType type)
     {
         Image i;
-        
+        Debug.Log(type);
         switch (type)
         {
             case Item.ItemType.Mushroom:
