@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3113083512073668454}
   - component: {fileID: 8906197926894925700}
   - component: {fileID: 4307630378530524090}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Squash
   m_TagString: Untagged
   m_Icon: {fileID: 0}

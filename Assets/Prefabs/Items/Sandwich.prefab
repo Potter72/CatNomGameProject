@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 8127175129057592546}
   - component: {fileID: 3451624952552244457}
   - component: {fileID: 1984565682517564870}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sandwich
   m_TagString: Untagged
   m_Icon: {fileID: 0}

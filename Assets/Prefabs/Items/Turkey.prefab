@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 718435139110814572}
   - component: {fileID: 1732093209472344908}
   - component: {fileID: 130843863776352263}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Turkey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
