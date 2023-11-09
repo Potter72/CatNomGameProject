@@ -21,4 +21,9 @@ public class ItemList : MonoBehaviour
     {
         _itemList.Remove(item);
     }
+
+    public List<Item> GetList()
+    {
+        return _itemList;
+    }
 }

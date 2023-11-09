@@ -165,7 +165,7 @@ MonoBehaviour:
   _collider: {fileID: 8529378481771063381}
   _decalProjector: {fileID: 6540448032490917268}
   _travelSpeed: 0.02
-  FoodType: 4
+  FoodType: 9
 --- !u!135 &6556166482033982695
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -321,6 +321,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   bombPrefab: {fileID: 3304069064430929619, guid: 8ba22927b9390c74394407c836fa8fe8, type: 3}
+  ballItemController: {fileID: 0}
 --- !u!1001 &7525807076718788528
 PrefabInstance:
   m_ObjectHideFlags: 0

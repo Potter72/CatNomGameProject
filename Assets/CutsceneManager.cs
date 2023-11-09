@@ -24,7 +24,7 @@ public class CutsceneManager : MonoBehaviour
     public PlayableDirector CurrentDirector => _currentDirector;
     //each playabledirector is a cutscene.
     //if cutscenes are to be triggered in order you might as well use a queue or something similar
-    
+
 
 
     private void Awake()
@@ -89,6 +89,8 @@ public class CutsceneManager : MonoBehaviour
 
     public void PlayNext()
     {
+
+        bool isLast = _directorQueue.Count == 1;
         //null check
         if (_directorQueue == null) return;
 
@@ -106,7 +108,7 @@ public class CutsceneManager : MonoBehaviour
 
 
         _currentDirector.stopped += OnCutsceneStopped;
-        _currentDirector.stopped += x => _currentDirector.gameObject.SetActive(false);
+        if (!isLast) _currentDirector.stopped += x => _currentDirector.gameObject.SetActive(false);
         _currentDirector.played += OnCutscenePlayed;
         _currentDirector.gameObject.SetActive(true);
 

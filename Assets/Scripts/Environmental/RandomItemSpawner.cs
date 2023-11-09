@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -26,17 +27,24 @@ public class RandomItemSpawner : MonoBehaviour
     [SerializeField] private Transform _parent;
     [SerializeField] private List<GameObject> _itemPrefabs;
     [SerializeField] private List<int> _itemVarietyLimit;
+
+    [SerializeField] private GameObject _bombPrefab;
+    [SerializeField] private float _bombSpawnRate;
     
     [SerializeField] private float _startDelay;
     [SerializeField] private float _spawnDelay;
 
     [SerializeField] private int _droughtLimit = 5;
+    [SerializeField] private int _itemLimit = 50;
 
+    private List<Item> _itemList;
+    
     private List<GameObject> _demandedPrefabs;
     private List<Item.ItemType> _demandedTypes;
     private int _demandDrought;
     
     private int _level = 0;
+    private bool _spawning = false;
     
     private void OnDrawGizmos()
     {
@@ -51,12 +59,12 @@ public class RandomItemSpawner : MonoBehaviour
     private void Awake()
     {
         _demandedPrefabs = new List<GameObject>();
-
     }
 
     private void Start()
     {
         GameManager.Instance.LevelUpEvent.AddListener(IncreaseLevel);
+        _itemList = GameManager.Instance.GetItemList().GetList();
     }
     
     public void StartSpawning()
@@ -66,10 +74,18 @@ public class RandomItemSpawner : MonoBehaviour
     
     private void SpawnItem()
     {
+        if (_level == 0) return;
+        if (_itemList.Count >= _itemLimit) return;
+        
         GameObject itemPrefab;
     
         itemPrefab = _demandDrought >= _droughtLimit ? _demandedPrefabs[Random.Range(0, _demandedPrefabs.Count)] : 
                                                         _itemPrefabs[Random.Range(0, _itemVarietyLimit[_level])];
+
+        if (Random.Range(0f, 1f) < _bombSpawnRate)
+        {
+            itemPrefab = _bombPrefab;
+        }
         
         Item itemComponent = itemPrefab.GetComponent<Item>();
         CheckIfDemanded(itemComponent.FoodType);
@@ -132,5 +148,10 @@ public class RandomItemSpawner : MonoBehaviour
     public void IncreaseLevel()
     {
         _level++;
+
+        if (_spawning)
+        {
+            StartSpawning();
+        }
     }
 }
