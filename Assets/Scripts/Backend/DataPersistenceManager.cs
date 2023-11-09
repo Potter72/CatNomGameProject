@@ -77,13 +77,13 @@ public class DataPersistenceManager : MonoBehaviour
 
     private List<IDataPersistenceGameData> FindAllGameDataPersistenceObjects()
     {
-        IEnumerable<IDataPersistenceGameData> objects = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None).OfType<IDataPersistenceGameData>();
+        var objects = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None).OfType<IDataPersistenceGameData>();
         return new List<IDataPersistenceGameData>(objects);
     }
 
     private List<IDataPersistenceSettingsData> FindAllSettingsDataPersistenceObjects()
     {
-        IDataPersistenceSettingsData[] objects = (IDataPersistenceSettingsData[])FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, UnityEngine.FindObjectsSortMode.None).OfType<IDataPersistenceSettingsData>();
+        var objects = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, UnityEngine.FindObjectsSortMode.None).OfType<IDataPersistenceSettingsData>();
         return new List<IDataPersistenceSettingsData>(objects);
     }
 
