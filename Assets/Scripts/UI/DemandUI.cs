@@ -195,7 +195,7 @@ public class DemandUI : MonoBehaviour
     {
         Vector3 screenPoint = _camera.WorldToScreenPoint(_catGod.position);
 
-        if (screenPoint.x < -_uiHalfWidth || screenPoint.x > _screenSize.x + _uiHalfWidth || screenPoint.y < -_uiHalfHeight || screenPoint.y > _screenSize.y + _uiHalfHeight)
+        if (screenPoint.x < 0f || screenPoint.x > _screenSize.x || screenPoint.y < 0f || screenPoint.y > _screenSize.y)
         {
             if (!_outside)
             {
