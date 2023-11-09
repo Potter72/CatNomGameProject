@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="" />
+    <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/DemandUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/DemandUI.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
