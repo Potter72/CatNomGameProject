@@ -57,6 +57,8 @@ public class CatGod : MonoBehaviour
     private void IncreaseLevel()
     {
         _currentLevel++;
+
+        _types.Clear();
         
         for (int i = 0; i < _typeLimit[_currentLevel]; i++)
         {
