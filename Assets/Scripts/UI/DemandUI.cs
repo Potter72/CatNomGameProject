@@ -121,14 +121,17 @@ public class DemandUI : MonoBehaviour
             case Item.ItemType.Apple:
                 i = Instantiate(_imagePrefabs[6], transform);
                 break;
-            case Item.ItemType.Sandwich:
+            case Item.ItemType.Potato:
                 i = Instantiate(_imagePrefabs[7], transform);
                 break;
-            case Item.ItemType.Ham:
+            case Item.ItemType.Sandwich:
                 i = Instantiate(_imagePrefabs[8], transform);
                 break;
-            default:
+            case Item.ItemType.Ham:
                 i = Instantiate(_imagePrefabs[9], transform);
+                break;
+            default:
+                i = Instantiate(_imagePrefabs[0], transform);
                 break;
         }
 
