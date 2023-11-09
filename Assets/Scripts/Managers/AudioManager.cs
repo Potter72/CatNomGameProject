@@ -65,27 +65,27 @@ public class AudioManager : MonoBehaviour, IDataPersistenceSettingsData
     //mixer volume controls
     public void ChangeMasterVolume(float volume)
     {
-        _mixer.SetFloat(MIXER_MASTER, Mathf.Log10(volume) * 20);
+        _mixer.SetFloat(MIXER_MASTER, Mathf.Log10(volume) * 10);
         MasterVolume = volume;
     }
     public void ChangeMusicVolume(float volume)
     {
-        _mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(volume) * 20);
+        _mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(volume) * 10);
         MusicVolume = volume;
     }
     public void ChangeAmbianceVolume(float volume)
     {
-        _mixer.SetFloat(MIXER_AMBIANCE, Mathf.Log10(volume) * 20);
+        _mixer.SetFloat(MIXER_AMBIANCE, Mathf.Log10(volume) * 10);
         AmbianceVolume = volume;
     }
     public void ChangeUIVolume(float volume)
     {
-        _mixer.SetFloat(MIXER_UI, Mathf.Log10(volume) * 20);
+        _mixer.SetFloat(MIXER_UI, Mathf.Log10(volume) * 10);
         UIVolume = volume;
     }
     public void ChangeEffectsVolume(float volume)
     {
-        _mixer.SetFloat(MIXER_EFFECTS, Mathf.Log10(volume) * 20);
+        _mixer.SetFloat(MIXER_EFFECTS, Mathf.Log10(volume) * 10);
         EffectsVolume = volume;
     }
 
