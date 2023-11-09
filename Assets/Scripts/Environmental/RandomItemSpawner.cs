@@ -51,12 +51,12 @@ public class RandomItemSpawner : MonoBehaviour
     {
         _demandedPrefabs = new List<GameObject>();
     }
-    
-    private void Start()
+
+    public void StartSpawning()
     {
         InvokeRepeating(nameof(SpawnItem), _startDelay, _spawnDelay);
     }
-
+    
     private void SpawnItem()
     {
         GameObject itemPrefab;

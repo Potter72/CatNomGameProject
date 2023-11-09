@@ -22,11 +22,16 @@ public class Item : MonoBehaviour
 
     public enum ItemType
     {
-        Carrot,
-        Ham, 
-        RedShroom,
-        YellowShroom,
-        Lettuce
+        Mushroom,
+        Turkey,
+        Pie,
+        Squash,
+        MoonCake,
+        Cupcake,
+        Apple,
+        Potato,
+        Sandwich,
+        Ham
     }
 
     private void Awake()
@@ -52,7 +57,7 @@ public class Item : MonoBehaviour
     
     public void RandomizeItemType()
     {
-        FoodType = (ItemType)Random.Range(0, 5);
+        FoodType = (ItemType)Random.Range(0, 10);
     }
 
     // Used for the ball script to indicate when the last food from the
