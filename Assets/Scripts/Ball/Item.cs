@@ -17,6 +17,7 @@ public class Item : MonoBehaviour
     
     private Vector3 _initialPos;
     private bool _lastItem = false;
+    private float _timeLeft = 30f;
 
     private WaitForSecondsRealtime _waitForSecondsRealtime;
 
@@ -37,6 +38,20 @@ public class Item : MonoBehaviour
     private void Awake()
     {
         _waitForSecondsRealtime = new WaitForSecondsRealtime(0.01f);
+    }
+
+    private void Update()
+    {
+        if (transform.parent == null) return;
+        
+        if (transform.parent.name != "ItemContainer") return;
+        
+        _timeLeft -= Time.deltaTime;
+
+        if (_timeLeft <= 0f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void AddBall(Ball ball)
@@ -182,5 +197,10 @@ public class Item : MonoBehaviour
         }
 
         _plate.AddItem(this);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.GetItemList().RemoveItem(this);
     }
 }
