@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class PauseGame : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static bool GameIsPaused = false;
+
+    void Update ()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResumingGame ()
     {
-        
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+
+    public void PausingGame ()
+    {
+        Time.timeScale = 0f;
+        GameIsPaused = true;
     }
 }
