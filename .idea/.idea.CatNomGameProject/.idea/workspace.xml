@@ -6,21 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/TestImages/190130-calzone-horizontal-2-1549421238.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/TestImages/190130-calzone-horizontal-2-1549421238.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/TestImages/carrot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/TestImages/carrot.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/TestImages/chantarelle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/TestImages/chantarelle.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/TestImages/ham.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/TestImages/ham.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/TestImages/lettuce.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/TestImages/lettuce.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/TestImages/red_mushroom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/TestImages/red_mushroom.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BallScripts/BallController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BallScripts/BallController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/DemandUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/DemandUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShadersEffects/Enviorment/Grass/Grass.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShadersEffects/Enviorment/Grass/Grass.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +116,7 @@
       <workItem from="1699262759035" duration="1660000" />
       <workItem from="1699345268645" duration="402000" />
       <workItem from="1699432415965" duration="13450000" />
-      <workItem from="1699517771537" duration="6212000" />
+      <workItem from="1699517771537" duration="7067000" />
     </task>
     <servers />
   </component>

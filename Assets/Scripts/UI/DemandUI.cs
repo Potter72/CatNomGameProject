@@ -14,6 +14,9 @@ public class DemandUI : MonoBehaviour
     [SerializeField] private List<Vector2> _dimensions;
     [SerializeField] private List<Vector2> _slots;
     [SerializeField] private List<Image> _staticSlots;
+    [SerializeField] private Vector2 _staticUIOffset;
+    [SerializeField] private float _switchOffsetX;
+    [SerializeField] private float _switchOffsetY;
 
     private List<Image> _demandImages;
     private List<TextMeshProUGUI> _textBoxes;
@@ -235,7 +238,7 @@ public class DemandUI : MonoBehaviour
         if (_currentCount == 1)
         {
             _staticSlots[0].color = new Color(1, 1, 1, 1);
-            _demandImages[0].rectTransform.position = _staticSlots[0].rectTransform.position;
+            _demandImages[0].rectTransform.position = _staticSlots[0].rectTransform.position + (Vector3)_staticUIOffset;
             _demandImages[0].rectTransform.SetParent(_staticSlots[0].rectTransform);
             return;
         }
@@ -243,7 +246,7 @@ public class DemandUI : MonoBehaviour
         for (int i = 0; i < _staticSlots.Count; i++)
         {
             _staticSlots[i].color = new Color(1, 1, 1, 1);
-            _demandImages[i].rectTransform.position = _staticSlots[i].rectTransform.position;
+            _demandImages[i].rectTransform.position = _staticSlots[i].rectTransform.position + (Vector3)_staticUIOffset;
             _demandImages[i].rectTransform.SetParent(_staticSlots[i].rectTransform);
         }
     }
