@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8751789356019336805
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: YarnBall
+  m_Shader: {fileID: -6465566751694194690, guid: de20aa72abbc9af48a612c34f4d904bd, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTexture:
+        m_Texture: {fileID: 2800000, guid: 1e3eda346215f2744895d1877e63cbaa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxOcclusionMapping_1057405637b4450d951536aaa5a5541f_Heightmap_2_Texture2D:
+        m_Texture: {fileID: 2800000, guid: eb979893600f1894086e94a341cfdd8a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_cf31a58d2a504c68bebb105ba8cffc60_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: f564b78f0d5827d4a9f9fa25c175b9a5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Amplitude: 1.65
+    - _BounceAmount: 0.1
+    - _BounceVerticalAmount: 0.21
+    - _BulgeMultiplier: 0.439
+    - _BulgePower: 0.429
+    - _DebugFloat: -3.22
+    - _DebugFloat3: 1.01
+    - _DebugFloat_1: 1.88
+    - _DepthDarken: 20.53
+    - _Outline_Power: 10
+    - _PosterizeSteps: 10
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ShadowDarkenValue: 0.506
+    - _Steps: 2
+    - _Triangulize_Value: -4.59
+    - _WaterAmount: 0.22000003
+    - _WaterAmpltiude: 0.176
+    - _WaterNoiseScale: 15
+    - _WobbleThreshold: 0.372
+    - _Wobble_Amount: 0.2
+    - _Wobble_Speed: 0.53
+    m_Colors:
+    - _Main_Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Shadow_Color: {r: 0.4528302, g: 0.1127908, b: 0.06194377, a: 1}
+    - _WaterColor: {r: 0.1701977, g: 0.1264685, b: 0.9245283, a: 0}
+    - _fsg: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

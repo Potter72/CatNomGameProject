@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2339582882859484492}
   serializedVersion: 2
   m_LocalRotation: {x: -0.13914216, y: 0.21609756, z: -0.11137433, w: -0.9599673}
-  m_LocalPosition: {x: 101.74564, y: 7.4218755, z: -9.059946}
+  m_LocalPosition: {x: 101.74564, y: 13, z: -9.059946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  offset: {x: -6, y: 15, z: -10}
+  offset: {x: -8.2, y: 8.5, z: -8.9}
   smoothSpeed: 0.8
   cameraPivot: {fileID: 2688861886121672857}
   canRotateCamera: 1

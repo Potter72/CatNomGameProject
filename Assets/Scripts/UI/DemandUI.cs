@@ -100,20 +100,35 @@ public class DemandUI : MonoBehaviour
         
         switch (type)
         {
-            case Item.ItemType.Carrot:
+            case Item.ItemType.Mushroom:
                 i = Instantiate(_imagePrefabs[0], transform);
                 break;
-            case Item.ItemType.Ham:
+            case Item.ItemType.Turkey:
                 i = Instantiate(_imagePrefabs[1], transform);
                 break;
-            case Item.ItemType.RedShroom:
+            case Item.ItemType.Pie:
                 i = Instantiate(_imagePrefabs[2], transform);
                 break;
-            case Item.ItemType.YellowShroom:
+            case Item.ItemType.Squash:
                 i = Instantiate(_imagePrefabs[3], transform);
                 break;
-            case Item.ItemType.Lettuce:
+            case Item.ItemType.MoonCake:
                 i = Instantiate(_imagePrefabs[4], transform);
+                break;
+            case Item.ItemType.Cupcake:
+                i = Instantiate(_imagePrefabs[5], transform);
+                break;
+            case Item.ItemType.Apple:
+                i = Instantiate(_imagePrefabs[6], transform);
+                break;
+            case Item.ItemType.Potato:
+                i = Instantiate(_imagePrefabs[7], transform);
+                break;
+            case Item.ItemType.Sandwich:
+                i = Instantiate(_imagePrefabs[8], transform);
+                break;
+            case Item.ItemType.Ham:
+                i = Instantiate(_imagePrefabs[9], transform);
                 break;
             default:
                 i = Instantiate(_imagePrefabs[0], transform);
@@ -123,31 +138,31 @@ public class DemandUI : MonoBehaviour
         return i;
     }
     
-    private Color GetColor(Item.ItemType type)
-    {
-        Color c = Color.white;
-
-        switch (type)
-        {
-            case Item.ItemType.YellowShroom:
-                c = Color.yellow;
-                break;
-            case Item.ItemType.Carrot:
-                c = new Color(1f, 0.5f, 0f);
-                break;
-            case Item.ItemType.Ham:
-                c = Color.magenta;
-                break;
-            case Item.ItemType.RedShroom:
-                c = Color.red;
-                break;
-            case Item.ItemType.Lettuce:
-                c = Color.green;
-                break;
-        }
-
-        return c;
-    }
+    // private Color GetColor(Item.ItemType type)
+    // {
+    //     Color c = Color.white;
+    //
+    //     switch (type)
+    //     {
+    //         case Item.ItemType.YellowShroom:
+    //             c = Color.yellow;
+    //             break;
+    //         case Item.ItemType.Carrot:
+    //             c = new Color(1f, 0.5f, 0f);
+    //             break;
+    //         case Item.ItemType.Ham:
+    //             c = Color.magenta;
+    //             break;
+    //         case Item.ItemType.RedShroom:
+    //             c = Color.red;
+    //             break;
+    //         case Item.ItemType.Lettuce:
+    //             c = Color.green;
+    //             break;
+    //     }
+    //
+    //     return c;
+    // }
 
     private void SetDimensions(int count)
     {

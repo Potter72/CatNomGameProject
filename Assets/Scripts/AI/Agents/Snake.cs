@@ -9,8 +9,10 @@ public class Snake : BTAgent
 {
     [SerializeField] private Color _gizmoColor;
     [SerializeField] private GameObject _foodPlacementArea;
+    [SerializeField] private Transform _mouth;
     [SerializeField] private float _snatchRange = 3f; 
     [SerializeField] private float _detectionRange = 20f;
+
 
 
     private List<Item> _itemList;
@@ -27,17 +29,25 @@ public class Snake : BTAgent
         Selector doSnake = new Selector("Do Snake");
         Sequence stealFromPlayer = new Sequence("Steal From Player");
         Leaf checkRange = new Leaf("Check Range", CheckRange);
+        Leaf setWalking = new Leaf("SetWalking", SetWalking);
         Leaf chasePlayer = new Leaf("Chase Player", ChasePlayer);
         Leaf snatchFood = new Leaf("Snatch Food", SnatchFood);
         Leaf setRunDestination = new Leaf("Set Run Destination", SetRunDestination);
         Leaf runAway = new Leaf("Run Away", RunAway);
         Leaf dropFood = new Leaf("Drop Food", DropFood);
 
-        Sequence wander = new Sequence("Wander");
+        BehaviorTree seePlayer = new BehaviorTree("SeePlayer");
+        Inverter invertRangeCheck = new Inverter("InvertRangeCheck");
+        invertRangeCheck.AddChild(checkRange);
+
+        Selector wanderWithCheck = new Selector("WanderWithCheck");
+        DepSequence wander = new DepSequence("Wander", seePlayer, Agent);
         Leaf setWanderDestination = new Leaf("Wander", SetWanderDestination);
         Leaf moveToWanderDestination = new Leaf("Move To Wander Destination", MoveToWanderDestination);
+        Leaf stopWalk = new Leaf("Stop Walk", StopWalk);
 
         stealFromPlayer.AddChild(checkRange);
+        stealFromPlayer.AddChild(setWalking);
         stealFromPlayer.AddChild(chasePlayer);
         stealFromPlayer.AddChild(snatchFood);
         stealFromPlayer.AddChild(setRunDestination);
@@ -45,7 +55,9 @@ public class Snake : BTAgent
         stealFromPlayer.AddChild(dropFood);
 
         wander.AddChild(setWanderDestination);
+        wander.AddChild(setWalking);
         wander.AddChild(moveToWanderDestination);
+        wander.AddChild(stopWalk);
 
         doSnake.AddChild(stealFromPlayer);
         doSnake.AddChild(wander);
@@ -66,21 +78,36 @@ public class Snake : BTAgent
         if (Vector3.Distance(Player.transform.position, transform.position) < _detectionRange && _itemList.Count > 0)
         {
             ChangeDelay(0.2f);
-            _animator.SetBool("Walking", true);
             return Node.Status.SUCCESS;
         }
         
         return Node.Status.FAILURE;
     }
 
+    public Node.Status SetWalking()
+    {
+        _animator.SetBool("Walking", true);
+        ChangeDelay(0f);
+        return Node.Status.SUCCESS;
+    }
+
+    public Node.Status StopWalk()
+    {
+        _animator.SetBool("Walking", false);
+        ChangeDelay(0.3f);
+        return Node.Status.SUCCESS;
+    }
+    
     public Node.Status ChasePlayer()
     {
+        ChangeDelay(0.2f);
         Agent.destination = Player.transform.position;
         Agent.speed = 8f;
 
         if (Vector3.Distance(Player.transform.position, transform.position) < _snatchRange)
         {
-            ChangeDelay(0f);
+            ChangeDelay(0.2f);
+            _animator.SetBool("Walking", false);
             return Node.Status.SUCCESS;
         }
 
@@ -91,9 +118,9 @@ public class Snake : BTAgent
     {
         _heldItem = _itemList[Random.Range(0, _itemList.Count)];
         _itemList.Remove(_heldItem);
-        _heldItem.transform.position = transform.position + new Vector3(0f, 0f, 1f) * 2f;
+        _heldItem.transform.position = _mouth.position;
         GameObject oldParent = _heldItem.transform.parent.gameObject;
-        _heldItem.transform.SetParent(this.transform, true);
+        _heldItem.transform.SetParent(_mouth, true);
         Destroy(oldParent);
 
         return Node.Status.SUCCESS;
@@ -112,7 +139,6 @@ public class Snake : BTAgent
             _runDestination = hit.position;
             Agent.speed = 15f;
             ChangeDelay(0.1f);
-            Debug.Log(_runDestination);
             _animator.SetBool("Walking", false);
             _animator.SetBool("Running", true);
             return Node.Status.SUCCESS;
@@ -127,9 +153,14 @@ public class Snake : BTAgent
 
         status = GoToLocation(_runDestination);
 
+        if (status == Node.Status.SUCCESS)
+        {        
+            _animator.SetBool("Running", false);
+        }
+        
         return status;
     }
-
+    
     public Node.Status DropFood()
     {
         GameManager.Instance.GetItemList().AddItem(_heldItem);
@@ -138,9 +169,7 @@ public class Snake : BTAgent
         _heldItem.transform.parent = null;
         _heldItem = null;
 
-        Agent.speed = 8f;
-        
-        _animator.SetBool("Running", false);
+        Agent.speed = 3.5f;
         
         return Node.Status.SUCCESS;
     }

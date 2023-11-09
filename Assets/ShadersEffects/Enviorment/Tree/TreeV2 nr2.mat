@@ -42,8 +42,15 @@ Material:
     m_Ints: []
     m_Floats:
     - _Amplitude: 0.021
-    - _Clip: 0.65
-    - _ColorIntensity: 1.06
+    - _Animate_Speed: 0.2
+    - _Clip: 0.505
+    - _ColorIntensity: 1.34
+    - _CutoutDistanceThreshold: 0.536
+    - _CutoutNoiseScale: 2.81
+    - _Debug: 1.52
+    - _DistanceThreshold: 1.14
+    - _Faloff_Size: 0.4
+    - _NoiseRamp: 3
     - _NoiseScale: 9
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -51,8 +58,10 @@ Material:
     - _SwayDisplaceAmplitude: 0.06
     - _SwayDisplaceSpeed: 1.8
     m_Colors:
-    - _Color: {r: 1, g: 0.40782997, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.258741, b: 0.043137252, a: 1}
+    - _PlayerWorldPos: {r: -1.11, g: 1.3900001, b: 96.53, a: 0}
     - _SwayDisplaceVector: {r: 1, g: 0, b: 0.6, a: 0}
+    - _Vector2: {r: 0, g: 0, b: 0, a: 0}
     - _WindDisplace: {r: 1.4, g: 0.4, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2242363920432520378

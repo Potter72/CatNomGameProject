@@ -51,7 +51,7 @@ public class Leaf : Node
                 break;
         }
 
-        Debug.Log(s);
+        //Debug.Log(s);
         return status;
     }
 }
