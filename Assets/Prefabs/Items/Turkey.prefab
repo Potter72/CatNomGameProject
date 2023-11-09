@@ -51,8 +51,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0.03, y: 0.35, z: 0}
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0.35, z: 0}
 --- !u!1 &4974204868226879955
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 6815461268328832212}
   - component: {fileID: 718435139110814572}
   - component: {fileID: 1732093209472344908}
+  - component: {fileID: 130843863776352263}
   m_Layer: 0
   m_Name: Turkey
   m_TagString: Untagged
@@ -164,6 +165,27 @@ MonoBehaviour:
   _decalProjector: {fileID: 9018950438461868508}
   _travelSpeed: 0.02
   FoodType: 1
+--- !u!135 &130843863776352263
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5009946680377723883}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.35, z: 0}
 --- !u!1 &9018950438461868508
 GameObject:
   m_ObjectHideFlags: 0
