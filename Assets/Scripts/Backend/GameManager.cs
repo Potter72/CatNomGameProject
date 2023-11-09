@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using System;
 using ProjectCatRoll.Events;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class CatGodSizeEventArgs : EventArgs
 {
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CatGod _catGod;
 
     [SerializeField] private List<Image> _ui;
+
+    public UnityEvent LevelUpEvent;
     
     public float CatGodSize { get; private set; }
 
@@ -52,6 +55,8 @@ public class GameManager : MonoBehaviour
         _plate = GameObject.FindFirstObjectByType<Plate>();
         _catGod = GameObject.FindFirstObjectByType<CatGod>();
         _debugTracker = GetComponent<DebugTracker>();
+
+        LevelUpEvent = new UnityEvent();
     }
 
     public void Log(string s)

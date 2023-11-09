@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="" />
+    <list default="true" id="97f42638-759d-4851-a8f4-56928f3eee0d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CatNomGameProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jonathan/Maps/JonathanBlockout.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/MainMenu/Fader.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/MainMenu/Fader.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/GameManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backend/GameManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BallScripts/BallController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BallScripts/BallController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CatGod/CatGod.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CatGod/CatGod.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Environmental/RandomItemSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Environmental/RandomItemSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ShadersEffects/Enviorment/Grass/Grass.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShadersEffects/Enviorment/Grass/Grass.mat" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

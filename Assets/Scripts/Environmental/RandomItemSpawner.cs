@@ -51,8 +51,14 @@ public class RandomItemSpawner : MonoBehaviour
     private void Awake()
     {
         _demandedPrefabs = new List<GameObject>();
+
     }
 
+    private void Start()
+    {
+        GameManager.Instance.LevelUpEvent.AddListener(IncreaseLevel);
+    }
+    
     public void StartSpawning()
     {
         InvokeRepeating(nameof(SpawnItem), _startDelay, _spawnDelay);
