@@ -9,7 +9,7 @@ public class Fader : MonoBehaviour
     
     private void Awake()
     {
-        Debug.Log("Yes");
+        //Debug.Log("Yes");
         _fader.SetTrigger("Fade");
     }
     

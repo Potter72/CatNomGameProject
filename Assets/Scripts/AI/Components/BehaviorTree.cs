@@ -43,6 +43,6 @@ public class BehaviorTree : Node
             }
         }
 
-        Debug.Log(treePrintout);
+        //Debug.Log(treePrintout);
     }
 }
