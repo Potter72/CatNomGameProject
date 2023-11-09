@@ -12,6 +12,7 @@ public class BallWetController : MonoBehaviour
     [SerializeField] VisualEffect dripVFX;
     [SerializeField] BallPickupFood ballPickuper;
     [SerializeField] BallMagnet ballFoodMagnet;
+    [SerializeField] Ball ballItemController;
     private float ballMagnetStartForce;
     [SerializeField] float dripSpeed = 24;
     private bool isFullWet = false;
@@ -108,6 +109,8 @@ public class BallWetController : MonoBehaviour
 
                     isFullWet = true;
                 }
+
+                ballItemController.ClearAllItems();
             }
         }
        

@@ -15,11 +15,13 @@ public class BombFood : MonoBehaviour
     [SerializeField] MeshRenderer meshRenderer;
     [SerializeField] AnimationCurve scaleCurve;
     [SerializeField] GameObject bombPrefab;
+    [SerializeField] Ball ballItemController;
     private float ballMagnetStartForce;
     public IEnumerator ExplodeCountdown()
     {
         player = transform.parent.parent.gameObject;
         ballPickuper = player.GetComponent<BallPickupFood>();
+        ballItemController = player.GetComponent<Ball>();
         ballFoodMagnet = GameObject.Find("PlayerMagnet").GetComponent<BallMagnet>();
 
         Color startColor = meshRenderer.material.GetColor("_ToonColor");
@@ -59,7 +61,9 @@ public class BombFood : MonoBehaviour
         transform.parent = null;
         meshRenderer.enabled = false;
         player.GetComponent<Rigidbody>().AddForce((player.transform.position - transform.position) * removeForce, ForceMode.Impulse);
-        
+
+        ballItemController.ClearAllItems();
+
         GameObject instantiatedBomb = Instantiate(bombPrefab,transform.position, Quaternion.identity);
         
 
