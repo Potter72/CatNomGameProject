@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 822309755161822432}
+  - component: {fileID: 6288404738473896813}
   m_Layer: 0
   m_Name: prfb_PumpkinOrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &822309755161822432
 Transform:
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 5562124159180916450}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &6288404738473896813
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5818992417242321646}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.25
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!1001 &5384646031791464713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87,6 +109,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c2964612662bb68469558a0008e8f236, type: 3}
       propertyPath: m_Name
       value: SM_Pumpkin
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c2964612662bb68469558a0008e8f236, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
