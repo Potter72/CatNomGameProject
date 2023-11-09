@@ -1,5 +1,0 @@
-C:/Users/danny/Documents/GitHub/CatNomGameProject/.utmp/RelWithDebInfo/6q68321s/armeabi-v7a/CMakeFiles/edit_cache.dir
-C:/Users/danny/Documents/GitHub/CatNomGameProject/.utmp/RelWithDebInfo/6q68321s/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-C:/Users/danny/Documents/GitHub/CatNomGameProject/.utmp/RelWithDebInfo/6q68321s/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
-C:/Users/danny/Documents/GitHub/CatNomGameProject/.utmp/RelWithDebInfo/6q68321s/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
-C:/Users/danny/Documents/GitHub/CatNomGameProject/.utmp/RelWithDebInfo/6q68321s/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

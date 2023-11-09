@@ -58,32 +58,38 @@ public class BallController : MonoBehaviour
     private float startVolume = 0.4f;
 
     public bool isGrounded;
-    bool isInCutscene;
+    public bool isInCutscene;
 
     private Vector3 oldPos; //for rotating the player
 
     private void OnEnable()
     {
+        /*
         EventManager.OnCutscenePlay += OnCutscenePlayed;
         EventManager.OnCutsceneStop += OnCutsceneStopped;
+        */
     }
 
     private void OnDisable()
     {
+        /*
         EventManager.OnCutscenePlay -= OnCutscenePlayed;
         EventManager.OnCutsceneStop -= OnCutsceneStopped;
+        */
     }
 
-    private void OnCutsceneStopped(object sender, EventArgs e)
+    public void OnCutsceneStopped()
     {
         playerRigidbody.isKinematic = false;
         isInCutscene = false;
+        playerRigidbody.isKinematic = false;
     }
 
-    private void OnCutscenePlayed(object sender, EventArgs e)
+    public void OnCutscenePlayed()
     {
         playerRigidbody.isKinematic = true;
         isInCutscene = true;
+        playerRigidbody.isKinematic = true;
     }
 
     private void Start()
@@ -155,6 +161,24 @@ public class BallController : MonoBehaviour
         Vector3 moveDirection = playerRigidbody.velocity;
         moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z);
 
+        //Below is for playing a looping sound for when rolling and changing the volume and pitch of said sound
+        if (moveDirection.magnitude > standStillSpeed)
+        {
+            Debug.Log("wtf");
+            if (!isPlayingRollClip)
+            {
+                isPlayingRollClip = true;
+                playerAudioSource.PlayOneShot(rollClip);
+                Invoke("RollClipLoop", rollClip.length);
+            }
+
+            //playerAudioSource.pitch = Mathf.Clamp(startPitch + moveDirection.magnitude * speedPitchMultiplier,-3,3);
+            playerAudioSource.volume = Mathf.Clamp(startVolume + moveDirection.magnitude * speedVolumeMultiplier, 0, 1);
+
+            //rollClip.
+            if (!isGrounded) { playerAudioSource.volume = 0.01f; }
+        }
+
         if (!isMoving || isInCutscene) //movement stuff for when not inputing
         {
 
@@ -185,44 +209,6 @@ public class BallController : MonoBehaviour
             return; 
         }
 
-
-        //playing animations
-        if (moveDirection.magnitude > runningSpeedCutoff)
-        {
-            playerAnimator.SetBool("Running", true);
-            playerAnimator.SetBool("Walking", false);
-        }
-        else if (moveDirection.magnitude > standStillSpeed)
-        {
-            playerAnimator.SetBool("Running", false);
-            playerAnimator.SetBool("Walking", true);
-        }
-        else
-        {
-            playerAnimator.SetBool("Running", false);
-            playerAnimator.SetBool("Walking", false);
-        }
-
-
-        //Below is for playing a looping sound for when rolling and changing the volume and pitch of said sound
-        if(movementVector.magnitude > standStillSpeed)
-        {
-            if (!isPlayingRollClip)
-            {
-                isPlayingRollClip = true;
-                playerAudioSource.PlayOneShot(rollClip);
-                Invoke("RollClipLoop", rollClip.length);
-            }
-
-            playerAudioSource.pitch = Mathf.Clamp(startPitch + movementVector.magnitude * speedPitchMultiplier,-3,3);
-            playerAudioSource.volume = Mathf.Clamp(startVolume+ movementVector.magnitude * speedVolumeMultiplier,0,1);
-
-            //rollClip.
-            if(!isGrounded) { playerAudioSource.volume = 0.01f; }
-        }
-
-
-
         Vector2 currentVelocity = new Vector2(playerRigidbody.velocity.x, playerRigidbody.velocity.z);
 
         Vector2 startPos = Touchscreen.current.touches[movementTouchId].startPosition.ReadValue();
@@ -247,6 +233,10 @@ public class BallController : MonoBehaviour
 
         if (currentVelocity.magnitude < maxHorizontalMoveSpeed)
         {
+            if (!isGrounded)
+            {
+                movementVector /= 2;
+            }
             playerRigidbody.AddForce(movementVector * acceleration);
         }
 
