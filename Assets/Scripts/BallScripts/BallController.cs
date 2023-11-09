@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
+
 public class BallController : MonoBehaviour
 {
     private int movementTouchId;
@@ -47,6 +49,9 @@ public class BallController : MonoBehaviour
 
     [Header("Material References")]
     [SerializeField] Material ballMat;
+
+    [SerializeField] VisualEffect sweatVFX;
+    [SerializeField] float sweatRunAmount = 10;
 
 
     [Header("SOUNDS")]
@@ -118,6 +123,7 @@ public class BallController : MonoBehaviour
     {
         isMoving = false;
         moveJoystick.SetActive(false);
+        sweatVFX.SetFloat("SpawnRate", 0);
         movementTouchId = 1000;
     }
 
@@ -193,16 +199,19 @@ public class BallController : MonoBehaviour
             {
                 playerAnimator.SetBool("Running", true);
                 playerAnimator.SetBool("Walking", false);
+                //sweatVFX.SetFloat("SpawnRate", sweatRunAmount);
             }
             else if (moveDirection.magnitude > standStillSpeed)
             {
                 playerAnimator.SetBool("Running", false);
                 playerAnimator.SetBool("Walking", true);
+                //sweatVFX.SetFloat("SpawnRate", 0);
             }
             else
             {
                 playerAnimator.SetBool("Running", false);
                 playerAnimator.SetBool("Walking", false);
+                //sweatVFX.SetFloat("SpawnRate", 0);
             }
 
             moveJoystick.SetActive(false);
