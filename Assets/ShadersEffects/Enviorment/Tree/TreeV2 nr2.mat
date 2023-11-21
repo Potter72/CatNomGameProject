@@ -41,7 +41,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude: 0.021
+    - _Amplitude: 0.03
     - _Animate_Speed: 0.2
     - _Clip: 0.505
     - _ColorIntensity: 1.28
@@ -54,7 +54,7 @@ Material:
     - _NoiseScale: 9
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 0.37
+    - _Speed: 0.13
     - _SwayDisplaceAmplitude: 0.06
     - _SwayDisplaceSpeed: 1.8
     m_Colors:

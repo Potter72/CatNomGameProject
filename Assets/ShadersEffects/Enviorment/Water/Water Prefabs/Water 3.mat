@@ -64,8 +64,8 @@ Material:
     - _Debug2: -0.14
     - _DepthAlphaMultiplier: 0.36
     - _Float: 0.85
-    - _FlowMapBlurAmount: 0.098
-    - _FlowMapIntensity: 2.7
+    - _FlowMapBlurAmount: 0
+    - _FlowMapIntensity: 2
     - _FlowMapOutputStep: 0.666
     - _FlowMapOutputStep_1: 1
     - _FlowMapSubtractAmplitude: -0.55
