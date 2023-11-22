@@ -54,6 +54,14 @@ public class BombFood : MonoBehaviour
             foodObject.GetComponent<Collider>().enabled = true;
             foodObject.GetComponentInChildren<Collider>().enabled = true;
             foodObject.GetComponent<Rigidbody>().AddForce((foodObject.transform.position - transform.position) * removeForce, ForceMode.Impulse);
+            for(int j = 0; j < foodObject.transform.childCount; j++) 
+            {
+                if (foodObject.transform.GetChild(j).GetComponent<Collider>())
+                {
+                    foodObject.transform.GetChild(j).GetComponent<Collider>().enabled = true;
+                }
+                
+            }
 
             Destroy(player.transform.GetChild(i).gameObject);
             //Destroy(foodAnchor);

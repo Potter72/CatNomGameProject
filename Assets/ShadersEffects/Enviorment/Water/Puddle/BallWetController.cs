@@ -16,6 +16,7 @@ public class BallWetController : MonoBehaviour
     private float ballMagnetStartForce;
     [SerializeField] float dripSpeed = 24;
     [SerializeField] bool isFullWet = false;
+    [SerializeField] bool isFullDry = false;
 
     //removing food
     [SerializeField] float removeForce = 2;
@@ -41,6 +42,7 @@ public class BallWetController : MonoBehaviour
                 float oldWetness = material.GetFloat("_WaterAmount");
                 oldWetness += wetSpeed;
                 material.SetFloat("_WaterAmount", oldWetness);
+                isFullDry = false;
             }
         }
     }
@@ -65,13 +67,14 @@ public class BallWetController : MonoBehaviour
             }
         }
 
-        if (!isInWater && isFullWet)
+        if (!isInWater && !isFullDry)
         {
             if(material.GetFloat("_WaterAmount") > 0)
             {
                 float oldWetness = material.GetFloat("_WaterAmount");
                 oldWetness -= drySpeed;
                 material.SetFloat("_WaterAmount", oldWetness);
+                isFullWet = false;
             }
             else //starting pickup again
             {
@@ -79,6 +82,7 @@ public class BallWetController : MonoBehaviour
                 Debug.Log("canpickup");
                 ballPickuper.canPickUp = true;
                 ballFoodMagnet.pullForce = ballMagnetStartForce;
+                isFullDry = true;
                 isFullWet = false;
             }
         }
@@ -105,6 +109,15 @@ public class BallWetController : MonoBehaviour
                     foodObject.GetComponent<Rigidbody>().AddForce((foodObject.transform.position - transform.position) * removeForce, ForceMode.Impulse);
 
                     ballFoodMagnet.pullForce = 0;
+
+                    for (int j = 0; j < foodObject.transform.childCount; j++)
+                    {
+                        if (foodObject.transform.GetChild(j).GetComponent<Collider>())
+                        {
+                            foodObject.transform.GetChild(j).GetComponent<Collider>().enabled = true;
+                        }
+
+                    }
 
                     Destroy(transform.GetChild(i).gameObject);
 
